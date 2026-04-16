@@ -94,7 +94,11 @@ function concrete_child_setup() {
     ) );
     add_theme_support( 'title-tag' );
     add_theme_support( 'editor-styles' );
-    add_editor_style( 'editor-style.css' );
+    add_editor_style( array(
+        'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Noto+Sans:wght@400;700&display=swap',
+        'assets/css/main.css',
+        'editor-style.css',
+    ) );
     add_theme_support( 'responsive-embeds' );
     add_theme_support( 'wp-block-styles' );
 
@@ -104,6 +108,26 @@ function concrete_child_setup() {
     ) );
 }
 add_action( 'after_setup_theme', 'concrete_child_setup' );
+
+/**
+ * Enqueue styles for the block editor (Site Editor + Post Editor)
+ */
+function concrete_child_editor_assets() {
+    wp_enqueue_style(
+        'concrete-child-editor-fonts',
+        'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Noto+Sans:wght@400;700&display=swap',
+        array(),
+        null
+    );
+
+    wp_enqueue_style(
+        'concrete-child-editor-main',
+        get_stylesheet_directory_uri() . '/assets/css/main.css',
+        array( 'concrete-child-editor-fonts' ),
+        wp_get_theme()->get( 'Version' )
+    );
+}
+add_action( 'enqueue_block_editor_assets', 'concrete_child_editor_assets' );
 
 /**
  * Register sidebars

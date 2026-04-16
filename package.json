@@ -6,7 +6,17 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp sass",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "build:blocks": "node wordpress/wp-content/themes/concrete-child/scripts/html-to-blocks.js",
+    "build:blocks:builddir": "node wordpress/wp-content/themes/concrete-child/scripts/html-to-blocks.js --out-dir build",
+    "build:parts": "node wordpress/wp-content/themes/concrete-child/scripts/html-to-blocks.js --only parts",
+    "watch:blocks": "node wordpress/wp-content/themes/concrete-child/scripts/watch-blocks.js",
+    "watch:blocks:builddir": "BLOCKS_OUT_DIR=build node wordpress/wp-content/themes/concrete-child/scripts/watch-blocks.js",
+    "watch:parts": "node wordpress/wp-content/themes/concrete-child/scripts/watch-blocks.js --parts-only",
+    "watch:parts:builddir": "BLOCKS_OUT_DIR=build WATCH_PARTS_ONLY=1 node wordpress/wp-content/themes/concrete-child/scripts/watch-blocks.js",
+    "build:scss": "cd wordpress/wp-content/themes/concrete-child && sass assets/scss/main.scss assets/css/main.css --style expanded",
+    "watch:scss": "cd wordpress/wp-content/themes/concrete-child && sass assets/scss/main.scss assets/css/main.css --style expanded --watch",
+    "build:theme": "npm run build:blocks && npm run build:scss"
   },
   "author": "ConcreteHP",
   "license": "GPL-2.0-or-later",

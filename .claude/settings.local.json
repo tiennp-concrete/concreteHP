@@ -3,7 +3,10 @@
     "allow": [
       "Bash(sass --version)",
       "Bash(sass assets/scss/main.scss assets/css/main.css --style expanded)",
-      "Bash(curl -s http://localhost:8825/)"
+      "Bash(curl -s http://localhost:8825/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8825/)",
+      "Bash(curl -s 'http://localhost:8825/wp-json/wp/v2/templates?per_page=20')",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

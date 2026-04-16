@@ -11,6 +11,23 @@
 .work-env-section {
   @include section-padding;
   background-color: $color-bg-white;
+
+  > h2,
+  > .wp-block-heading {
+    text-align: center;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  > .accent-line {
+    max-width: 96px;
+    margin: 0 auto $spacing-3xl;
+    border: 0;
+    height: 3px;
+    background-color: $color-accent-red;
+  }
 }
 
 .work-env-container {
@@ -34,6 +51,12 @@
   grid-template-columns: repeat(3, 1fr);
   gap: $spacing-2xl;
   margin-bottom: $spacing-3xl;
+}
+
+.work-env-section .work-env-grid {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .work-env-item {
@@ -76,6 +99,18 @@
   line-height: 1.8;
 }
 
+.work-env-item .emoji-xlarge {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto $spacing-lg;
+  border-radius: $radius-full;
+  @include flex-center;
+  font-size: $font-size-3xl;
+  transition: transform $transition-base;
+  background: linear-gradient(135deg, rgba($color-accent-red, 0.1), rgba($color-accent-orange, 0.1));
+  color: $color-accent-red;
+}
+
 // Center image
 .work-env-image {
   text-align: center;
@@ -95,6 +130,23 @@
 .news-section {
   @include section-padding;
   background-color: $color-bg-light;
+
+  > h2,
+  > .wp-block-heading {
+    text-align: center;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  > .accent-line {
+    max-width: 96px;
+    margin: 0 auto $spacing-3xl;
+    border: 0;
+    height: 3px;
+    background-color: $color-accent-red;
+  }
 }
 
 .news-container {
@@ -151,7 +203,7 @@
   .placeholder-img {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, $color-bg-gray, darken($color-bg-gray, 5%));
+    background: linear-gradient(135deg, $color-bg-gray, #e2e6eb);
     @include flex-center;
     font-size: $font-size-3xl;
     color: $color-text-muted;
@@ -212,7 +264,7 @@
     }
 
     &:hover {
-      color: darken($color-accent-red, 10%);
+      color: #c7233f;
 
       &::after {
         transform: translateX(4px);

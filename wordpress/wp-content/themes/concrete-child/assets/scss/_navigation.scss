@@ -31,8 +31,13 @@
       filter: brightness(0) invert(1);
     }
 
-    #primary-menu a {
+    #primary-menu a,
+    .header-nav .wp-block-navigation-item__content,
+    .header-nav .wp-block-navigation-link__content,
+    .wp-block-navigation.header-nav .wp-block-navigation-item__content,
+    .wp-block-navigation.header-nav .wp-block-navigation-link__content {
       color: $color-text-white;
+      opacity: 1;
 
       &:hover {
         color: $color-accent-red;
@@ -66,8 +71,13 @@
       filter: none;
     }
 
-    #primary-menu a {
+    #primary-menu a,
+    .header-nav .wp-block-navigation-item__content,
+    .header-nav .wp-block-navigation-link__content,
+    .wp-block-navigation.header-nav .wp-block-navigation-item__content,
+    .wp-block-navigation.header-nav .wp-block-navigation-link__content {
       color: $color-text-dark;
+      opacity: 1;
 
       &:hover {
         color: $color-accent-red;
@@ -103,6 +113,11 @@
 // ================================================================
 
 .logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
   flex-shrink: 0;
 
   a, .site-title {
@@ -111,6 +126,27 @@
     text-decoration: none;
     letter-spacing: -0.5px;
     transition: color $transition-base;
+  }
+
+  .logo-mark {
+    display: block;
+    font-size: 30px;
+    font-weight: $font-weight-black;
+    line-height: 1;
+    letter-spacing: -0.8px;
+  }
+
+  .logo-star {
+    color: $color-accent-red;
+  }
+
+  .logo-subtitle {
+    display: block;
+    font-size: 11px;
+    font-weight: $font-weight-normal;
+    letter-spacing: 0.35px;
+    line-height: 1.2;
+    opacity: 0.9;
   }
 
   img {
@@ -173,6 +209,51 @@
   }
 }
 
+.header-nav,
+.main-navigation .wp-block-navigation__container {
+  display: flex;
+  list-style: none;
+  gap: $spacing-xl;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav .wp-block-navigation-item,
+.main-navigation .wp-block-navigation-item {
+  margin: 0;
+}
+
+.header-nav .wp-block-navigation-item__content,
+.header-nav .wp-block-navigation-link__content,
+.main-navigation .wp-block-navigation-item__content,
+.main-navigation .wp-block-navigation-link__content {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  transition: color $transition-base;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: $spacing-sm 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $color-accent-red;
+    transition: width $transition-base;
+  }
+
+  &:hover::after,
+  &.current-menu-item::after,
+  &.current-menu-ancestor::after {
+    width: 100%;
+  }
+}
+
 // ================================================================
 // LANGUAGE SWITCHER
 // ================================================================
@@ -204,6 +285,46 @@
   .separator {
     color: rgba(255, 255, 255, 0.3);
     font-size: $font-size-sm;
+  }
+}
+
+.header-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border: 1px solid transparent;
+  transition: all $transition-base;
+}
+
+.site-header.bg-transparent {
+  .header-action {
+    color: $color-text-white;
+    border-color: rgba(255, 255, 255, 0.55);
+
+    &:hover {
+      background-color: $color-accent-red;
+      border-color: $color-accent-red;
+    }
+  }
+}
+
+.site-header.on-scroll {
+  .header-action {
+    color: $color-text-dark;
+    border-color: rgba(22, 33, 62, 0.2);
+
+    &:hover {
+      color: $color-text-white;
+      background-color: $color-accent-red;
+      border-color: $color-accent-red;
+    }
   }
 }
 

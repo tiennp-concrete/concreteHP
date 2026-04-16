@@ -106,6 +106,54 @@ a:hover {
     margin-bottom: 2rem;
 }
 
+/* ==========================================================================
+   Navigation block — Site Editor overrides
+   Gutenberg's default nav styles override theme colors/labels in the canvas,
+   so force color + typography here with high specificity.
+   ========================================================================== */
+.editor-styles-wrapper .wp-block-navigation,
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation__container,
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation-item,
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation-item__content,
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation-link__content,
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation-item__label,
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation-link__label,
+.wp-block-navigation .wp-block-navigation-item__content,
+.wp-block-navigation .wp-block-navigation-link__content,
+.wp-block-navigation .wp-block-navigation-item__label,
+.wp-block-navigation .wp-block-navigation-link__label {
+    color: var(--wp--preset--color--primary-dark, #1a1a2e) !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+}
+
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation-item__content:hover,
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation-link__content:hover,
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation-item__label:hover,
+.editor-styles-wrapper .wp-block-navigation .wp-block-navigation-link__label:hover,
+.wp-block-navigation .wp-block-navigation-item__content:hover,
+.wp-block-navigation .wp-block-navigation-link__content:hover {
+    color: var(--wp--preset--color--accent-orange, #ff9f43) !important;
+}
+
+/* Keep labels visible even if empty/placeholder in the editor */
+.editor-styles-wrapper .wp-block-navigation-link .wp-block-navigation-item__label:empty::before,
+.wp-block-navigation-link .wp-block-navigation-item__label:empty::before {
+    content: attr(data-rich-text-placeholder);
+    color: var(--wp--preset--color--text-light, #999999) !important;
+    opacity: 1 !important;
+}
+
+/* Header nav container spacing in the canvas */
+.editor-styles-wrapper .header-nav.wp-block-navigation,
+.wp-block-navigation.header-nav {
+    gap: 1.5rem !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .wp-block-columns {

@@ -62,7 +62,7 @@ a {
   transition: color $transition-base;
 
   &:hover {
-    color: darken($color-accent-red, 10%);
+    color: #c7233f;
   }
 }
 
@@ -139,7 +139,9 @@ input, textarea, button, select {
 }
 
 // WOW animation helpers
-.wow {
+// .wow visibility is controlled by JS (theme.js adds body.has-wow)
+// so elements stay visible in Site Editor where JS doesn't run
+body.has-wow .wow {
   visibility: hidden;
 }
 

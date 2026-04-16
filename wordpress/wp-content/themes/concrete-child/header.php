@@ -19,7 +19,7 @@
                     if ( has_custom_logo() ) {
                         the_custom_logo();
                     } else {
-                        echo '<a href="' . esc_url( home_url( '/' ) ) . '" class="site-title">' . esc_html( get_bloginfo( 'name' ) ) . '</a>';
+                        echo '<a href="' . esc_url( home_url( '/' ) ) . '" class="site-title">ConcreteHP</a>';
                     }
                     ?>
                 </div>

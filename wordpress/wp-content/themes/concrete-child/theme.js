@@ -6,6 +6,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ================================================================
+    // Mark body for WOW.js (hides .wow elements via CSS)
+    // Site Editor doesn't run this JS, so elements stay visible there
+    // ================================================================
+    document.body.classList.add('has-wow');
+
+    // ================================================================
     // WOW.js Initialization
     // ================================================================
     if (typeof WOW !== 'undefined') {
@@ -19,9 +25,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ================================================================
-    // Particles.js Banner
+    // Particles.js Banner - inject canvas into .banner-section
     // ================================================================
-    if (typeof particlesJS !== 'undefined' && document.getElementById('particles-banner')) {
+    var bannerSection = document.querySelector('.banner-section');
+    if (bannerSection && typeof particlesJS !== 'undefined') {
+        var particlesDiv = document.getElementById('particles-banner');
+        if (!particlesDiv) {
+            particlesDiv = document.createElement('div');
+            particlesDiv.id = 'particles-banner';
+            bannerSection.insertBefore(particlesDiv, bannerSection.firstChild);
+        }
         particlesJS('particles-banner', {
             particles: {
                 number: { value: 30, density: { enable: true, value_area: 800 } },
@@ -76,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ================================================================
     // Header Scroll Effect
     // ================================================================
-    var header = document.getElementById('site-header');
+    var header = document.getElementById('site-header') || document.querySelector('.site-header');
 
     function handleHeaderScroll() {
         if (!header) return;

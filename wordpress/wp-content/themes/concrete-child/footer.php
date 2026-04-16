@@ -15,7 +15,7 @@
                     <?php if ( has_custom_logo() ) : ?>
                         <?php the_custom_logo(); ?>
                     <?php else : ?>
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">ConcreteHP</a>
                     <?php endif; ?>
                 </div>
                 <p><?php bloginfo( 'description' ); ?></p>
