@@ -1,0 +1,17 @@
+/*
+Theme Name: Concrete HP Child
+Theme URI: https://concrete.local/concrete-child
+Description: A child theme for Concrete HP based on reference design from Sun Asterisk
+Author: ConcreteHP
+Author URI: https://concrete.local
+Template: concrete-hp-parent
+Version: 1.0.0
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: concrete-child
+Domain Path: /languages
+Requires at least: 6.0
+Requires PHP: 7.4
+*/
+
+/* Child theme for Concrete HP - Custom styles and functions */

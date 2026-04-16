@@ -1,0 +1,24 @@
+{
+  "name": "concrete-hp",
+  "version": "1.0.0",
+  "description": "Concrete HP - WordPress Theme with SCSS",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp sass",
+    "watch": "gulp watch"
+  },
+  "author": "ConcreteHP",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "node-env-file": "^0.1.8",
+    "sass": "^1.62.1"
+  }
+}

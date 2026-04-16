@@ -1,0 +1,16 @@
+{
+  "name": "sunstar-showcase-block",
+  "version": "1.0.0",
+  "description": "Custom WordPress Gutenberg block inspired by Sun Asterisk corporate design",
+  "author": "ConcreteHP",
+  "license": "GPL-2.0-or-later",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^29.0.0"
+  }
+}
