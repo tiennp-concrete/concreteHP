@@ -1,0 +1,259 @@
+/**
+ * Footer Styles - Sun* Asterisk style
+ * Multi-column footer with offices, social links
+ */
+
+@import 'variables';
+
+// ================================================================
+// FOOTER
+// ================================================================
+
+.site-footer {
+  background-color: $color-bg-footer;
+  color: $color-text-white;
+  padding: 0;
+}
+
+// ================================================================
+// FOOTER MAIN
+// ================================================================
+
+.footer-main {
+  @include container;
+  padding-top: $spacing-4xl;
+  padding-bottom: $spacing-2xl;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: $spacing-2xl;
+}
+
+// Footer logo & about
+.footer-brand {
+  .footer-logo {
+    margin-bottom: $spacing-lg;
+
+    img {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    a {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-black;
+      color: $color-text-white;
+      text-decoration: none;
+    }
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// Social icons in footer
+.footer-social {
+  display: flex;
+  gap: $spacing-md;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-full;
+    background: rgba(255, 255, 255, 0.1);
+    color: $color-text-white;
+    text-decoration: none;
+    font-size: $font-size-sm;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: $color-accent-red;
+      transform: translateY(-2px);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+  }
+}
+
+// ================================================================
+// FOOTER COLUMNS
+// ================================================================
+
+.footer-column {
+  h3 {
+    font-size: $font-size-md;
+    font-weight: $font-weight-bold;
+    color: $color-text-white;
+    margin-bottom: $spacing-lg;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: $font-size-sm;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: $spacing-sm;
+    }
+
+    a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: $font-size-sm;
+      transition: all $transition-base;
+      display: inline-block;
+
+      &:hover {
+        color: $color-text-white;
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+// ================================================================
+// FOOTER CONTACT
+// ================================================================
+
+.footer-contact {
+  h3 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-text-white;
+    margin-bottom: $spacing-lg;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+    color: $color-accent-red;
+    margin-top: 2px;
+  }
+
+  .contact-text {
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+
+    a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+
+      &:hover {
+        color: $color-text-white;
+      }
+    }
+  }
+}
+
+// ================================================================
+// FOOTER OFFICES
+// ================================================================
+
+.footer-offices {
+  @include container;
+  padding-top: $spacing-2xl;
+  padding-bottom: $spacing-2xl;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  h3 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-text-white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+  }
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-xl;
+}
+
+.office-item {
+  text-align: center;
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .office-city {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text-white;
+    margin-bottom: $spacing-sm;
+  }
+
+  .office-address {
+    font-size: $font-size-xs;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+  }
+}
+
+// ================================================================
+// FOOTER BOTTOM / COPYRIGHT
+// ================================================================
+
+.footer-bottom {
+  @include container;
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-lg;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+
+  p {
+    font-size: $font-size-xs;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: $spacing-lg;
+
+    a {
+      font-size: $font-size-xs;
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $color-text-white;
+      }
+    }
+  }
+}

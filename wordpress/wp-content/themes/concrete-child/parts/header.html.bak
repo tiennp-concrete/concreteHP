@@ -1,0 +1,11 @@
+<!-- wp:group {"style":{"color":{"background":"var:preset|color|primary-dark"},"spacing":{"padding":"20px 40px"}},"textColor":"white","align":"full"} -->
+<div class="wp-block-group has-white-color has-text-color has-primary-dark-background-color has-background alignfull" style="padding:20px 40px">
+	<!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","align":"center"}} -->
+	<div class="wp-block-group">
+		<!-- wp:site-title {"style":{"typography":{"fontSize":"24px","fontWeight":"700"}}} /-->
+		
+		<!-- wp:navigation {"layout":{"type":"flex"}} /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->

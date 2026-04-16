@@ -1,0 +1,20 @@
+/**
+ * Main SCSS Entry Point - Sun* Asterisk style
+ * Imports all partial files in correct order
+ */
+
+// Variables & Mixins
+@import 'variables';
+
+// Base Styles
+@import 'base';
+
+// Components
+@import 'navigation';
+@import 'hero';
+@import 'sections';
+@import 'culture-team';
+@import 'footer';
+
+// Responsive Design
+@import 'responsive';
