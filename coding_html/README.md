@@ -1,7 +1,7 @@
-# HTG — HTML → WordPress Template Markup
+# coding_html — HTML → WordPress Template Markup
 
 Small pipeline that lets you write theme templates as plain HTML in
-`htg/src/` and auto-generates valid WordPress block markup into the
+`coding_html/src/` and auto-generates valid WordPress block markup into the
 theme's `templates/` and `parts/` directories.
 
 No external dependencies — pure Node stdlib, runs on any Node 18+.
@@ -14,10 +14,11 @@ No external dependencies — pure Node stdlib, runs on any Node 18+.
 
 ## Source layout
 
-    htg/
+    coding_html/
+    ├── assets/scss/           (SCSS sources compiled to theme CSS)
     ├── src/
-    │   ├── templates/*.html   → wordpress/.../concrete-child/templates/*.html
-    │   └── parts/*.html       → wordpress/.../concrete-child/parts/*.html
+    │   ├── templates/*.html   → src/.../concrete-child/templates/*.html
+    │   └── parts/*.html       → src/.../concrete-child/parts/*.html
     ├── build-theme-files.cjs  (converter)
     └── watch-theme-files.cjs  (file watcher)
 

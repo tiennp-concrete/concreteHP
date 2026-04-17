@@ -23,7 +23,7 @@ services:
     user: root
     container_name: ${PROJECT_NAME}-web
     volumes:
-      - ./wordpress:/var/www/html
+      - ./src:/var/www/html
       - ./config/php.ini:/usr/local/etc/php/conf.d/php.ini
     depends_on:
       - db

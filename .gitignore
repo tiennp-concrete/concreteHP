@@ -38,20 +38,20 @@ wp-content/plugins/hello.php
 # ==========================================================================
 # Theme: concrete-child — compiled CSS / SCSS artifacts
 # ==========================================================================
-wordpress/wp-content/themes/concrete-child/assets/css/*.css
-wordpress/wp-content/themes/concrete-child/assets/css/*.css.map
-wordpress/wp-content/themes/concrete-child/assets/css/*.min.css
-wordpress/wp-content/themes/concrete-child/.sass-cache/
+src/wp-content/themes/concrete-child/assets/css/*.css
+src/wp-content/themes/concrete-child/assets/css/*.css.map
+src/wp-content/themes/concrete-child/assets/css/*.min.css
+src/wp-content/themes/concrete-child/.sass-cache/
 
 # SCSS build cache (gulp-sass)
 .sass-cache/
-assets/scss/**/*.map
+coding_html/assets/scss/**/*.map
 
 # ==========================================================================
-# Build tooling: htg/ (HTML → WP template markup)
+# Build tooling: coding_html/ (HTML → WP template markup)
 # No deps currently (pure Node stdlib). Node_modules only if added later.
 # ==========================================================================
-htg/node_modules/
+coding_html/node_modules/
 
 # ==========================================================================
 # Keep .gitkeep files

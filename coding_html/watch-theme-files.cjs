@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 
-const THEME_DIR = path.resolve(__dirname, '../wordpress/wp-content/themes/concrete-child');
+const THEME_DIR = path.resolve(__dirname, '../src/wp-content/themes/concrete-child');
 const SRC_TEMPLATES = path.resolve(__dirname, 'src', 'templates');
 const SRC_PARTS = path.resolve(__dirname, 'src', 'parts');
 const BUILD_SCRIPT = path.join(__dirname, 'build-theme-files.cjs');

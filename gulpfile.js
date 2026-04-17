@@ -17,9 +17,9 @@ try {
 const themeName = process.env.THEME_NAME || 'concrete-child';
 
 const paths = {
-  scss: './assets/scss/**/*.scss',
-  scssEntry: './assets/scss/main.scss',
-  css: `./wordpress/wp-content/themes/${themeName}/assets/css/`,
+  scss: './coding_html/assets/scss/**/*.scss',
+  scssEntry: './coding_html/assets/scss/main.scss',
+  css: `./src/wp-content/themes/${themeName}/assets/css/`,
 };
 
 /**
