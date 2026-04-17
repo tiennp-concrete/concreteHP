@@ -1,0 +1,357 @@
+/**
+ * Responsive Design
+ */
+
+@use 'variables' as *;
+
+// ================================================================
+// TABLET (max 1024px)
+// ================================================================
+
+@media (max-width: $breakpoint-lg) {
+  // Navigation
+  .nav-container {
+    padding: 0 $spacing-lg;
+  }
+
+  #primary-menu {
+    gap: $spacing-lg;
+
+    a {
+      font-size: $font-size-xs;
+    }
+  }
+
+  .language-switcher {
+    margin-left: $spacing-md;
+  }
+
+  .logo {
+    .logo-mark {
+      font-size: 26px;
+    }
+
+    .logo-subtitle {
+      font-size: 10px;
+    }
+  }
+
+  .header-action {
+    padding: 9px 14px;
+    font-size: 11px;
+  }
+
+  // Banner
+  .banner-content h1 {
+    font-size: $font-size-4xl;
+  }
+
+  // Business
+  .business-grid {
+    gap: $spacing-xl;
+  }
+
+  .business-card-image {
+    height: 220px;
+  }
+
+  // Projects
+  .projects-stats {
+    gap: $spacing-2xl;
+  }
+
+  .stat-item .stat-number {
+    font-size: $font-size-4xl;
+  }
+
+  // Offices
+  .offices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Footer
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-2xl;
+  }
+}
+
+// ================================================================
+// TABLET PORTRAIT (max 768px)
+// ================================================================
+
+@media (max-width: $breakpoint-md) {
+  // Header
+  .site-header {
+    height: $header-height-mobile;
+  }
+
+  .nav-container {
+    height: $header-height-mobile;
+  }
+
+  // Hide desktop menu, show hamburger
+  #primary-menu,
+  .language-switcher,
+  .header-action {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  // Banner
+  .banner-section {
+    min-height: 500px;
+    max-height: 700px;
+  }
+
+  .banner-content,
+  .banner-section {
+    padding: 0 $spacing-lg;
+  }
+
+  .banner-content h1,
+  .banner-section h1 {
+    font-size: $font-size-3xl;
+  }
+
+  .banner-content .banner-subtitle,
+  .banner-section .banner-subtitle {
+    font-size: $font-size-md;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  // Business
+  .business-section {
+    padding: $spacing-3xl 0;
+  }
+
+  .business-intro h2,
+  .business-section > h2 {
+    font-size: $font-size-3xl;
+  }
+
+  .business-grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
+
+  .business-card-image {
+    height: 200px;
+  }
+
+  // Projects
+  .projects-section {
+    padding: $spacing-3xl 0;
+  }
+
+  .projects-stats {
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  .stat-item .stat-number {
+    font-size: $font-size-3xl;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+
+  // Career CTA
+  .career-cta-section {
+    padding: $spacing-3xl 0;
+  }
+
+  .career-cta-content h2,
+  .career-cta-section > h2 {
+    font-size: $font-size-3xl;
+  }
+
+  // Work Environment
+  .work-env-section {
+    padding: $spacing-3xl 0;
+  }
+
+  .work-env-header h2,
+  .work-env-section > h2 {
+    font-size: $font-size-3xl;
+  }
+
+  .work-env-grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+
+  // News
+  .news-section {
+    padding: $spacing-3xl 0;
+  }
+
+  .news-header h2,
+  .news-section > h2 {
+    font-size: $font-size-3xl;
+  }
+
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+
+  // Footer
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    padding-top: $spacing-2xl;
+  }
+
+  .offices-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  // Section titles
+  .section-title h2 {
+    font-size: $font-size-3xl;
+  }
+
+  // Main content
+  #primary {
+    margin: $spacing-3xl auto;
+    padding: 0 $spacing-lg;
+  }
+}
+
+// ================================================================
+// MOBILE (max 576px)
+// ================================================================
+
+@media (max-width: $breakpoint-sm) {
+  // Banner
+  .banner-section {
+    min-height: 450px;
+  }
+
+  .banner-content,
+  .banner-section {
+    padding: 0 $spacing-md;
+  }
+
+  .banner-content h1,
+  .banner-section h1 {
+    font-size: $font-size-2xl;
+    letter-spacing: 0;
+  }
+
+  .banner-content .banner-subtitle,
+  .banner-section .banner-subtitle {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-lg;
+  }
+
+  .banner-content .banner-cta,
+  .banner-section .banner-cta,
+  .banner-section .wp-block-button__link {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-sm;
+  }
+
+  // Container
+  .container {
+    padding: 0 $spacing-md;
+  }
+
+  // Business
+  .business-intro h2,
+  .business-section > h2 {
+    font-size: $font-size-2xl;
+  }
+
+  .business-card-content {
+    padding: $spacing-lg;
+
+    h3 {
+      font-size: $font-size-xl;
+    }
+  }
+
+  // Projects
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .section-title h2 {
+    font-size: $font-size-2xl;
+  }
+
+  // Career CTA
+  .career-cta-content h2,
+  .career-cta-section > h2 {
+    font-size: $font-size-2xl;
+  }
+
+  .career-cta-content p,
+  .career-cta-section > p {
+    font-size: $font-size-md;
+  }
+
+  // Work Environment
+  .work-env-header h2,
+  .work-env-section > h2 {
+    font-size: $font-size-2xl;
+  }
+
+  .work-env-item {
+    padding: $spacing-lg;
+  }
+
+  // News
+  .news-header h2,
+  .news-section > h2 {
+    font-size: $font-size-2xl;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card-image {
+    height: 180px;
+  }
+
+  // Footer
+  .offices-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    padding: $spacing-md;
+
+    .footer-bottom-links {
+      flex-direction: column;
+      gap: $spacing-sm;
+      align-items: center;
+    }
+  }
+
+  // Main content
+  #primary {
+    margin: $spacing-lg auto;
+    padding: 0 $spacing-md;
+  }
+}

@@ -1,29 +1,24 @@
 {
   "name": "concrete-hp",
   "version": "1.0.0",
-  "description": "Concrete HP - WordPress Theme with SCSS",
-  "main": "gulpfile.js",
+  "description": "Concrete HP - WordPress theme + block plugin",
+  "private": true,
   "scripts": {
-    "start": "gulp",
-    "build": "gulp sass",
-    "watch": "gulp watch",
-    "build:themefiles": "node coding_html/build-theme-files.cjs",
-    "watch:themefiles": "node coding_html/watch-theme-files.cjs",
-    "build:scss": "sass coding_html/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded",
-    "watch:scss": "sass coding_html/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded --watch",
-    "build:theme": "npm run build:themefiles && npm run build:scss"
+    "build:scss": "sass src/wp-content/themes/concrete-child/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded --source-map",
+    "watch:scss": "sass src/wp-content/themes/concrete-child/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded --source-map --watch",
+    "build:theme": "npm run build:scss",
+    "build:blocks": "cd src/wp-content/plugins/concrete-blocks && npm run build",
+    "watch:blocks": "cd src/wp-content/plugins/concrete-blocks && npm run start",
+    "build": "concurrently -n scss,blocks -c cyan,magenta \"npm:build:scss\" \"npm:build:blocks\"",
+    "watch": "concurrently -n scss,blocks -c cyan,magenta \"npm:watch:scss\" \"npm:watch:blocks\"",
+    "serve": "browser-sync start --proxy localhost:8825 --port 3000 --no-open --no-ui --no-notify --files \"src/wp-content/themes/concrete-child/assets/css/*.css\" \"src/wp-content/themes/concrete-child/**/*.{html,php,js}\" \"src/wp-content/plugins/concrete-blocks/build/**/*\"",
+    "dev": "concurrently -n scss,blocks,serve -c cyan,magenta,green \"npm:watch:scss\" \"npm:watch:blocks\" \"npm:serve\""
   },
   "author": "ConcreteHP",
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-notify": "^3.2.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "node-env-file": "^0.1.8",
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
     "sass": "^1.62.1"
   }
 }

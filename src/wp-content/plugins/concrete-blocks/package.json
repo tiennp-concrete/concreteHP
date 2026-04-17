@@ -1,0 +1,20 @@
+{
+  "name": "concrete-blocks",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Custom Gutenberg blocks for Concrete HP theme",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "wp-scripts build --source-path=./generated-blocks --config ./src/webpack.config.js --blocks-manifest",
+    "start": "wp-scripts start --source-path=./generated-blocks --config ./src/webpack.config.js --blocks-manifest"
+  },
+  "dependencies": {
+    "@jverneaut/html-to-gutenberg": "^2.5.0",
+    "remove-files-webpack-plugin": "latest"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^32.0.0"
+  }
+}

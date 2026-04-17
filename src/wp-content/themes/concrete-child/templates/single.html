@@ -1,19 +1,13 @@
-<!-- @template-part header -->
+<!-- wp:template-part {"slug":"header","theme":"concrete-child","tagName":"header"} /-->
 
-<main class="single-post-main">
-    <article class="single-post">
-        <header class="single-post-header">
-            <h1 class="single-post-title">Post Title</h1>
-            <div class="single-post-meta">
-                <span class="post-date">Post Date</span>
-                <span class="post-author">Post Author</span>
-            </div>
-        </header>
-        <img class="single-post-featured-image" src="" alt="Featured Image" />
-        <div class="single-post-content">
-            <!-- Post Content Goes Here -->
-        </div>
-    </article>
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+<!-- wp:post-title {"level":1} /-->
+
+<!-- wp:post-date /-->
+
+<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
 </main>
+<!-- /wp:group -->
 
-<!-- @template-part footer -->
+<!-- wp:template-part {"slug":"footer","theme":"concrete-child","tagName":"footer"} /-->

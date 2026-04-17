@@ -1,5 +1,5 @@
 /**
- * Concrete HP Theme JS - Sun* Asterisk style
+ * Concrete HP Theme JS
  * Header scroll, particles, counter animation, WOW, mobile menu
  */
 

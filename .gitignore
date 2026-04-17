@@ -48,10 +48,11 @@ src/wp-content/themes/concrete-child/.sass-cache/
 coding_html/assets/scss/**/*.map
 
 # ==========================================================================
-# Build tooling: coding_html/ (HTML → WP template markup)
-# No deps currently (pure Node stdlib). Node_modules only if added later.
+# Plugin: concrete-blocks — build artifacts from html-to-gutenberg + webpack
 # ==========================================================================
-coding_html/node_modules/
+src/wp-content/plugins/concrete-blocks/node_modules/
+src/wp-content/plugins/concrete-blocks/build/
+src/wp-content/plugins/concrete-blocks/generated-blocks/
 
 # ==========================================================================
 # Keep .gitkeep files
