@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/testimonial",
+  "title": "Testimonial",
+  "category": "theme",
+  "textdomain": "testimonial",
+  "version": "0.3.0",
+  "description": "Testimonial carousel with fully-interactive admin preview (BlockControls + InspectorControls).",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "TESTIMONIALS"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Great Reviews for"
+    },
+    "headingSub": {
+      "type": "string",
+      "default": "Our Services"
+    },
+    "quote1": {
+      "type": "string",
+      "default": "We've had the pleasure of working with Zahar for quite a few years, on our previous site as well as the new one. Both were excellent experiences. Their dedicated client service and deep insight into our organization has resulted in now two websites of which we are very proud."
+    },
+    "name1": {
+      "type": "string",
+      "default": "Cristian Holand"
+    },
+    "role1": {
+      "type": "string",
+      "default": "Project Manager at LIFTO"
+    },
+    "quote2": {
+      "type": "string",
+      "default": "Outstanding work on every deliverable. The team is responsive, creative and understands our brand values deeply. We've already seen measurable growth in our core metrics."
+    },
+    "name2": {
+      "type": "string",
+      "default": "Jane Doe"
+    },
+    "role2": {
+      "type": "string",
+      "default": "CEO at Example Co."
+    },
+    "autoplay": {
+      "type": "number",
+      "default": 6000
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "example": {}
+}

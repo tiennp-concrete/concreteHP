@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/marketing-header",
+  "title": "Marketing Header",
+  "category": "theme",
+  "textdomain": "marketing-header",
+  "version": "0.3.0",
+  "description": "Sticky marketing header with logo + nav + CTA.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "logoUrl": {
+      "type": "string",
+      "default": "/wp-content/themes/concrete-child/assets/images/zahar-logo-2.png"
+    },
+    "brand": {
+      "type": "string",
+      "default": "Concrete"
+    },
+    "navHome": {
+      "type": "string",
+      "default": "Home"
+    },
+    "navAbout": {
+      "type": "string",
+      "default": "About Us"
+    },
+    "navProjects": {
+      "type": "string",
+      "default": "Projects"
+    },
+    "navTeam": {
+      "type": "string",
+      "default": "Team"
+    },
+    "navNews": {
+      "type": "string",
+      "default": "News"
+    },
+    "navContact": {
+      "type": "string",
+      "default": "Contact"
+    },
+    "ctaText": {
+      "type": "string",
+      "default": "Start a project"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "example": {}
+}

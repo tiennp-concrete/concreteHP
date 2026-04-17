@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/pricing",
+  "title": "Pricing",
+  "category": "theme",
+  "textdomain": "pricing",
+  "version": "0.3.0",
+  "description": "2-col pricing with monthly / annual toggle and fully-interactive admin preview.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "OUR PRICING"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Choose your"
+    },
+    "headingSub1": {
+      "type": "string",
+      "default": "pricing plan"
+    },
+    "headingSub2": {
+      "type": "string",
+      "default": "Not any extra charge"
+    },
+    "plans": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Entrepreneur",
+          "monthlyPrice": "$159",
+          "monthlyUnit": "/ month",
+          "annualPrice": "$1590",
+          "annualUnit": "/ year",
+          "features": [
+            "Full access library",
+            "Multiple user",
+            "5 Analytic Reports",
+            "1 Free optimization",
+            "Hotline support 24/7"
+          ],
+          "ctaText": "Purchase now"
+        },
+        {
+          "title": "Pro Business",
+          "monthlyPrice": "$299",
+          "monthlyUnit": "/ month",
+          "annualPrice": "$2990",
+          "annualUnit": "/ year",
+          "features": [
+            "Full access library",
+            "Multiple user",
+            "5 Analytic Reports",
+            "1 Free optimization",
+            "Hotline support 24/7"
+          ],
+          "ctaText": "Purchase now"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "example": {}
+}

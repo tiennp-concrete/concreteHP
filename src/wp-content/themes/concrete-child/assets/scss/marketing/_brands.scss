@@ -1,0 +1,44 @@
+@use 'tokens' as *;
+
+// =====================================================================
+// brand-slider block — infinite horizontal logo marquee.
+// =====================================================================
+.zh-brands {
+  padding: 60px 0;
+  background: $zh-surface;
+  border-top: 1px solid $zh-border;
+  border-bottom: 1px solid $zh-border;
+}
+
+.zh-brands-head {
+  text-align: center;
+  margin-bottom: 32px;
+
+  &:empty { display: none; }
+}
+
+.zh-brands-viewport {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.zh-brands-track {
+  display: flex;
+  gap: 72px;
+  width: max-content;
+  animation: zh-marquee 30s linear infinite;
+  align-items: center;
+}
+
+.zh-brand-logo {
+  height: 60px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+
+  &:hover {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+}

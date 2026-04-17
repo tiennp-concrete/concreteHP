@@ -1,6 +1,6 @@
 <?php
 /**
- * Concrete HP Child Theme Functions - Sun* Asterisk style
+ * Concrete HP Child Theme Functions
  *
  * @package ConcreteChild
  */
@@ -9,7 +9,13 @@
  * Enqueue styles and scripts
  */
 function concrete_child_enqueue_styles() {
-    $version = wp_get_theme()->get( 'Version' );
+    $theme_dir    = get_stylesheet_directory();
+    $main_css     = $theme_dir . '/assets/css/main.css';
+    $nav_css      = $theme_dir . '/navigation.css';
+    $theme_js     = $theme_dir . '/theme.js';
+    $version      = file_exists( $main_css ) ? filemtime( $main_css ) : wp_get_theme()->get( 'Version' );
+    $nav_version  = file_exists( $nav_css )  ? filemtime( $nav_css )  : $version;
+    $js_version   = file_exists( $theme_js ) ? filemtime( $theme_js ) : $version;
 
     // Google Fonts: Roboto + Noto Sans
     wp_enqueue_style(
@@ -48,7 +54,7 @@ function concrete_child_enqueue_styles() {
         'concrete-child-navigation',
         get_stylesheet_directory_uri() . '/navigation.css',
         array( 'concrete-child-main' ),
-        $version
+        $nav_version
     );
 
     // Particles.js
@@ -74,7 +80,7 @@ function concrete_child_enqueue_styles() {
         'concrete-child-script',
         get_stylesheet_directory_uri() . '/theme.js',
         array( 'particles-js', 'wow-js' ),
-        $version,
+        $js_version,
         true
     );
 }
@@ -120,11 +126,12 @@ function concrete_child_editor_assets() {
         null
     );
 
+    $editor_css = get_stylesheet_directory() . '/assets/css/main.css';
     wp_enqueue_style(
         'concrete-child-editor-main',
         get_stylesheet_directory_uri() . '/assets/css/main.css',
         array( 'concrete-child-editor-fonts' ),
-        wp_get_theme()->get( 'Version' )
+        file_exists( $editor_css ) ? filemtime( $editor_css ) : wp_get_theme()->get( 'Version' )
     );
 }
 add_action( 'enqueue_block_editor_assets', 'concrete_child_editor_assets' );
@@ -159,6 +166,19 @@ function concrete_child_fallback_menu() {
     echo '<li><a href="' . $home . '#news">' . __( 'News', 'concrete-child' ) . '</a></li>';
     echo '</ul>';
 }
+
+/**
+ * Inject BrowserSync client for live-reload when WP_DEBUG is on.
+ * Requires `npm run dev` (or `npm run serve`) running on host port 3000.
+ */
+function concrete_child_browsersync_inject() {
+    if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
+        return;
+    }
+    echo '<script async src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>' . "\n";
+}
+add_action( 'wp_footer', 'concrete_child_browsersync_inject', 999 );
+add_action( 'admin_footer', 'concrete_child_browsersync_inject', 999 );
 
 /**
  * Custom template tags

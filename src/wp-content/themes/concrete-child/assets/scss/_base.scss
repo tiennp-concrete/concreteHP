@@ -1,0 +1,164 @@
+/**
+ * Base Styles
+ * Reset, html, body, and general element defaults
+ */
+
+@use 'variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: $font-size-base;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: $color-text-dark;
+  background-color: $color-bg-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+// ================================================================
+// HEADINGS
+// ================================================================
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  font-weight: $font-weight-bold;
+  color: $color-text-dark;
+  margin: 0;
+}
+
+h1 { font-size: $font-size-5xl; }
+h2 { font-size: $font-size-4xl; }
+h3 { font-size: $font-size-2xl; }
+h4 { font-size: $font-size-xl; }
+h5 { font-size: $font-size-lg; }
+h6 { font-size: $font-size-md; }
+
+// ================================================================
+// PARAGRAPH & TEXT
+// ================================================================
+
+p {
+  margin: 0 0 $spacing-md 0;
+  line-height: 1.8;
+  color: $color-text-body;
+}
+
+a {
+  color: $color-accent-red;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: #c7233f;
+  }
+}
+
+// ================================================================
+// IMAGES
+// ================================================================
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ================================================================
+// LISTS
+// ================================================================
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// ================================================================
+// FORMS
+// ================================================================
+
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+// ================================================================
+// UTILITY CLASSES
+// ================================================================
+
+.container {
+  @include container;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  h2 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-dark;
+    margin-bottom: $spacing-md;
+    position: relative;
+    display: inline-block;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $color-text-light;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &.light {
+    h2, p {
+      color: $color-text-white;
+    }
+  }
+}
+
+.accent-line {
+  width: 60px;
+  height: 3px;
+  @include gradient-accent;
+  margin: $spacing-md auto $spacing-lg;
+  border-radius: 2px;
+}
+
+// WOW animation helpers
+// .wow visibility is controlled by JS (theme.js adds body.has-wow)
+// so elements stay visible in Site Editor where JS doesn't run
+body.has-wow .wow {
+  visibility: hidden;
+}
+
+// ================================================================
+// WordPress Global Style Overrides
+// ================================================================
+
+// WordPress global style overrides
+a {
+  text-decoration: none !important;
+}
+
+body {
+  padding: 0 !important;
+  margin: 0;
+}

@@ -1,0 +1,110 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/portfolio",
+  "title": "Portfolio",
+  "category": "theme",
+  "textdomain": "portfolio",
+  "version": "0.3.0",
+  "description": "Portfolio grid with category filter and fully-interactive admin preview.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "OUR WORKS"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Check out our work to see why our clients"
+    },
+    "headingSub": {
+      "type": "string",
+      "default": "love us - and you will too"
+    },
+    "decorImage": {
+      "type": "string",
+      "default": "/wp-content/themes/concrete-child/assets/images/bg_animation1.png"
+    },
+    "projects": {
+      "type": "array",
+      "default": [
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/project_1-630x310.jpg",
+          "category": "branding",
+          "tag": "Branding",
+          "title": "P&GG Hotel",
+          "size": "wide"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/project_2-310x310.jpg",
+          "category": "development",
+          "tag": "Development",
+          "title": "Beddgelert",
+          "size": ""
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/project_4-310x310.jpg",
+          "category": "web",
+          "tag": "Web Design",
+          "title": "Plockton",
+          "size": ""
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/project_5-scaled-630x630.jpg",
+          "category": "ui",
+          "tag": "UI Design",
+          "title": "Port Isaac",
+          "size": "wide"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/project_6-630x630.jpg",
+          "category": "web",
+          "tag": "Web Design",
+          "title": "Staithes",
+          "size": "wide"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/project_7-310x310.jpg",
+          "category": "development",
+          "tag": "Development",
+          "title": "Castle Combe",
+          "size": ""
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/project_8-310x310.jpg",
+          "category": "branding",
+          "tag": "Branding",
+          "title": "Cushendun",
+          "size": ""
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/project_9-630x310.jpg",
+          "category": "branding",
+          "tag": "Branding",
+          "title": "Edinburgh",
+          "size": "wide"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/building-630x310.jpg",
+          "category": "development",
+          "tag": "Development",
+          "title": "Double Exposure",
+          "size": "wide"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "example": {}
+}

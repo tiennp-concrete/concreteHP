@@ -1,0 +1,151 @@
+@use 'tokens' as *;
+
+// =====================================================================
+// marketing-footer block — 4-col footer (brand + 2 links + newsletter).
+// =====================================================================
+.zh-footer {
+  position: relative;
+  padding: 120px 0 0;
+  overflow: hidden;
+  background-image: url('../images/bg_footer_marketing.png');
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.zh-footer-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+  gap: 48px;
+  padding-bottom: 120px;
+  position: relative;
+  z-index: 1;
+}
+
+.zh-footer-brand {
+  .zh-logo img { height: 44px; }
+}
+
+.zh-footer-tag {
+  margin: 20px 0 24px;
+  color: $zh-muted;
+  max-width: 320px;
+  font-size: 15px;
+}
+
+.zh-footer-social {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 24px;
+
+  a {
+    color: $zh-heading;
+    font-size: 14px;
+    transition: color 0.2s ease;
+
+    &:hover { color: $zh-primary; }
+  }
+}
+
+.zh-footer-copyright {
+  color: $zh-muted;
+  font-size: 14px;
+  margin: 0;
+}
+
+.zh-footer-col {
+  h4 {
+    color: $zh-heading;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li { margin-bottom: 10px; }
+
+    a {
+      color: $zh-muted;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s ease;
+
+      &:hover { color: $zh-heading; }
+    }
+  }
+}
+
+.zh-footer-newsletter {
+  h4 {
+    color: $zh-heading;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+
+  p { color: $zh-muted; font-size: 14px; margin: 0 0 16px; }
+}
+
+.zh-newsletter-form {
+  position: relative;
+  margin-bottom: 20px;
+
+  input[type='email'] {
+    width: 100%;
+    padding: 14px 60px 14px 20px;
+    border-radius: $zh-radius-pill;
+    border: 1px solid $zh-border;
+    background: transparent;
+    font-size: 14px;
+    font-family: $zh-font;
+    color: $zh-heading;
+
+    &:focus {
+      outline: none;
+      border-color: $zh-primary;
+    }
+
+    &::placeholder { color: $zh-muted; }
+  }
+
+  button {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    bottom: 4px;
+    width: 44px;
+    border-radius: 50%;
+    border: none;
+    background: $zh-primary;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+
+    &:hover { background: $zh-primary-dark; }
+  }
+}
+
+.zh-footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $zh-muted;
+    font-size: 15px;
+    margin-bottom: 8px;
+
+    i { color: $zh-primary; font-size: 12px; }
+    a { color: inherit; }
+  }
+}

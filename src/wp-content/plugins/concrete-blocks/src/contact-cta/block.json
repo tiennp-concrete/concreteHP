@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/contact-cta",
+  "title": "Contact CTA",
+  "category": "theme",
+  "textdomain": "contact-cta",
+  "version": "0.3.0",
+  "description": "Contact section with 2-col form + info, fully editable in admin.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "CONTACT US"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Get your business"
+    },
+    "headingSub": {
+      "type": "string",
+      "default": "Right up there"
+    },
+    "description": {
+      "type": "string",
+      "default": "Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto dictae."
+    },
+    "phoneLabel": {
+      "type": "string",
+      "default": "For any inquires call now"
+    },
+    "phone": {
+      "type": "string",
+      "default": "0123- 456-7890"
+    },
+    "submitText": {
+      "type": "string",
+      "default": "Send request"
+    },
+    "namePlaceholder": {
+      "type": "string",
+      "default": "Name*"
+    },
+    "emailPlaceholder": {
+      "type": "string",
+      "default": "Email*"
+    },
+    "subjectPlaceholder": {
+      "type": "string",
+      "default": "Subject*"
+    },
+    "messagePlaceholder": {
+      "type": "string",
+      "default": "Your message"
+    },
+    "heroImage": {
+      "type": "string",
+      "default": "/wp-content/themes/concrete-child/assets/images/image_animation_f2.png"
+    },
+    "decorImage": {
+      "type": "string",
+      "default": "/wp-content/themes/concrete-child/assets/images/image_animation_f1.png"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "example": {}
+}

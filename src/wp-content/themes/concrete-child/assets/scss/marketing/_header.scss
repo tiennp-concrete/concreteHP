@@ -1,0 +1,344 @@
+@use 'tokens' as *;
+
+// =====================================================================
+// marketing-header block — sticky header with logo, nav, and CTA.
+// =====================================================================
+.zh-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background 0.3s ease, box-shadow 0.3s ease, position 0s;
+
+  &.is-sticky {
+    position: fixed;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+    .zh-nav a,
+    .zh-logo-text { color: $zh-heading; }
+
+    .zh-btn-outline {
+      color: $zh-heading;
+      border-color: $zh-primary;
+
+      &:hover { background: $zh-primary; color: #fff; border-color: $zh-primary; }
+    }
+  }
+
+  &.is-hidden { transform: translateY(-100%); }
+}
+
+.zh-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 70px;
+  padding: 0 65px;
+}
+
+// Prevent Gutenberg's default positioning outline from clipping absolute
+// children inside the block list.
+.block-editor-block-list__layout .block-editor-block-list__block {
+  position: unset !important;
+}
+
+.zh-logo {
+  display: inline-block;
+  text-decoration: none;
+  flex: 0 0 auto;
+
+  img { width: 140px; height: auto; display: block; }
+}
+
+.zh-logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+// Desktop nav
+.zh-nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+
+  > ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  > ul > li {
+    position: relative;
+    padding: 0 1vw;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 70px;
+    transition: color 0.2s ease;
+
+    &:hover { color: #000; }
+  }
+
+  .zh-has-submenu > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  .zh-has-submenu:hover > a::after {
+    transform: translateY(1px) rotate(225deg);
+  }
+
+  li:hover .zh-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.zh-submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.02);
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+
+  li { display: block; }
+
+  a {
+    display: block;
+    padding: 8px 20px;
+    color: $zh-heading !important;
+    line-height: 1.5 !important;
+    font-size: 14px;
+
+    &:hover { color: $zh-primary !important; }
+  }
+}
+
+.zh-header-cta {
+  flex: 0 0 auto;
+  margin-left: 50px;
+  z-index: 1;
+
+  .zh-btn {
+    padding: 10px 32px;
+    font-size: 18px;
+    line-height: 1;
+  }
+}
+
+// Wrapper so nav + CTA can collapse into a drawer on mobile. On desktop it's
+// just a flex row; on mobile it becomes a fixed off-canvas panel.
+.zh-header-menu {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+// Drawer-only elements are hidden on desktop.
+.zh-drawer-head,
+.zh-mobile-toggle,
+.zh-header-overlay { display: none; }
+
+// =====================================================================
+// Mobile / tablet (≤ 1024px): hamburger + slide-in drawer from the left.
+// =====================================================================
+@media (max-width: 1024px) {
+  .zh-header-inner { padding: 0 20px; }
+
+  .zh-mobile-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: background 0.2s ease;
+    }
+  }
+
+  .zh-header.is-sticky .zh-mobile-toggle span { background: $zh-heading; }
+
+  .zh-header-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(360px, 85vw);
+    background: #fff;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 60;
+    overflow-y: auto;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .zh-header.is-menu-open .zh-header-menu { transform: translateX(0); }
+
+  .zh-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid $zh-border;
+
+    .zh-drawer-logo img { width: 120px; height: auto; display: block; }
+    .zh-logo-text { color: $zh-heading; font-size: 20px; font-weight: 700; }
+  }
+
+  .zh-drawer-close {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: $zh-heading;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .zh-nav {
+    flex: 1 1 auto;
+    display: block;
+
+    > ul {
+      display: block;
+      padding: 0;
+    }
+
+    > ul > li {
+      padding: 0;
+      border-bottom: 1px solid $zh-border;
+
+      &:first-child > a { background: $zh-primary; color: #fff; }
+    }
+
+    a {
+      display: block;
+      color: $zh-heading;
+      font-size: 18px;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0;
+      line-height: 1;
+      padding: 20px 24px;
+
+      &:hover { color: $zh-primary; }
+    }
+
+    .zh-has-submenu > a::after {
+      margin-left: auto;
+      float: right;
+      border-color: currentColor;
+      transform: translateY(4px) rotate(-45deg);
+    }
+
+    .zh-submenu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      background: $zh-surface;
+      padding: 0;
+      display: none;
+
+      a { padding: 14px 40px; font-size: 15px; line-height: 1 !important; }
+    }
+
+    .zh-has-submenu:hover .zh-submenu { display: block; }
+  }
+
+  .zh-header-cta {
+    margin: 0;
+    padding: 20px 24px;
+
+    .zh-btn {
+      width: 100%;
+      border-color: $zh-primary;
+      color: $zh-primary;
+
+      &:hover { background: $zh-primary; color: #fff; }
+    }
+  }
+
+  .zh-header-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 55;
+  }
+
+  .zh-header.is-menu-open .zh-header-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  // Editor-only: Gutenberg Site Editor strips position:fixed from blocks so
+  // the drawer renders inline and breaks the canvas. Body of the Site Editor
+  // iframe has the class .block-editor-iframe__body (frontend body never does),
+  // so we can safely scope a "hide nav + CTA" rule to editor only.
+  .block-editor-iframe__body {
+    .zh-nav,
+    .zh-header-cta { display: none !important; }
+  }
+}

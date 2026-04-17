@@ -1,0 +1,157 @@
+@use 'tokens' as *;
+
+// =====================================================================
+// pricing block — intro + monthly/annual toggle + 2-card grid.
+// =====================================================================
+.zh-pricing {
+  padding: 120px 0;
+  background: $zh-bg;
+}
+
+.zh-pricing-grid-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.zh-pricing-head {
+  .zh-section-title { margin-bottom: 4px; }
+  .zh-section-title + .zh-section-title { margin-top: 0; }
+}
+
+.zh-pricing-toggle {
+  display: inline-flex;
+  background: $zh-surface;
+  border: 1px solid $zh-border;
+  border-radius: $zh-radius-pill;
+  padding: 4px;
+  margin: 0 0 24px;
+  gap: 4px;
+}
+
+.zh-pt-btn {
+  background: transparent;
+  border: none;
+  padding: 10px 24px;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: $zh-font;
+  border-radius: $zh-radius-pill;
+  color: $zh-muted;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &.is-active {
+    background: $zh-primary;
+    color: #fff;
+  }
+}
+
+.zh-pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.zh-price-card {
+  position: relative;
+  padding: 40px 32px;
+  background: $zh-bg;
+  border: 1px solid $zh-border;
+  border-radius: $zh-radius-lg;
+  text-align: left;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 129px;
+    height: 55px;
+    background-image: url('../images/pricing_bgbefore.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $zh-shadow-lg;
+  }
+
+  .zh-btn { margin-top: 8px; }
+}
+
+.zh-price-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+
+  h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    color: $zh-heading;
+  }
+}
+
+.zh-price-icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+
+  svg { width: 100%; height: 100%; fill: $zh-heading; }
+}
+
+.zh-price-amount {
+  font-size: 40px;
+  font-weight: 700;
+  color: $zh-heading;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.zh-price-unit {
+  font-size: 18px;
+  font-weight: 400;
+  color: $zh-muted;
+  margin-left: 4px;
+}
+
+// Toggle between monthly / annual price labels.
+.zh-price-annual { display: none; }
+[data-period-target='annual'] {
+  .zh-price-monthly { display: none; }
+  .zh-price-annual  { display: inline; }
+}
+
+.zh-price-features {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+
+  li {
+    padding: 10px 0;
+    color: $zh-muted;
+    font-size: 15px;
+    border-bottom: 1px solid $zh-border;
+    display: flex;
+    align-items: center;
+
+    &:last-child { border-bottom: 0; }
+
+    &::before {
+      content: '✓';
+      color: $zh-primary;
+      font-weight: 700;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+  }
+}

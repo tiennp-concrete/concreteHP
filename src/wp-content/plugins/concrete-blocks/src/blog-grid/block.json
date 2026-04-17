@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/blog-grid",
+  "title": "Blog Grid",
+  "category": "theme",
+  "textdomain": "blog-grid",
+  "version": "0.3.0",
+  "description": "2-col intro + post slider with fully-interactive admin preview.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "NEWS & INSIGHT"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Latest Post"
+    },
+    "headingSub": {
+      "type": "string",
+      "default": "Don't miss it"
+    },
+    "description": {
+      "type": "string",
+      "default": "Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto dictae."
+    },
+    "ctaText": {
+      "type": "string",
+      "default": "See all post"
+    },
+    "posts": {
+      "type": "array",
+      "default": [
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/blog_s5-670x450.jpg",
+          "date": "December 12, 2019",
+          "title": "UX – The Universal Language",
+          "author": "Jacob Tyler",
+          "cat": "Business"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/blog_s4-670x450.jpg",
+          "date": "December 12, 2019",
+          "title": "The Age of Opaque Brands is Over",
+          "author": "Jacob Tyler",
+          "cat": "Business"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/blog_s2-670x450.jpg",
+          "date": "December 12, 2019",
+          "title": "Want To Tell Your Brand Story? Use This Video Framework",
+          "author": "Jacob Tyler",
+          "cat": "Business"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/blog_s3-670x450.jpg",
+          "date": "December 12, 2019",
+          "title": "Why Stories Will Dominate Social Media",
+          "author": "Jacob Tyler",
+          "cat": "Business"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/blog_s1-670x450.jpg",
+          "date": "December 12, 2019",
+          "title": "It's Time to Step Up Your SEO",
+          "author": "Jacob Tyler",
+          "cat": "Business"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/bl2-670x450.jpg",
+          "date": "December 12, 2019",
+          "title": "Emotional Spending: Why Experience Trumps Product",
+          "author": "Jacob Tyler",
+          "cat": "Business"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "example": {}
+}

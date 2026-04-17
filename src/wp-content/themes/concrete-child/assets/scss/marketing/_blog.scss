@@ -1,0 +1,140 @@
+@use 'tokens' as *;
+
+// =====================================================================
+// blog-grid block — intro + horizontal post slider (snap scroll).
+// =====================================================================
+.zh-blog {
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.zh-blog-grid-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 60px;
+  align-items: center;
+
+  // Grid items default to min-width: auto (content size). The slider's
+  // flex track holds 6 wide cards — without this, the cell blows out past
+  // 1.6fr and overlaps the intro column.
+  > * { min-width: 0; }
+}
+
+.zh-blog-intro {
+  p { color: $zh-muted; margin: 0 0 32px; max-width: 360px; }
+}
+
+.zh-blog-slider {
+  position: relative;
+  overflow: hidden; // belt-and-suspenders: clip any card that escapes the column
+}
+
+.zh-blog-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.zh-post-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  scroll-snap-align: start;
+  background: $zh-bg;
+  border-radius: $zh-radius-lg;
+  overflow: hidden;
+  box-shadow: $zh-shadow-sm;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $zh-shadow-lg;
+
+    .zh-post-thumb img { transform: scale(1.05); }
+  }
+}
+
+.zh-post-thumb {
+  display: block;
+  aspect-ratio: 670 / 450;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+}
+
+.zh-post-body {
+  padding: 24px;
+}
+
+.zh-post-date {
+  color: $zh-muted;
+  font-size: 13px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.zh-post-body h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  line-height: 1.3;
+  color: $zh-heading;
+
+  a {
+    color: $zh-heading;
+    text-decoration: none;
+
+    &:hover { color: $zh-primary; }
+  }
+}
+
+.zh-post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $zh-muted;
+  font-size: 13px;
+  padding-top: 12px;
+  border-top: 1px solid $zh-border;
+
+  .zh-post-author { color: $zh-muted; }
+  .zh-post-cat a  { color: $zh-primary; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em; }
+}
+
+.zh-blog-navs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+// Reuse same round button style used by testimonial carousel navs.
+.zh-blog-nav {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid $zh-border;
+  color: $zh-heading;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: $zh-primary;
+    color: #fff;
+    border-color: $zh-primary;
+  }
+}

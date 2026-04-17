@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/services-grid",
+  "title": "Services Grid",
+  "category": "theme",
+  "textdomain": "services-grid",
+  "version": "0.3.0",
+  "description": "Three-column feature grid with heading, subtitle and footer paragraph.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "FEATURES"
+    },
+    "heading": {
+      "type": "string",
+      "default": "We Provide Professional Features"
+    },
+    "headingSub": {
+      "type": "string",
+      "default": "That Grow Your Business"
+    },
+    "footerText": {
+      "type": "string",
+      "default": "We don't limit our work to any single industry, and we don't discriminate based on company size. We've worked with hundreds of different clients across a variety of industries over the last two decades, giving us a vast reservoir of experience and best practices that inform our approach to each new project."
+    },
+    "services": {
+      "type": "array",
+      "default": [
+        {
+          "icon": "/wp-content/themes/concrete-child/assets/images/002-digital-marketing.svg",
+          "title": "Insight & Research",
+          "text": "Successful brands require thoughtful, disciplined and creative strategies to move them forward. Our extensive analytical..."
+        },
+        {
+          "icon": "/wp-content/themes/concrete-child/assets/images/004-creative-idea.svg",
+          "title": "User Experience",
+          "text": "Technology is constantly evolving, and your brand must evolve with it to remain successful. We ensure that your brand anticipates..."
+        },
+        {
+          "icon": "/wp-content/themes/concrete-child/assets/images/html.svg",
+          "title": "Design & Development",
+          "text": "With a mobile first mentality for the front-end, and a flawless CMS on the back-end, our award winning websites put our customers first..."
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "example": {}
+}

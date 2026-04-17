@@ -23,7 +23,7 @@ Edit `.env` to customize:
 ## Theme
 
 ### Child Theme: Concrete Child
-- Location: `./wordpress/wp-content/themes/concrete-child/`
+- Location: `./src/wp-content/themes/concrete-child/`
 - Set as active theme in WordPress admin
 
 ## Common Commands

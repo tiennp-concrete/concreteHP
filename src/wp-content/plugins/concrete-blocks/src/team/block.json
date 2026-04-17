@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/team",
+  "title": "Team",
+  "category": "theme",
+  "textdomain": "team",
+  "version": "0.3.0",
+  "description": "Team section with 2-col layout and floating decorative shapes.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "OUR TEAM"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Meet our professional"
+    },
+    "headingSub": {
+      "type": "string",
+      "default": "Experts"
+    },
+    "description": {
+      "type": "string",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis molestie a iaculis at erat."
+    },
+    "ctaText": {
+      "type": "string",
+      "default": "Meet our team"
+    },
+    "heroImage": {
+      "type": "string",
+      "default": "/wp-content/themes/concrete-child/assets/images/slider_animation_team.png"
+    },
+    "shapes": {
+      "type": "array",
+      "default": [
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/team_s3.png",
+          "variant": "zh-ts-1 zh-float-ud"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/1-team_s42.png",
+          "variant": "zh-ts-2 zh-float-small"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/team_s1.png",
+          "variant": "zh-ts-3 zh-float-top"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "example": {}
+}

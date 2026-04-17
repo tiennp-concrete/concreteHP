@@ -1,0 +1,114 @@
+@use 'tokens' as *;
+
+// =====================================================================
+// contact-cta block — 2-col section: illustration + contact form.
+// =====================================================================
+.zh-contact-cta {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+  background: $zh-bg;
+}
+
+.zh-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.zh-contact-media {
+  position: relative;
+
+  .zh-contact-decor {
+    position: absolute;
+    left: -80px;
+    bottom: -60px;
+    width: 120%;
+    max-width: none;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.zh-contact-form {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  padding: 32px;
+  border-radius: $zh-radius-lg;
+  box-shadow: $zh-shadow-lg;
+  max-width: 440px;
+
+  input[type='text'],
+  input[type='email'],
+  textarea {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: $zh-radius-pill;
+    border: 1px solid $zh-border;
+    background: transparent;
+    font-size: 15px;
+    font-family: $zh-font;
+    margin-bottom: 12px;
+    color: $zh-heading;
+
+    &:focus {
+      outline: none;
+      border-color: $zh-primary;
+    }
+
+    &::placeholder { color: $zh-muted; }
+  }
+
+  textarea {
+    min-height: 140px;
+    resize: vertical;
+    border-radius: $zh-radius-lg;
+  }
+
+  .zh-btn {
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+
+.zh-contact-text {
+  .zh-section-title { margin-bottom: 4px; }
+  p { color: $zh-muted; margin: 0 0 24px; }
+
+  .zh-contact-decor-inline {
+    width: 200px;
+    margin-bottom: 24px;
+  }
+}
+
+.zh-contact-phone-label {
+  font-size: 14px;
+  color: $zh-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 32px 0 8px;
+  font-weight: 700;
+}
+
+.zh-contact-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: $zh-heading;
+  text-decoration: none;
+
+  .zh-phone-icon {
+    color: $zh-primary;
+    font-size: 18px;
+  }
+
+  &:hover { color: $zh-primary; }
+}

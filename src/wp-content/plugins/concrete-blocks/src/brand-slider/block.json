@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/brand-slider",
+  "title": "Brand Slider",
+  "category": "theme",
+  "textdomain": "brand-slider",
+  "version": "0.3.0",
+  "description": "Infinite horizontal brand logo marquee with pause on hover.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "logos": {
+      "type": "array",
+      "default": [
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_1.png"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_2.png"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_3.png"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_4.png"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_5.png"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_1.png"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_2.png"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_3.png"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_4.png"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/brand_5.png"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "example": {}
+}

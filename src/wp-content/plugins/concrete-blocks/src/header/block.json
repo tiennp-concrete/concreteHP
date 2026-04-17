@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/header",
+  "title": "Concrete Header",
+  "category": "theme",
+  "textdomain": "header",
+  "version": "0.3.0",
+  "description": "Legacy site header with primary nav, language switcher and mobile menu.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "logoMark": {
+      "type": "string",
+      "default": "Concrete<span class=\"logo-star\">HP</span>"
+    },
+    "logoSubtitle": {
+      "type": "string",
+      "default": "ConcreteHP"
+    },
+    "menuBusiness": {
+      "type": "string",
+      "default": "Business"
+    },
+    "menuProjects": {
+      "type": "string",
+      "default": "Projects"
+    },
+    "menuEnvironment": {
+      "type": "string",
+      "default": "Environment"
+    },
+    "menuNews": {
+      "type": "string",
+      "default": "Culture & Events"
+    },
+    "menuCareers": {
+      "type": "string",
+      "default": "Careers"
+    },
+    "langVi": {
+      "type": "string",
+      "default": "VI"
+    },
+    "langEn": {
+      "type": "string",
+      "default": "EN"
+    },
+    "ctaText": {
+      "type": "string",
+      "default": "Join Us"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "example": {}
+}
