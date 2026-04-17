@@ -3,7 +3,7 @@
  * Reset, html, body, and general element defaults
  */
 
-@import 'variables';
+@use 'variables' as *;
 
 * {
   margin: 0;

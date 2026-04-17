@@ -20,12 +20,7 @@ Edit `.env` to customize:
 - `PORT_NUM`: WordPress port (default: `8825`)
 - Database credentials and other settings
 
-## Plugins & Themes
-
-### Plugin: Sunstar Showcase Block
-- Location: `./sunstar-showcase-block/`
-- Auto-mounted to: `/var/www/html/wp-content/plugins/sunstar-showcase-block`
-- Activate in WordPress admin after first setup
+## Theme
 
 ### Child Theme: Concrete Child
 - Location: `./wordpress/wp-content/themes/concrete-child/`

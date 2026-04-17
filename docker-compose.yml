@@ -25,7 +25,6 @@ services:
     volumes:
       - ./wordpress:/var/www/html
       - ./config/php.ini:/usr/local/etc/php/conf.d/php.ini
-      - ./sunstar-showcase-block:/var/www/html/wp-content/plugins/sunstar-showcase-block
     depends_on:
       - db
     ports:

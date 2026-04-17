@@ -8,11 +8,8 @@ Your project is now fully configured with:
 concreteHp/
 ├── wordpress/                       # WordPress core (downloaded from wordpress.org)
 │   └── wp-content/
-│       ├── plugins/
-│       │   └── sunstar-showcase-block/  # Custom Gutenberg block plugin
 │       └── themes/
 │           └── concrete-child/        # Child theme (ready to customize)
-├── sunstar-showcase-block/          # Plugin source (auto-synced)
 ├── config/
 │   └── php.ini                      # PHP configuration (50M upload max)
 ├── db-data/                         # Database init scripts folder
@@ -49,10 +46,9 @@ docker compose up -d
    - Password: `wordpress`
    - Host: `db` (not localhost)
 
-### 5. Activate Plugin & Theme
+### 5. Activate Theme
 After setup completes:
-1. Go to **WordPress Admin** → **Plugins** → Activate **Sunstar Showcase Block**
-2. Go to **Appearance** → **Themes** → Activate **Concrete Child**
+1. Go to **Appearance** → **Themes** → Activate **Concrete Child**
 
 ## 📝 Configuration
 
@@ -99,19 +95,6 @@ docker exec -it concrete-hp-db bash
 - **User**: wordpress (password in .env)
 - **Root**: root (password in .env)
 - **Admin UI**: phpMyAdmin on http://localhost:8081
-
-## 📚 Plugin Development
-
-The plugin is in `./sunstar-showcase-block/` and auto-mounted to WordPress.
-
-To develop and build:
-```bash
-cd sunstar-showcase-block
-npm install
-npm start        # Watch mode
-# or
-npm run build    # Production build
-```
 
 ## 🎨 Theme Customization
 

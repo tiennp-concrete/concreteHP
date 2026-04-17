@@ -1,0 +1,7 @@
+{
+  "name": "concrete-child-htg",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

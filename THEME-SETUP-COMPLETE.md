@@ -27,8 +27,7 @@ Your WordPress installation now has both parent and child themes:
   - `index.php` - Homepage with hero, services, projects, culture, team sections
   - `single.php` - Single post/page template
   - `theme.js` - Mobile menu toggle & smooth scroll
-  - `assets/scss/` - SCSS source files
-  - `assets/css/main.css` - Compiled CSS (auto-generated from SCSS)
+  - `assets/css/main.css` - Compiled CSS (auto-generated from `/scss/` at repo root)
 
 ## How Child Theme Works
 
@@ -63,8 +62,8 @@ npm run build  # One-time compilation
 ```
 
 ### File Organization
-- **Edit SCSS** in `wordpress/wp-content/themes/concrete-child/assets/scss/`
-- **Gulp compiles** to `wordpress/wp-content/themes/concrete-child/assets/css/main.css`
+- **Edit SCSS** in `assets/scss/` at repo root
+- **Gulp / sass CLI compiles** to `wordpress/wp-content/themes/concrete-child/assets/css/main.css`
 - **WordPress loads** `main.css` via `functions.php`
 
 ## Next Steps
@@ -81,20 +80,20 @@ npm run build  # One-time compilation
    - Activate "Concrete HP Child"
 
 4. **Start editing**:
-   - Edit `.scss` files in `assets/scss/`
+   - Edit `.scss` files in `scss/` (repo root)
    - Gulp auto-compiles to `.css`
    - Browser shows changes in real-time
 
 ## Theme Customization
 
 ### Change Colors
-Edit `wordpress/wp-content/themes/concrete-child/assets/scss/_variables.scss`
+Edit `assets/scss/_variables.scss` at repo root
 
 ### Update Sections
 Edit `wordpress/wp-content/themes/concrete-child/index.php`
 
 ### Modify Styles
-Edit `.scss` files in `assets/scss/` subdirectory
+Edit `.scss` files in `assets/scss/` at repo root
 
 ---
 

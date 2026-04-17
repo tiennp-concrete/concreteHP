@@ -56,29 +56,29 @@ Watches SCSS files without initial compilation.
 ## 📁 SCSS Structure
 
 ```
-assets/
-├── scss/
-│   ├── main.scss                # 📌 Main entry point (imports all)
-│   ├── _variables.scss          # Colors, spacing, typography, mixins
-│   ├── _base.scss               # HTML/body reset, base styles
-│   ├── _hero.scss               # Hero section + CTA buttons
-│   ├── _sections.scss           # Services + Projects sections
-│   ├── _culture-team.scss       # Culture + Team sections
-│   ├── _footer.scss             # Footer styles
-│   ├── _navigation.scss         # Header, menu, utilities, posts
-│   └── _responsive.scss         # Media queries for all breakpoints
-└── css/
-    ├── main.css                 # 📌 Compiled output (enqueued in WordPress)
-    └── main.css.map             # Source map for debugging
+assets/scss/                                    # 📌 Dev-time sources (repo root)
+├── main.scss                                     # Main entry point (@use all partials)
+├── _variables.scss                               # Colors, spacing, typography, mixins
+├── _base.scss                                    # HTML/body reset, base styles
+├── _hero.scss                                    # Hero section + CTA buttons
+├── _sections.scss                                # Services + Projects sections
+├── _culture-team.scss                            # Culture + Team sections
+├── _footer.scss                                  # Footer styles
+├── _navigation.scss                              # Header, menu, utilities, posts
+├── _blocks.scss                                  # WordPress block theme overrides
+└── _responsive.scss                              # Media queries for all breakpoints
+
+wordpress/wp-content/themes/concrete-child/assets/css/   # 📌 Runtime output (ignored by git)
+├── main.css                                      # Compiled output (enqueued in WordPress)
+└── main.css.map                                  # Source map for debugging
 ```
 
 ## 🎨 How It Works
 
-1. **You edit SCSS files** in `assets/scss/`
-2. **Gulp watches** for changes
-3. **SCSS compiles → CSS** in real-time
+1. **You edit SCSS files** in `./assets/scss/` at repo root
+2. **Gulp / sass CLI watches** for changes
+3. **SCSS compiles → CSS** in real-time, output into theme `assets/css/`
 4. **Browser reloads** and shows your changes
-5. **Desktop notification** confirms compilation
 
 ## 📝 Writing SCSS
 
@@ -163,9 +163,9 @@ Save and Gulp auto-compiles. No need to restart anything!
 
 1. Create `assets/scss/_mynewsection.scss`
 2. Write your styles with SCSS
-3. Import in `assets/scss/main.scss`:
+3. Load it in `assets/scss/main.scss`:
    ```scss
-   @import 'mynewsection';
+   @use 'mynewsection';
    ```
 4. Save and it compiles automatically
 
@@ -179,7 +179,7 @@ npm start
 ### CSS not updating in browser?
 - Hard refresh: **Ctrl+Shift+R** (Windows) or **Cmd+Shift+R** (Mac)
 - Check browser console for errors
-- Verify `assets/css/main.css` has been updated
+- Verify `wordpress/wp-content/themes/concrete-child/assets/css/main.css` has been updated
 
 ### Compilation errors?
 - Check terminal output for error messages
@@ -208,11 +208,11 @@ npm install
 
 ## 🎯 What Gets Compiled
 
-**Input**: `assets/scss/**/*.scss`  
-↓  
-**Process**: Sass → CSS → Autoprefixer → Minify  
-↓  
-**Output**: `assets/css/main.css` (used by WordPress)
+**Input**: `assets/scss/**/*.scss` (entry: `assets/scss/main.scss`)
+↓
+**Process**: Sass → CSS → Autoprefixer → Minify
+↓
+**Output**: `wordpress/wp-content/themes/concrete-child/assets/css/main.css` (enqueued in WordPress)
 
 ---
 

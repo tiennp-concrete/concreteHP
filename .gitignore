@@ -1,4 +1,23 @@
+# ==========================================================================
+# OS / Editor
+# ==========================================================================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ==========================================================================
+# Dependencies & logs
+# ==========================================================================
+node_modules/
 *.log
+
+# ==========================================================================
+# WordPress core / config
+# ==========================================================================
 wp-config.php
 wp-content/advanced-cache.php
 wp-content/backup-db/
@@ -6,7 +25,6 @@ wp-content/backups/
 wp-content/blogs.dir/
 wp-content/cache/
 wp-content/upgrade/
-#wp-content/uploads/
 wp-content/mu-plugins/
 wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
@@ -17,12 +35,25 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 
-node_modules
-.idea
+# ==========================================================================
+# Theme: concrete-child — compiled CSS / SCSS artifacts
+# ==========================================================================
+wordpress/wp-content/themes/concrete-child/assets/css/*.css
+wordpress/wp-content/themes/concrete-child/assets/css/*.css.map
+wordpress/wp-content/themes/concrete-child/assets/css/*.min.css
+wordpress/wp-content/themes/concrete-child/.sass-cache/
 
-# WordPress files
-#wp-content/uploads/
-#wp-content/plugins/
-#wp-content/plugins/http-auth/
+# SCSS build cache (gulp-sass)
+.sass-cache/
+assets/scss/**/*.map
+
+# ==========================================================================
+# Build tooling: htg/ (HTML → WP template markup)
+# No deps currently (pure Node stdlib). Node_modules only if added later.
+# ==========================================================================
+htg/node_modules/
+
+# ==========================================================================
+# Keep .gitkeep files
+# ==========================================================================
 !.gitkeep
-.DS_Store

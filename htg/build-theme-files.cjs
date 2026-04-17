@@ -25,8 +25,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const THEME_DIR = path.resolve(__dirname, '..');
-const SRC_DIR = path.join(THEME_DIR, 'src');
+const THEME_DIR = path.resolve(__dirname, '../wordpress/wp-content/themes/concrete-child');
+const SRC_DIR = path.resolve(__dirname, 'src');
 const BLOCKS_OUT_DIR = resolveOutputDir();
 const BUILD_SCOPE = resolveBuildScope();
 

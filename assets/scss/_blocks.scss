@@ -3,7 +3,7 @@
  * Styles for wp:query, wp:post-template and FSE layout
  */
 
-@import 'variables';
+@use 'variables' as *;
 
 // ================================================================
 // SITE EDITOR OVERRIDES
@@ -101,6 +101,29 @@
 // Template part wrappers
 .wp-block-template-part {
   margin: 0 !important;
+}
+
+// ================================================================
+// Reset WP's default .is-layout-flow top margin for our custom
+// flex containers (wp:group wrappers around tight, inline-ish layouts).
+// Without this, WP adds `margin-block-start: 24px` to each child,
+// throwing off vertical alignment (e.g. EN lower than VI in the
+// language switcher, or the logo anchor pushed past the header's
+// fixed height).
+// ================================================================
+.wp-block-group.logo,
+.wp-block-group.language-switcher,
+.wp-block-group.mobile-lang-switcher,
+.wp-block-group.footer-logo,
+.wp-block-group.footer-social,
+.wp-block-group.footer-bottom-links,
+.wp-block-group.contact-item,
+.wp-block-group.office-city,
+.wp-block-group.office-address {
+  > * {
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+  }
 }
 
 // Alignfull blocks need full width

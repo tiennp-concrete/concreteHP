@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 
-const THEME_DIR = path.resolve(__dirname, '..');
-const SRC_TEMPLATES = path.join(THEME_DIR, 'src', 'templates');
-const SRC_PARTS = path.join(THEME_DIR, 'src', 'parts');
-const BUILD_SCRIPT = path.join(__dirname, 'html-to-blocks.js');
+const THEME_DIR = path.resolve(__dirname, '../wordpress/wp-content/themes/concrete-child');
+const SRC_TEMPLATES = path.resolve(__dirname, 'src', 'templates');
+const SRC_PARTS = path.resolve(__dirname, 'src', 'parts');
+const BUILD_SCRIPT = path.join(__dirname, 'build-theme-files.cjs');
 const WATCH_PARTS_ONLY = process.argv.includes('--parts-only') || process.env.WATCH_PARTS_ONLY === '1';
 
 let buildRunning = false;
@@ -21,7 +21,7 @@ function runBuild() {
   }
 
   buildRunning = true;
-  console.log('\n[watch-blocks] Building templates...');
+  console.log('\n[watch-theme-files] Building templates...');
 
   const buildArgs = [BUILD_SCRIPT];
   if (WATCH_PARTS_ONLY) buildArgs.push('--only', 'parts');
@@ -35,9 +35,9 @@ function runBuild() {
     buildRunning = false;
 
     if (code === 0) {
-      console.log('[watch-blocks] Build completed.');
+      console.log('[watch-theme-files] Build completed.');
     } else {
-      console.error('[watch-blocks] Build failed with exit code:', code);
+      console.error('[watch-theme-files] Build failed with exit code:', code);
     }
 
     if (buildQueued) {
@@ -57,20 +57,20 @@ function watchDir(dirPath) {
 
   fs.watch(dirPath, { recursive: true }, (eventType, filename) => {
     if (!filename || !filename.endsWith('.html')) return;
-    console.log('[watch-blocks] Change detected:', path.join(path.basename(dirPath), filename));
+    console.log('[watch-theme-files] Change detected:', path.join(path.basename(dirPath), filename));
     scheduleBuild();
   });
 }
 
-console.log('[watch-blocks] Watching HTML source files...');
+console.log('[watch-theme-files] Watching HTML source files...');
 if (WATCH_PARTS_ONLY) {
-  console.log('[watch-blocks] Mode: parts-only');
-  console.log('[watch-blocks] -', SRC_PARTS);
+  console.log('[watch-theme-files] Mode: parts-only');
+  console.log('[watch-theme-files] -', SRC_PARTS);
   watchDir(SRC_PARTS);
 } else {
-  console.log('[watch-blocks] Mode: full (templates + parts)');
-  console.log('[watch-blocks] -', SRC_TEMPLATES);
-  console.log('[watch-blocks] -', SRC_PARTS);
+  console.log('[watch-theme-files] Mode: full (templates + parts)');
+  console.log('[watch-theme-files] -', SRC_TEMPLATES);
+  console.log('[watch-theme-files] -', SRC_PARTS);
   watchDir(SRC_TEMPLATES);
   watchDir(SRC_PARTS);
 }

@@ -17,7 +17,8 @@ try {
 const themeName = process.env.THEME_NAME || 'concrete-child';
 
 const paths = {
-  scss: `./wordpress/wp-content/themes/${themeName}/assets/scss/**/*.scss`,
+  scss: './assets/scss/**/*.scss',
+  scssEntry: './assets/scss/main.scss',
   css: `./wordpress/wp-content/themes/${themeName}/assets/css/`,
 };
 
@@ -26,7 +27,7 @@ const paths = {
  */
 function compileSass() {
   return gulp
-    .src(paths.scss)
+    .src(paths.scssEntry)
     .pipe(plumber({
       errorHandler: notify.onError({
         title: 'SCSS Compilation Error',

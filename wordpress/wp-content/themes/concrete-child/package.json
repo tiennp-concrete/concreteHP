@@ -1,19 +1,5 @@
 {
     "name": "concrete-child",
     "version": "2.0.0",
-    "description": "Concrete HP Child Theme - Sun* Asterisk style",
-    "scripts": {
-        "build:blocks": "node scripts/html-to-blocks.js",
-        "build:blocks:builddir": "node scripts/html-to-blocks.js --out-dir build",
-        "build:parts": "node scripts/html-to-blocks.js --only parts",
-        "watch:blocks": "node scripts/watch-blocks.js",
-        "watch:blocks:builddir": "BLOCKS_OUT_DIR=build node scripts/watch-blocks.js",
-        "watch:parts": "node scripts/watch-blocks.js --parts-only",
-        "watch:parts:builddir": "BLOCKS_OUT_DIR=build WATCH_PARTS_ONLY=1 node scripts/watch-blocks.js",
-        "build:scss": "sass assets/scss/main.scss assets/css/main.css --style expanded",
-        "build": "npm run build:blocks && npm run build:scss",
-        "watch:scss": "sass assets/scss/main.scss assets/css/main.css --style expanded --watch",
-        "dev": "npm run watch:blocks"
-    },
     "private": true
 }
