@@ -1,0 +1,23 @@
+/**
+ * Scroll-reveal animations — uses animate.css v4 keyframes.
+ *
+ * Markup:
+ *   <div class="zh-animated" data-animation="fadeInUp" data-animation-delay="200">
+ *
+ * JS (theme.js) adds `animate__animated animate__<name>` when the element
+ * enters the viewport. Elements stay hidden until then via `visibility`.
+ */
+
+.zh-animated {
+    visibility: hidden;
+}
+
+.zh-animated.animate__animated {
+    visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .zh-animated {
+        visibility: visible !important;
+    }
+}

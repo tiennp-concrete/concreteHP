@@ -2,55 +2,51 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "concrete/header",
-  "title": "Concrete Header",
+  "title": "Header",
   "category": "theme",
   "textdomain": "header",
   "version": "0.3.0",
-  "description": "Legacy site header with primary nav, language switcher and mobile menu.",
+  "description": "Sticky marketing header with logo + nav + CTA.",
   "attributes": {
     "align": {
       "type": "string",
       "default": "full"
     },
-    "logoMark": {
+    "logoUrl": {
       "type": "string",
-      "default": "Concrete<span class=\"logo-star\">HP</span>"
+      "default": "/wp-content/themes/concrete-child/assets/images/zahar-logo-2.png"
     },
-    "logoSubtitle": {
+    "brand": {
       "type": "string",
-      "default": "ConcreteHP"
+      "default": "Concrete"
     },
-    "menuBusiness": {
+    "navHome": {
       "type": "string",
-      "default": "Business"
+      "default": "Home"
     },
-    "menuProjects": {
+    "navAbout": {
+      "type": "string",
+      "default": "About Us"
+    },
+    "navProjects": {
       "type": "string",
       "default": "Projects"
     },
-    "menuEnvironment": {
+    "navTeam": {
       "type": "string",
-      "default": "Environment"
+      "default": "Team"
     },
-    "menuNews": {
+    "navNews": {
       "type": "string",
-      "default": "Culture & Events"
+      "default": "News"
     },
-    "menuCareers": {
+    "navContact": {
       "type": "string",
-      "default": "Careers"
-    },
-    "langVi": {
-      "type": "string",
-      "default": "VI"
-    },
-    "langEn": {
-      "type": "string",
-      "default": "EN"
+      "default": "Contact"
     },
     "ctaText": {
       "type": "string",
-      "default": "Join Us"
+      "default": "Start a project"
     }
   },
   "supports": {
@@ -61,5 +57,6 @@
   },
   "editorScript": "file:./index.js",
   "render": "file:./render.php",
+  "viewScript": "file:./view.js",
   "example": {}
 }

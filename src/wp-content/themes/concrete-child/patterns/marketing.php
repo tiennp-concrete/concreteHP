@@ -8,13 +8,12 @@
  * Block Types: core/post-content
  */
 ?>
-<!-- wp:concrete/marketing-header /-->
+<!-- wp:concrete/header /-->
 
 <!-- wp:concrete/marketing-hero /-->
 
-<!-- wp:concrete/brand-slider /-->
-
 <!-- wp:concrete/services-grid /-->
+<!-- wp:concrete/brand-slider /-->
 
 <!-- wp:concrete/team /-->
 
@@ -28,4 +27,4 @@
 
 <!-- wp:concrete/contact-cta /-->
 
-<!-- wp:concrete/marketing-footer /-->
+<!-- wp:concrete/footer /-->

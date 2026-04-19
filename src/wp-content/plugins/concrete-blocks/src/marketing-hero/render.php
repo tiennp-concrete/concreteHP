@@ -10,11 +10,11 @@ $shapes = is_array($attributes['shapes'] ?? null) ? $attributes['shapes'] : [];
 
   <div class="zh-container zh-hero-grid">
     <div class="zh-hero-text">
-      <p class="zh-eyebrow"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-      <h1 class="zh-hero-title"><?php echo wp_kses_post($attributes['title'] ?? ''); ?></h1>
-      <h2 class="zh-hero-title-sub"><?php echo wp_kses_post($attributes['titleSub'] ?? ''); ?></h2>
-      <p class="zh-hero-sub"><?php echo wp_kses_post($attributes['subtitle'] ?? ''); ?></p>
-      <div class="zh-hero-ctas">
+      <p class="zh-eyebrow zh-animated" data-animation="fadeInUp"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
+      <h1 class="zh-hero-title zh-animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($attributes['title'] ?? ''); ?></h1>
+      <h2 class="zh-hero-title-sub zh-animated" data-animation="fadeInUp" data-animation-delay="300"><?php echo wp_kses_post($attributes['titleSub'] ?? ''); ?></h2>
+      <p class="zh-hero-sub zh-animated" data-animation="fadeInUp" data-animation-delay="400"><?php echo wp_kses_post($attributes['subtitle'] ?? ''); ?></p>
+      <div class="zh-hero-ctas zh-animated" data-animation="fadeInRight" data-animation-delay="600">
         <a class="zh-btn zh-btn-primary" href="#contact"><?php echo wp_kses_post($attributes['primaryCta'] ?? ''); ?></a>
         <a class="zh-hero-video" href="<?php echo esc_url($attributes['videoUrl'] ?? '#'); ?>" target="_blank" rel="noopener">
           <span class="zh-play-icon">

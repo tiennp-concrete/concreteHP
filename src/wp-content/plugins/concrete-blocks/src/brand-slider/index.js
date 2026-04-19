@@ -59,11 +59,6 @@ function Edit({ attributes, setAttributes }) {
 
       <section {...useBlockProps({ className: 'zh-brands' })}>
         <div className="zh-container">
-          <p style={{ fontSize: 12, color: '#666', margin: '0 0 8px', textAlign: 'center' }}>
-            Showing {logos.length === 0 ? 0 : clampedSlide + 1}
-            –{Math.min(clampedSlide + PER_VIEW, logos.length)} of {logos.length}
-            {' · '}use the toolbar arrows above to scroll
-          </p>
 
           <div className="zh-brands-viewport">
             <div
@@ -130,17 +125,18 @@ function Edit({ attributes, setAttributes }) {
                       />
                     </MediaUploadCheck>
 
-                    <Button
+                    <button
+                      type="button"
                       onClick={() => insertAfter(i)}
                       title="Add logo after this"
                       style={{
                         position: 'absolute',
-                        top: -8,
-                        left: -8,
-                        minWidth: 22,
+                        top: -10,
+                        left: -10,
                         width: 22,
                         height: 22,
                         padding: 0,
+                        margin: 0,
                         borderRadius: '50%',
                         background: '#17cfbd',
                         color: '#fff',
@@ -149,34 +145,45 @@ function Edit({ attributes, setAttributes }) {
                         lineHeight: 1,
                         border: '2px solid #fff',
                         boxShadow: '0 1px 3px rgba(0,0,0,.25)',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxSizing: 'border-box',
                       }}
                     >
                       +
-                    </Button>
+                    </button>
 
-                    <Button
+                    <button
+                      type="button"
                       onClick={() => deleteLogo(i)}
-                      isDestructive
                       title="Delete logo"
                       style={{
                         position: 'absolute',
-                        top: -8,
-                        right: -8,
-                        minWidth: 22,
+                        top: -10,
+                        right: -10,
                         width: 22,
                         height: 22,
                         padding: 0,
+                        margin: 0,
                         borderRadius: '50%',
                         background: '#d63638',
                         color: '#fff',
                         fontSize: 14,
+                        fontWeight: 700,
                         lineHeight: 1,
                         border: '2px solid #fff',
                         boxShadow: '0 1px 3px rgba(0,0,0,.25)',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxSizing: 'border-box',
                       }}
                     >
                       ×
-                    </Button>
+                    </button>
                   </div>
                 );
               })}

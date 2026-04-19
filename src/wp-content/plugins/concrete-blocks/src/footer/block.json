@@ -2,100 +2,103 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "concrete/footer",
-  "title": "Concrete Footer",
+  "title": "Footer",
   "category": "theme",
   "textdomain": "footer",
   "version": "0.3.0",
-  "description": "Legacy site footer with brand + 2 link cols + offices + copyright bar.",
+  "description": "4-column footer with brand, link groups and newsletter form.",
   "attributes": {
     "align": {
       "type": "string",
       "default": "full"
     },
-    "brandLogo": {
+    "logoUrl": {
       "type": "string",
-      "default": "ConcreteHP"
+      "default": "/wp-content/themes/concrete-child/assets/images/zahar-logo-2.png"
     },
-    "brandDescription": {
+    "brand": {
       "type": "string",
-      "default": "We create awesome things that matter through technology and creativity."
+      "default": "Concrete"
     },
-    "servicesHeading": {
+    "tagline": {
       "type": "string",
-      "default": "Services"
+      "default": "We help businesses maximize their online presence with a personalized approach to digital marketing."
     },
-    "companyHeading": {
+    "colCompanyHeading": {
       "type": "string",
       "default": "Company"
     },
-    "officesHeading": {
+    "colResourcesHeading": {
       "type": "string",
-      "default": "Our Offices"
+      "default": "Resources"
+    },
+    "newsletterHeading": {
+      "type": "string",
+      "default": "Newsletters"
+    },
+    "newsletterText": {
+      "type": "string",
+      "default": "Subscribe our newsletters to get update and more"
+    },
+    "phone": {
+      "type": "string",
+      "default": "(+84) 0123 4567 8"
+    },
+    "email": {
+      "type": "string",
+      "default": "hello@zahar.com"
     },
     "copyright": {
       "type": "string",
-      "default": "© 2026 ConcreteHP. All rights reserved."
+      "default": "Copyright © 2026 Zahar. All Rights Reserved."
     },
-    "privacyLink": {
-      "type": "string",
-      "default": "Privacy Policy"
-    },
-    "termsLink": {
-      "type": "string",
-      "default": "Terms of Use"
-    },
-    "services": {
+    "companyItems": {
       "type": "array",
       "default": [
         {
-          "text": "Creative & Engineering",
+          "text": "About",
           "url": "#"
         },
         {
-          "text": "Talent Platform",
+          "text": "Project",
           "url": "#"
         },
         {
-          "text": "Our Projects",
+          "text": "Services",
+          "url": "#"
+        },
+        {
+          "text": "Blog",
+          "url": "#"
+        },
+        {
+          "text": "Contact",
           "url": "#"
         }
       ]
     },
-    "company": {
+    "resourcesItems": {
       "type": "array",
       "default": [
         {
-          "text": "About Us",
-          "url": "/about"
-        },
-        {
-          "text": "Careers",
-          "url": "/careers"
-        },
-        {
-          "text": "Work Environment",
+          "text": "Support",
           "url": "#"
         },
         {
-          "text": "News",
+          "text": "Documentation",
           "url": "#"
-        }
-      ]
-    },
-    "offices": {
-      "type": "array",
-      "default": [
-        {
-          "city": "Ha Noi",
-          "address": "Keangnam Landmark, Ha Noi, Vietnam"
         },
         {
-          "city": "Da Nang",
-          "address": "Da Nang, Vietnam"
+          "text": "Community",
+          "url": "#"
         },
         {
-          "city": "Tokyo",
-          "address": "Tokyo, Japan"
+          "text": "Reports",
+          "url": "#"
+        },
+        {
+          "text": "Recruitment",
+          "url": "#"
         }
       ]
     }

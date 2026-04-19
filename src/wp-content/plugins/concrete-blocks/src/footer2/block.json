@@ -1,0 +1,112 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/footer2",
+  "title": "Concrete Footer",
+  "category": "theme",
+  "textdomain": "footer2",
+  "version": "0.3.0",
+  "description": "Legacy site footer with brand + 2 link cols + offices + copyright bar.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "brandLogo": {
+      "type": "string",
+      "default": "ConcreteHP"
+    },
+    "brandDescription": {
+      "type": "string",
+      "default": "We create awesome things that matter through technology and creativity."
+    },
+    "servicesHeading": {
+      "type": "string",
+      "default": "Services"
+    },
+    "companyHeading": {
+      "type": "string",
+      "default": "Company"
+    },
+    "officesHeading": {
+      "type": "string",
+      "default": "Our Offices"
+    },
+    "copyright": {
+      "type": "string",
+      "default": "© 2026 ConcreteHP. All rights reserved."
+    },
+    "privacyLink": {
+      "type": "string",
+      "default": "Privacy Policy"
+    },
+    "termsLink": {
+      "type": "string",
+      "default": "Terms of Use"
+    },
+    "services": {
+      "type": "array",
+      "default": [
+        {
+          "text": "Creative & Engineering",
+          "url": "#"
+        },
+        {
+          "text": "Talent Platform",
+          "url": "#"
+        },
+        {
+          "text": "Our Projects",
+          "url": "#"
+        }
+      ]
+    },
+    "company": {
+      "type": "array",
+      "default": [
+        {
+          "text": "About Us",
+          "url": "/about"
+        },
+        {
+          "text": "Careers",
+          "url": "/careers"
+        },
+        {
+          "text": "Work Environment",
+          "url": "#"
+        },
+        {
+          "text": "News",
+          "url": "#"
+        }
+      ]
+    },
+    "offices": {
+      "type": "array",
+      "default": [
+        {
+          "city": "Ha Noi",
+          "address": "Keangnam Landmark, Ha Noi, Vietnam"
+        },
+        {
+          "city": "Da Nang",
+          "address": "Da Nang, Vietnam"
+        },
+        {
+          "city": "Tokyo",
+          "address": "Tokyo, Japan"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "full"
+    ]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "example": {}
+}

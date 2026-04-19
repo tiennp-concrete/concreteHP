@@ -2,7 +2,9 @@ import { registerBlockType } from '@wordpress/blocks';
 import {
   useBlockProps,
   RichText,
+  InspectorControls,
 } from '@wordpress/block-editor';
+import { PanelBody, TextControl } from '@wordpress/components';
 
 import metadata from './block.json';
 
@@ -10,42 +12,71 @@ function Edit({ attributes, setAttributes }) {
   const set = (field) => (v) => setAttributes({ [field]: v });
 
   return (
-    <div {...useBlockProps({ className: 'site-header-wrap' })}>
-      <header className="site-header bg-transparent">
-        <nav className="main-navigation">
-          <div className="nav-container">
-            <div className="logo">
-              <span className="site-title">
-                <RichText
-                  tagName="span"
-                  className="logo-mark"
-                  value={attributes.logoMark}
-                  onChange={set('logoMark')}
-                  placeholder="Logo mark"
-                />
-                <RichText
-                  tagName="span"
-                  className="logo-subtitle"
-                  value={attributes.logoSubtitle}
-                  onChange={set('logoSubtitle')}
-                  placeholder="Subtitle"
-                />
-              </span>
+    <>
+      <InspectorControls>
+        <PanelBody title="Logo" initialOpen>
+          <TextControl
+            label="Logo image URL"
+            value={attributes.logoUrl}
+            onChange={set('logoUrl')}
+          />
+          <TextControl
+            label="Brand alt text"
+            value={attributes.brand}
+            onChange={set('brand')}
+          />
+        </PanelBody>
+      </InspectorControls>
+
+      <header {...useBlockProps({ className: 'zh-header' })}>
+        <div className="zh-header-inner">
+          <a className="zh-logo" href="/" onClick={(e) => e.preventDefault()}>
+            {attributes.logoUrl ? (
+              <img src={attributes.logoUrl} alt={attributes.brand} />
+            ) : (
+              <span className="zh-logo-text">{attributes.brand}</span>
+            )}
+          </a>
+
+          <button type="button" className="zh-mobile-toggle" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div className="zh-header-menu">
+            <div className="zh-drawer-head">
+              <a className="zh-drawer-logo" href="/" onClick={(e) => e.preventDefault()}>
+                {attributes.logoUrl ? (
+                  <img src={attributes.logoUrl} alt={attributes.brand} />
+                ) : (
+                  <span className="zh-logo-text">{attributes.brand}</span>
+                )}
+              </a>
+              <button type="button" className="zh-drawer-close" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+              </button>
             </div>
-            <div className="nav-right">
-              <ul id="primary-menu">
-                <li><RichText tagName="a" value={attributes.menuBusiness}    onChange={set('menuBusiness')}    placeholder="Business" /></li>
-                <li><RichText tagName="a" value={attributes.menuProjects}    onChange={set('menuProjects')}    placeholder="Projects" /></li>
-                <li><RichText tagName="a" value={attributes.menuEnvironment} onChange={set('menuEnvironment')} placeholder="Environment" /></li>
-                <li><RichText tagName="a" value={attributes.menuNews}        onChange={set('menuNews')}        placeholder="News" /></li>
-                <li><RichText tagName="a" value={attributes.menuCareers}     onChange={set('menuCareers')}     placeholder="Careers" /></li>
+
+            <nav className="zh-nav">
+              <ul>
+                <li><RichText tagName="a" value={attributes.navHome}    onChange={set('navHome')}    placeholder="Home" /></li>
+                <li><RichText tagName="a" value={attributes.navAbout}   onChange={set('navAbout')}   placeholder="About" /></li>
+                {/* <li className="zh-has-submenu">
+                  <RichText tagName="a" value={attributes.navProjects} onChange={set('navProjects')} placeholder="Projects" />
+                  <ul className="zh-submenu">
+                    <li><a>Branding</a></li>
+                    <li><a>Development</a></li>
+                    <li><a>UI Design</a></li>
+                    <li><a>Web Design</a></li>
+                  </ul>
+                </li> */}
+                <li><RichText tagName="a" value={attributes.navTeam}    onChange={set('navTeam')}    placeholder="Team" /></li>
+                <li><RichText tagName="a" value={attributes.navNews}    onChange={set('navNews')}    placeholder="News" /></li>
+                <li><RichText tagName="a" value={attributes.navContact} onChange={set('navContact')} placeholder="Contact" /></li>
               </ul>
-              <div className="language-switcher">
-                <RichText tagName="a" className="active" value={attributes.langVi} onChange={set('langVi')} placeholder="VI" />
-                <span className="separator">|</span>
-                <RichText tagName="a" value={attributes.langEn} onChange={set('langEn')} placeholder="EN" />
-              </div>
-              <span className="header-action">
+            </nav>
+
+            <div className="zh-header-cta">
+              <span className="zh-btn zh-btn-outline">
                 <RichText
                   tagName="span"
                   value={attributes.ctaText}
@@ -55,9 +86,11 @@ function Edit({ attributes, setAttributes }) {
               </span>
             </div>
           </div>
-        </nav>
+        </div>
+
+        <div className="zh-header-overlay"></div>
       </header>
-    </div>
+    </>
   );
 }
 

@@ -1,48 +1,51 @@
-<div <?php echo get_block_wrapper_attributes(['class' => 'site-header-wrap']); ?>>
-  <header class="site-header bg-transparent" id="site-header">
-    <nav class="main-navigation">
-      <div class="nav-container">
-        <div class="logo">
-          <a href="/" class="site-title" aria-label="ConcreteHP homepage">
-            <span class="logo-mark"><?php echo wp_kses_post($attributes['logoMark'] ?? ''); ?></span>
-            <span class="logo-subtitle"><?php echo wp_kses_post($attributes['logoSubtitle'] ?? ''); ?></span>
-          </a>
-        </div>
-        <div class="nav-right">
-          <ul id="primary-menu">
-            <li><a href="/#business"><?php echo wp_kses_post($attributes['menuBusiness'] ?? ''); ?></a></li>
-            <li><a href="/#projects"><?php echo wp_kses_post($attributes['menuProjects'] ?? ''); ?></a></li>
-            <li><a href="/#environment"><?php echo wp_kses_post($attributes['menuEnvironment'] ?? ''); ?></a></li>
-            <li><a href="/#news"><?php echo wp_kses_post($attributes['menuNews'] ?? ''); ?></a></li>
-            <li><a href="/careers"><?php echo wp_kses_post($attributes['menuCareers'] ?? ''); ?></a></li>
-          </ul>
-          <div class="language-switcher">
-            <a href="/" class="active"><?php echo wp_kses_post($attributes['langVi'] ?? ''); ?></a>
-            <span class="separator">|</span>
-            <a href="/en/"><?php echo wp_kses_post($attributes['langEn'] ?? ''); ?></a>
-          </div>
-          <a class="header-action" href="/careers"><?php echo wp_kses_post($attributes['ctaText'] ?? ''); ?></a>
-          <button class="menu-toggle" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+<?php
+$logo_url = $attributes['logoUrl'] ?? '';
+$brand    = $attributes['brand'] ?? 'Concrete';
+
+$logo_markup = !empty($logo_url)
+  ? '<img src="' . esc_url($logo_url) . '" alt="' . esc_attr($brand) . '" />'
+  : '<span class="zh-logo-text">' . esc_html($brand) . '</span>';
+?>
+<header <?php echo get_block_wrapper_attributes(['class' => 'zh-header']); ?> data-zh-header>
+  <div class="zh-header-inner">
+    <a class="zh-logo" href="/"><?php echo $logo_markup; ?></a>
+
+    <button type="button" class="zh-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="zh-header-menu">
+      <div class="zh-drawer-head">
+        <a class="zh-drawer-logo" href="/"><?php echo $logo_markup; ?></a>
+        <button type="button" class="zh-drawer-close" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
       </div>
-    </nav>
-  </header>
-  <section class="mobile-menu-overlay" id="mobile-menu">
-    <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
-    <ul>
-      <li><a href="/#business"><?php echo wp_kses_post($attributes['menuBusiness'] ?? ''); ?></a></li>
-      <li><a href="/#projects"><?php echo wp_kses_post($attributes['menuProjects'] ?? ''); ?></a></li>
-      <li><a href="/#environment"><?php echo wp_kses_post($attributes['menuEnvironment'] ?? ''); ?></a></li>
-      <li><a href="/#news"><?php echo wp_kses_post($attributes['menuNews'] ?? ''); ?></a></li>
-      <li><a href="/careers"><?php echo wp_kses_post($attributes['menuCareers'] ?? ''); ?></a></li>
-    </ul>
-    <div class="mobile-lang-switcher">
-      <a href="/" class="active"><?php echo wp_kses_post($attributes['langVi'] ?? ''); ?></a>
-      <a href="/en/"><?php echo wp_kses_post($attributes['langEn'] ?? ''); ?></a>
+
+      <nav class="zh-nav">
+        <ul>
+          <li><a href="#home"><?php echo wp_kses_post($attributes['navHome'] ?? ''); ?></a></li>
+          <li><a href="#about"><?php echo wp_kses_post($attributes['navAbout'] ?? ''); ?></a></li>
+          <!-- <li class="zh-has-submenu">
+            <a href="#projects"><?php #echo wp_kses_post($attributes['navProjects'] ?? ''); ?></a>
+            <ul class="zh-submenu">
+              <li><a href="#projects-branding">Branding</a></li>
+              <li><a href="#projects-development">Development</a></li>
+              <li><a href="#projects-ui">UI Design</a></li>
+              <li><a href="#projects-web">Web Design</a></li>
+            </ul>
+          </li> -->
+          <li><a href="#team"><?php echo wp_kses_post($attributes['navTeam'] ?? ''); ?></a></li>
+          <li><a href="#news"><?php echo wp_kses_post($attributes['navNews'] ?? ''); ?></a></li>
+          <li><a href="#contact"><?php echo wp_kses_post($attributes['navContact'] ?? ''); ?></a></li>
+        </ul>
+      </nav>
+
+      <div class="zh-header-cta">
+        <a class="zh-btn zh-btn-outline" href="#contact"><?php echo wp_kses_post($attributes['ctaText'] ?? ''); ?></a>
+      </div>
     </div>
-  </section>
-</div>
+  </div>
+
+  <div class="zh-header-overlay" data-zh-drawer-close></div>
+</header>

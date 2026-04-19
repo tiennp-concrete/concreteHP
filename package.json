@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "install:all": "npm install && npm --prefix src/wp-content/plugins/concrete-blocks install",
-    "build:scss": "sass src/wp-content/themes/concrete-child/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded --source-map",
-    "watch:scss": "sass src/wp-content/themes/concrete-child/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded --source-map --watch",
+    "build:scss": "sass src/wp-content/themes/concrete-child/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded --source-map --load-path=node_modules",
+    "watch:scss": "sass src/wp-content/themes/concrete-child/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded --source-map --watch --load-path=node_modules",
     "build:blocks": "cd src/wp-content/plugins/concrete-blocks && npm run build",
     "watch:blocks": "cd src/wp-content/plugins/concrete-blocks && npm run start",
     "build": "concurrently -n scss,blocks -c cyan,magenta \"npm:build:scss\" \"npm:build:blocks\"",
@@ -20,5 +20,8 @@
     "browser-sync": "^3.0.4",
     "concurrently": "^9.2.1",
     "sass": "^1.62.1"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1"
   }
 }

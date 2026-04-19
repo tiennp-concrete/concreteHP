@@ -387,7 +387,7 @@ Import từ `@wordpress/block-editor`:
 | Toolbar button (chuyển slide) | [testimonial](src/testimonial/), [pricing](src/pricing/), [blog-grid](src/blog-grid/) |
 | Sidebar panel nhiều controls | mọi block |
 | Click vào item để chỉnh riêng | [portfolio](src/portfolio/), [services-grid](src/services-grid/) |
-| Tương tác frontend (`view.js`) | [testimonial](src/testimonial/), [brand-slider](src/brand-slider/), [marketing-header](src/marketing-header/) |
+| Tương tác frontend (`view.js`) | [testimonial](src/testimonial/), [brand-slider](src/brand-slider/), [header](src/header/) |
 
 ---
 

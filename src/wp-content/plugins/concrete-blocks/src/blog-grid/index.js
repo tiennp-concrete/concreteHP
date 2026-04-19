@@ -12,11 +12,9 @@ import {
   PanelBody,
   TextControl,
 } from '@wordpress/components';
+import { chevronLeft, chevronRight } from '@wordpress/icons';
 
 import metadata from './block.json';
-
-const chevronLeft  = <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z" /></svg>;
-const chevronRight = <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M10 6 8.6 7.4l4.6 4.6-4.6 4.6L10 18l6-6z" /></svg>;
 
 const PER_VIEW = 3;
 

@@ -3,15 +3,13 @@
  * Loads all partial files in correct order
  */
 
-// Base Styles
-@use 'base';
+// Vendor: animate.css keyframes + .animate__* classes
+@use 'animate.css/animate.min.css';
 
-// Components
+// Base
+@use 'base';
 @use 'navigation';
-@use 'hero';
-@use 'sections';
-@use 'culture-team';
-@use 'footer';
+@use 'animations';
 
 // WordPress Block Theme overrides
 @use 'blocks';
