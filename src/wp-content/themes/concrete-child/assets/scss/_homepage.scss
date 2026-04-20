@@ -1,11 +1,11 @@
 // =====================================================================
-// Zahar-style marketing page — entry point.
+// Zahar-style homepage page — entry point.
 //
-// Each block on the homepage has its own partial in ./marketing/.
+// Each block on the homepage has its own partial in ./homepage/.
 // File order matches the block order in templates/index.html so you can
 // read the stack top-to-bottom.
 //
-// scss/marketing/
+// scss/homepage/
 //   _tokens.scss       — colours, radii, font stack, keyframes, @font-face
 //   _base.scss         — page wrapper, container, eyebrow, buttons, shapes
 //   _header.scss       — header (desktop nav + mobile drawer)
@@ -22,17 +22,17 @@
 //   _responsive.scss   — cross-block breakpoint collapsing (≤ 1024, ≤ 640)
 // =====================================================================
 
-@use 'marketing/tokens';
-@use 'marketing/base';
-@use 'marketing/header';
-@use 'marketing/hero';
-@use 'marketing/brands';
-@use 'marketing/services';
-@use 'marketing/team';
-@use 'marketing/portfolio';
-@use 'marketing/pricing';
-@use 'marketing/testimonial';
-@use 'marketing/blog';
-@use 'marketing/contact';
-@use 'marketing/footer';
-@use 'marketing/responsive';
+@use 'homepage/variables';
+@use 'homepage/base';
+@use 'homepage/header';
+@use 'homepage/hero';
+@use 'homepage/brands';
+@use 'homepage/services';
+@use 'homepage/team';
+@use 'homepage/portfolio';
+@use 'homepage/pricing';
+@use 'homepage/testimonial';
+@use 'homepage/blog';
+@use 'homepage/contact';
+@use 'homepage/footer';
+@use 'homepage/responsive';

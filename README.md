@@ -39,8 +39,8 @@ src/wp-content/
 └── themes/concrete-child/
     ├── assets/
     │   ├── scss/
-    │   │   ├── _marketing.scss     ← entry: @use each partial below
-    │   │   └── marketing/          ← one partial per homepage block
+    │   │   ├── _homepage.scss     ← entry: @use each partial below
+    │   │   └── homepage/          ← one partial per homepage block
     │   │       ├── _tokens.scss    — colours, font-face, keyframes
     │   │       ├── _base.scss      — wrapper, container, buttons, shapes
     │   │       ├── _header.scss    ·  _hero.scss       ·  _brands.scss
@@ -51,7 +51,7 @@ src/wp-content/
     │   └── css/ · fonts/ · images/
     ├── templates/            ← index.html · single.html
     ├── parts/                ← header.html · footer.html
-    └── patterns/marketing.php
+    └── patterns/homepage.php
 ```
 
 3 pipelines, each independent: **Docker** (WP), **SCSS** (`sass` at root), **Blocks** (`@wordpress/scripts` inside the plugin).
