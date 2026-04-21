@@ -7,7 +7,7 @@
   position: relative;
   padding: 120px 0;
   overflow: hidden;
-  background: $zh-bg;
+  background: $color-bg;
 }
 
 .zh-contact-grid {
@@ -40,8 +40,8 @@
   z-index: 2;
   background: #fff;
   padding: 32px;
-  border-radius: $zh-radius-lg;
-  box-shadow: $zh-shadow-lg;
+  border-radius: $color-radius-lg;
+  box-shadow: $color-shadow-lg;
   max-width: 440px;
 
   input[type='text'],
@@ -51,26 +51,26 @@
     width: 100%;
     box-sizing: border-box;
     padding: 14px 20px;
-    border-radius: $zh-radius-pill;
-    border: 1px solid $zh-border;
+    border-radius: $color-radius-pill;
+    border: 1px solid $color-border;
     background: transparent;
     font-size: 15px;
-    font-family: $zh-font;
+    font-family: $font-body;
     margin-bottom: 12px;
-    color: $zh-heading;
+    color: $color-heading;
 
     &:focus {
       outline: none;
-      border-color: $zh-primary;
+      border-color: $color-primary;
     }
 
-    &::placeholder { color: $zh-muted; }
+    &::placeholder { color: $color-muted; }
   }
 
   textarea {
     min-height: 140px;
     resize: vertical;
-    border-radius: $zh-radius-lg;
+    border-radius: $color-radius-lg;
   }
 
   .zh-btn {
@@ -82,7 +82,7 @@
 
 .zh-contact-text {
   .zh-section-title { margin-bottom: 4px; }
-  p { color: $zh-muted; margin: 0 0 24px; }
+  p { color: $color-muted; margin: 0 0 24px; }
 
   .zh-contact-decor-inline {
     width: 200px;
@@ -92,7 +92,7 @@
 
 .zh-contact-phone-label {
   font-size: 14px;
-  color: $zh-muted;
+  color: $color-muted;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin: 32px 0 8px;
@@ -105,13 +105,13 @@
   gap: 10px;
   font-size: 20px;
   font-weight: 700;
-  color: $zh-heading;
+  color: $color-heading;
   text-decoration: none;
 
   .zh-phone-icon {
-    color: $zh-primary;
+    color: $color-primary;
     font-size: 18px;
   }
 
-  &:hover { color: $zh-primary; }
+  &:hover { color: $color-primary; }
 }

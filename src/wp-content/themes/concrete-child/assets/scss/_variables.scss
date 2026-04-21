@@ -1,27 +1,71 @@
 // =====================================================================
-// Design tokens for the Zahar-style marketing page.
+// Design tokens for the style marketing page.
 // Imported by every block partial via `@use 'variables' as *;`.
 // =====================================================================
 
 // Colour palette
-$zh-bg:             #ffffff;
-$zh-surface:        #f8f9fc;
-$zh-text:           #232323;
-$zh-heading:        #232323;
-$zh-dark:           #242424;
-$zh-muted:          #808291;
-$zh-border:         #e8e8e8;
-$zh-primary:        #17cfbd;
-$zh-primary-dark:   #006666;
-$zh-primary-light:  #b9f1eb;
-$zh-accent:         #fd6f88;
+$color-bg: #ffffff;
+$color-surface: #f8f9fc;
+$color-text: #232323;
+$color-heading: #232325;
+$color-dark: #242424;
+$color-muted: #808291;
+$color-border: #e8e8e8;
+$color-primary: #8bce54;
+$color-primary-dark: #006666;
+$color-primary-light: #8ac265;
+$color-accent: #fd6f88;
 
 // Radii, container, shadows, font stack
-$zh-radius:         10px;
-$zh-radius-lg:      20px;
-$zh-radius-pill:    40px;
-$zh-container:      1200px;
-$zh-shadow-sm:      0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-$zh-shadow-md:      0 10px 10px rgba(0, 0, 0, 0.02);
-$zh-shadow-lg:      0 20px 40px rgba(0, 0, 0, 0.08);
-$zh-font:           'glacial indifference', system-ui, -apple-system, sans-serif;
+$color-radius: 10px;
+$color-radius-lg: 20px;
+$color-radius-pill: 40px;
+$color-container: 1200px;
+$color-shadow-sm:
+  0 1px 3px rgba(0, 0, 0, 0.06),
+  0 1px 2px rgba(0, 0, 0, 0.04);
+$color-shadow-md: 0 10px 10px rgba(0, 0, 0, 0.02);
+$color-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+$font-body:
+  "glacial indifference",
+  system-ui,
+  -apple-system,
+  sans-serif;
+
+// ── Breakpoints ───────────────────────────────────────────────────────
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1536px;
+
+// max-width (desktop → mobile)
+@mixin mq_down($bp) {
+  @media screen and (max-width: $bp) {
+    @content;
+  }
+}
+
+// min-width (mobile → desktop)
+@mixin mq_up($bp) {
+  @media screen and (min-width: #{ $bp + 1 }) {
+    @content;
+  }
+}
+
+// ── Font size helper ──────────────────────────────────────────────────
+@mixin fs($fontsize: 16, $lineheight: 24, $base: 16) {
+  font-size: #{$fontsize}px;
+  font-size: #{calc($fontsize / $base)}rem;
+  line-height: calc(#{$lineheight} / #{$fontsize});
+}
+
+// ── Cách dùng ─────────────────────────────────────────────────────────
+// .foo {
+//   @include mq_down($lg) { ... }  // ≤ 1024px
+//   @include mq_down($md) { ... }  // ≤ 768px
+//   @include mq_down($sm) { ... }  // ≤ 640px
+//
+//   @include mq_up($lg)   { ... }  // ≥ 1025px
+//   @include mq_up($xl)   { ... }  // ≥ 1281px
+// }

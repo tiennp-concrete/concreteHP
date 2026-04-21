@@ -5,7 +5,7 @@
 // =====================================================================
 .zh-testimonial {
   padding: 120px 0;
-  background: $zh-surface;
+  background: $color-surface;
   position: relative;
   overflow: hidden;
 }
@@ -54,7 +54,7 @@
 
 .zh-t-quote-icon {
   font-size: 48px;
-  color: $zh-primary;
+  color: $color-primary;
   line-height: 1;
   margin-bottom: 16px;
   font-family: Georgia, serif;
@@ -64,7 +64,7 @@
   font-size: clamp(18px, 1.6vw, 20px);
   font-weight: 400;
   line-height: 1.7;
-  color: $zh-muted;
+  color: $color-muted;
   margin: 0 0 32px;
   font-style: normal;
 }
@@ -84,12 +84,12 @@
   .zh-t-name {
     font-weight: 700;
     margin: 0 0 4px;
-    color: $zh-heading;
+    color: $color-heading;
     font-size: 18px;
   }
 
   .zh-t-role {
-    color: $zh-muted;
+    color: $color-muted;
     font-size: 14px;
     margin: 0;
     text-transform: uppercase;
@@ -108,8 +108,8 @@
   height: 48px;
   border-radius: 50%;
   background: #fff;
-  border: 1px solid $zh-border;
-  color: $zh-heading;
+  border: 1px solid $color-border;
+  color: $color-heading;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -118,8 +118,8 @@
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 
   &:hover {
-    background: $zh-primary;
+    background: $color-primary;
     color: #fff;
-    border-color: $zh-primary;
+    border-color: $color-primary;
   }
 }

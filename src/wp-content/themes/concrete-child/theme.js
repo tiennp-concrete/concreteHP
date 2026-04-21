@@ -8,7 +8,7 @@
  *   in _animations.scss.
  */
 document.addEventListener('DOMContentLoaded', function () {
-    var header = document.querySelector('.zh-header');
+    var header = document.querySelector('.header');
 
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    var animatedEls = document.querySelectorAll('.zh-animated');
+    var animatedEls = document.querySelectorAll('.animated');
     if (!animatedEls.length) return;
 
     function applyAnimation(el) {

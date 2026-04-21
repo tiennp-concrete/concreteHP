@@ -4,7 +4,7 @@
 // marketing-hero block — split title, CTA + video pill, floating shapes,
 // and a teal SVG backdrop pinned top-right.
 // =====================================================================
-.zh-hero {
+.hero {
   position: relative;
   padding: 250px 0 150px;
   overflow: hidden;
@@ -27,24 +27,24 @@
   }
 
   // Floating decorative shapes positioned inside the hero.
-  .zh-shape-float {
-    &.zh-s-1 { top: 10%;    left: 5%;    img { width: 60px; } }
-    &.zh-s-2 { top: 40%;    left: 40%;   img { width: 40px; } }
-    &.zh-s-3 { bottom: 12%; left: 10%;   img { width: 80px; } }
-    &.zh-s-4 { top: 20%;    right: 45%;  img { width: 30px; } }
-    &.zh-s-5 { bottom: 20%; right: 8%;   img { width: 70px; } }
+  .shape-float {
+    &.s-1 { top: 10%;    left: 5%;    img { width: 60px; } }
+    &.s-2 { top: 40%;    left: 40%;   img { width: 40px; } }
+    &.s-3 { bottom: 12%; left: 10%;   img { width: 80px; } }
+    &.s-4 { top: 20%;    right: 45%;  img { width: 30px; } }
+    &.s-5 { bottom: 20%; right: 8%;   img { width: 70px; } }
   }
 }
 
-// Editor-only: slide .zh-hero up under the header block via negative margin
+// Editor-only: slide .hero up under the header block via negative margin
 // so its teal ::before backdrop extends behind the menu, mimicking the
-// frontend where .zh-header is absolute-positioned over the hero.
-.editor-styles-wrapper .zh-hero {
+// frontend where .header is absolute-positioned over the hero.
+.editor-styles-wrapper .hero {
   margin-top: -200px;
   padding-top: 350px;
 }
 
-.zh-hero-grid {
+.hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
@@ -53,49 +53,49 @@
   z-index: 1;
 }
 
-.zh-hero-title {
+.hero-title {
   font-size: clamp(48px, 7vw, 72px);
   font-weight: 700;
   line-height: 1.05;
   margin: 0 0 8px;
-  color: $zh-heading;
+  color: $color-heading;
 }
 
-.zh-hero-title-sub {
+.hero-title-sub {
   font-size: clamp(36px, 5vw, 64px);
   font-weight: 400;
   line-height: 1.1;
-  color: $zh-heading;
+  color: $color-heading;
   margin: 0 0 24px;
 }
 
-.zh-hero-sub {
+.hero-sub {
   font-size: 18px;
-  color: $zh-muted;
+  color: $color-muted;
   margin: 0 0 40px;
   max-width: 520px;
 }
 
-.zh-hero-ctas {
+.hero-ctas {
   display: flex;
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
 }
 
-.zh-hero-video {
+.hero-video {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: $zh-heading;
+  color: $color-heading;
   font-weight: 600;
   text-decoration: none;
 
-  .zh-play-icon {
+  .play-icon {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: $zh-primary;
+    background: $color-primary;
     color: #fff;
     display: inline-flex;
     align-items: center;
@@ -106,10 +106,10 @@
     svg { width: 14px; height: 14px; fill: currentColor; }
   }
 
-  &:hover .zh-play-icon { transform: scale(1.08); }
+  &:hover .play-icon { transform: scale(1.08); }
 }
 
-.zh-hero-media img {
+.hero-media img {
   width: 100%;
   height: auto;
   display: block;

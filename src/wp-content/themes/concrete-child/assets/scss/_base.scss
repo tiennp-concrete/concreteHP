@@ -6,85 +6,85 @@
 // =====================================================================
 
 body.page-template-page-marketing,
-.zh-page {
-  background: $zh-bg;
-  color: $zh-muted;
-  font-family: $zh-font;
+.page {
+  background: $color-bg;
+  color: $color-muted;
+  font-family: $font-body;
   font-size: 18px;
   line-height: 1.66;
   overflow-x: clip;
   max-width: 100%;
 }
 
-.zh-page section { overflow-x: clip; }
+.page section { overflow-x: clip; }
 
-.zh-page h1,
-.zh-page h2,
-.zh-page h3,
-.zh-page h4,
-.zh-page h5,
-.zh-page h6 {
-  color: $zh-heading;
-  font-family: $zh-font;
+.page h1,
+.page h2,
+.page h3,
+.page h4,
+.page h5,
+.page h6 {
+  color: $color-heading;
+  font-family: $font-body;
   font-weight: 700;
   letter-spacing: -0.01em;
   margin: 0;
 }
 
-.zh-page a { color: inherit; text-decoration: none; }
+.page a { color: inherit; text-decoration: none; }
 
 // Container + section primitives
-.zh-container {
-  max-width: $zh-container;
+.container {
+  max-width: $color-container;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
 }
 
-.zh-eyebrow {
+.eyebrow {
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 14px;
   font-weight: 700;
-  color: $zh-primary;
+  color: $color-primary;
   margin-bottom: 16px;
 }
 
-.zh-section-title {
+.section-title {
   font-size: clamp(32px, 4.5vw, 56px);
   font-weight: 700;
   line-height: 1.1;
-  color: $zh-heading;
+  color: $color-heading;
   margin: 0 0 16px;
 }
 
-.zh-section-head {
+.section-head {
   text-align: center;
   max-width: 720px;
   margin: 0 auto 56px;
 }
 
-.zh-link {
-  color: $zh-primary;
+.link {
+  color: $color-primary;
   font-weight: 700;
   text-decoration: none;
   transition: color 0.2s ease;
 
-  &:hover { color: $zh-primary-dark; }
+  &:hover { color: $color-primary-dark; }
 }
 
 // Buttons
-.zh-btn {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 14px 32px;
-  border-radius: $zh-radius-pill;
+  border-radius: $color-radius-pill;
   font-weight: 700;
   font-size: 16px;
-  font-family: $zh-font;
+  font-family: $font-body;
   text-decoration: none;
   border: 2px solid transparent;
   cursor: pointer;
@@ -92,43 +92,43 @@ body.page-template-page-marketing,
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: $zh-shadow-md;
+    box-shadow: $color-shadow-md;
   }
 }
 
-.zh-btn-primary {
-  background: $zh-primary;
+.btn-primary {
+  background: $color-primary;
   color: #fff;
 
-  &:hover { background: $zh-primary-dark; color: #fff; }
+  &:hover { background: $color-primary-dark; color: #fff; }
 }
 
-.zh-btn-outline {
+.btn-outline {
   background: transparent;
   border-color: #fff;
   color: #fff;
 
-  &:hover { background: #fff; color: $zh-primary; border-color: #fff; }
+  &:hover { background: #fff; color: $color-primary; border-color: #fff; }
 }
 
-.zh-btn-outline-dark {
+.btn-outline-dark {
   background: transparent;
-  border-color: $zh-primary;
-  color: $zh-primary;
+  border-color: $color-primary;
+  color: $color-primary;
 
-  &:hover { background: $zh-primary; color: #fff; }
+  &:hover { background: $color-primary; color: #fff; }
 }
 
-.zh-btn-ghost {
+.btn-ghost {
   background: transparent;
-  color: $zh-heading;
+  color: $color-heading;
   padding: 14px 20px;
 
-  &:hover { color: $zh-primary; }
+  &:hover { color: $color-primary; }
 }
 
 // Decorative floating shapes used by hero + team + other sections
-.zh-shape-float {
+.shape-float {
   position: absolute;
   pointer-events: none;
   z-index: 0;
@@ -136,8 +136,8 @@ body.page-template-page-marketing,
   img { display: block; max-width: none; }
 }
 
-.zh-float-ud     { animation: zh-MoveUpDown 5s ease-in-out infinite; }
-.zh-float-top    { animation: zh-MoveTop 4.5s ease-in-out infinite alternate; }
-.zh-float-circle { animation: zh-MoveCircle360 9s linear infinite; }
-.zh-float-zoom   { animation: zh-MoveZoomIn 3.7s ease-in-out infinite; }
-.zh-float-small  { animation: zh-MoveCircleSmall 4.5s ease-in-out infinite; }
+.float-ud     { animation: zh-MoveUpDown 5s ease-in-out infinite; }
+.float-top    { animation: zh-MoveTop 4.5s ease-in-out infinite alternate; }
+.float-circle { animation: zh-MoveCircle360 9s linear infinite; }
+.float-zoom   { animation: zh-MoveZoomIn 3.7s ease-in-out infinite; }
+.float-small  { animation: zh-MoveCircleSmall 4.5s ease-in-out infinite; }

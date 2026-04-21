@@ -28,7 +28,7 @@
 
 .zh-footer-tag {
   margin: 20px 0 24px;
-  color: $zh-muted;
+  color: $color-muted;
   max-width: 320px;
   font-size: 15px;
 }
@@ -39,23 +39,23 @@
   margin-bottom: 24px;
 
   a {
-    color: $zh-heading;
+    color: $color-heading;
     font-size: 14px;
     transition: color 0.2s ease;
 
-    &:hover { color: $zh-primary; }
+    &:hover { color: $color-primary; }
   }
 }
 
 .zh-footer-copyright {
-  color: $zh-muted;
+  color: $color-muted;
   font-size: 14px;
   margin: 0;
 }
 
 .zh-footer-col {
   h4 {
-    color: $zh-heading;
+    color: $color-heading;
     font-size: 20px;
     font-weight: 700;
     margin: 0 0 16px;
@@ -69,25 +69,25 @@
     li { margin-bottom: 10px; }
 
     a {
-      color: $zh-muted;
+      color: $color-muted;
       text-decoration: none;
       font-size: 15px;
       transition: color 0.2s ease;
 
-      &:hover { color: $zh-heading; }
+      &:hover { color: $color-heading; }
     }
   }
 }
 
 .zh-footer-newsletter {
   h4 {
-    color: $zh-heading;
+    color: $color-heading;
     font-size: 20px;
     font-weight: 700;
     margin: 0 0 8px;
   }
 
-  p { color: $zh-muted; font-size: 14px; margin: 0 0 16px; }
+  p { color: $color-muted; font-size: 14px; margin: 0 0 16px; }
 }
 
 .zh-newsletter-form {
@@ -97,19 +97,19 @@
   input[type='email'] {
     width: 100%;
     padding: 14px 60px 14px 20px;
-    border-radius: $zh-radius-pill;
-    border: 1px solid $zh-border;
+    border-radius: $color-radius-pill;
+    border: 1px solid $color-border;
     background: transparent;
     font-size: 14px;
-    font-family: $zh-font;
-    color: $zh-heading;
+    font-family: $font-body;
+    color: $color-heading;
 
     &:focus {
       outline: none;
-      border-color: $zh-primary;
+      border-color: $color-primary;
     }
 
-    &::placeholder { color: $zh-muted; }
+    &::placeholder { color: $color-muted; }
   }
 
   button {
@@ -120,7 +120,7 @@
     width: 44px;
     border-radius: 50%;
     border: none;
-    background: $zh-primary;
+    background: $color-primary;
     color: #fff;
     cursor: pointer;
     display: inline-flex;
@@ -128,7 +128,7 @@
     justify-content: center;
     transition: background 0.2s ease;
 
-    &:hover { background: $zh-primary-dark; }
+    &:hover { background: $color-primary-dark; }
   }
 }
 
@@ -141,11 +141,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: $zh-muted;
+    color: $color-muted;
     font-size: 15px;
     margin-bottom: 8px;
 
-    i { color: $zh-primary; font-size: 12px; }
+    i { color: $color-primary; font-size: 12px; }
     a { color: inherit; }
   }
 }

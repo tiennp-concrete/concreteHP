@@ -1,72 +1,122 @@
-@use '../variables' as *;
+@use "../variables" as *;
 
-// =====================================================================
-// header block — sticky header with logo, nav, and CTA.
-// =====================================================================
-.zh-header {
-  position: absolute;
+.header {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
-  transition: box-shadow 0.3s ease, transform 0.3s ease, background 0s, position 0s;
-  will-change: transform;
+  padding-top: 30px;
+  transition: 0.3s all;
+
+  @include mq_down($lg) {
+    padding-top: 10px;
+  }
 
   &.is-sticky {
-    position: fixed;
     background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    padding-top: 0;
 
-    .zh-nav a,
-    .zh-logo-text { color: $zh-heading; }
+    .nav a,
+    .logo-text {
+      color: $color-heading;
+    }
 
-    .zh-btn-outline {
-      color: $zh-heading;
-      border-color: $zh-primary;
+    .btn-outline {
+      color: $color-heading;
+      border-color: $color-primary;
+      &:hover {
+        background: $color-primary;
+        color: #fff;
+      }
+    }
 
-      &:hover { background: $zh-primary; color: #fff; border-color: $zh-primary; }
+    .mobile-toggle span {
+      background: $color-heading;
     }
   }
 
-  &.is-hidden { transform: translateY(-100%); }
+  &.is-hidden {
+    transform: translateY(-100%);
+  }
+
+  &.is-menu-open {
+    .header-menu {
+      transform: translateX(0);
+    }
+    .header-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-toggle {
+      span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
 }
 
-.zh-header-inner {
+.block-editor-block-list__layout .block-editor-block-list__block {
+  position: unset !important;
+}
+
+.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   min-height: 70px;
   padding: 0 65px;
+
+  @include mq_down($lg) {
+    padding: 0 20px;
+    min-height: 64px;
+  }
+
+  @include mq_down($sm) {
+    padding: 0 16px;
+    min-height: 56px;
+  }
 }
 
-// Prevent Gutenberg's default positioning outline from clipping absolute
-// children inside the block list.
-.block-editor-block-list__layout .block-editor-block-list__block {
-  position: unset !important;
-}
-
-.zh-logo {
+.logo {
   display: inline-block;
   text-decoration: none;
   flex: 0 0 auto;
-
-  img { width: 140px; height: auto; display: block; }
+  img {
+    width: 140px;
+    height: auto;
+    display: block;
+  }
 }
 
-.zh-logo-text {
+.logo-text {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.02em;
 }
 
-// Desktop nav
-.zh-nav {
+// ── Nav ──────────────────────────────────────────────────────────────
+.nav {
   flex: 1 1 auto;
   display: flex;
   justify-content: flex-end;
   z-index: 1;
+
+  @include mq_down($lg) {
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: auto;
+  }
 
   > ul {
     display: flex;
@@ -74,11 +124,20 @@
     margin: 0;
     padding: 0;
     align-items: center;
+
+    @include mq_down($lg) {
+      display: block;
+    }
   }
 
   > ul > li {
     position: relative;
     padding: 0 1vw;
+
+    @include mq_down($lg) {
+      padding: 0;
+      border-bottom: 1px solid $color-border;
+    }
   }
 
   a {
@@ -90,100 +149,242 @@
     letter-spacing: 0.04em;
     line-height: 70px;
     transition: color 0.2s ease;
-
-    &:hover { color: #000; }
-  }
-
-  .zh-has-submenu > a {
     display: inline-flex;
     align-items: center;
     gap: 6px;
 
-    &::after {
-      content: '';
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-right: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
-      transform: translateY(-2px) rotate(45deg);
-      transition: transform 0.2s ease;
+    span {
+      pointer-events: none;
+    }
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    @include mq_down($lg) {
+      display: flex;
+      color: $color-heading;
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0;
+      line-height: 1;
+      padding: 18px 24px;
+
+      &:hover {
+        color: $color-primary;
+      }
     }
   }
 
-  .zh-has-submenu:hover > a::after {
-    transform: translateY(1px) rotate(225deg);
+  .menu-item-has-children > a {
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+
+      @include mq_down($lg) {
+        margin-left: auto;
+        transform: rotate(-45deg);
+      }
+    }
   }
 
-  li:hover .zh-submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  .menu-item-has-children:hover > a::after {
+    @include mq_up($lg) {
+      transform: translateY(2px) rotate(225deg);
+    }
+  }
+
+  .menu-item-has-children.is-open > a::after {
+    @include mq_down($lg) {
+      transform: rotate(225deg);
+    }
+  }
+
+  .menu-item-has-children:hover > .sub-menu {
+    @include mq_up($lg) {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
   }
 }
 
-.zh-submenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 200px;
-  background: #fff;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.02);
+// ── Sub-menu ─────────────────────────────────────────────────────────
+.nav .sub-menu {
   list-style: none;
   margin: 0;
-  padding: 8px 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 
-  li { display: block; }
+  // desktop
+  @include mq_up($lg) {
+    position: absolute;
+    top: calc(100% - 2px);
+    left: 0;
+    min-width: 200px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s;
+    z-index: 100;
 
-  a {
+    li {
+      display: block;
+      position: relative;
+      padding: 10px 24px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      position: relative;
+      color: $color-heading !important;
+      line-height: 1.5 !important;
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0;
+      transition: 0.3s all;
+
+      &::before {
+        content: "";
+        background: $color-primary;
+        width: 20px;
+        height: 2px;
+        margin-top: -1px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        opacity: 0;
+        transform: scale(0);
+        transition: 0.3s all;
+      }
+
+      &:hover {
+        color: $color-primary !important;
+        padding-left: 30px;
+        &::before {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+
+    li.current-menu-ancestor > a {
+      color: $color-primary !important;
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
+  // mobile
+  @include mq_down($lg) {
+    position: static;
+    background: #f9f9f9;
+    padding: 0;
+    display: none;
+
+    a {
+      padding: 14px 24px 14px 35px !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 1 !important;
+      &::before {
+        display: none !important;
+      }
+      &:hover {
+        padding-left: 35px !important;
+      }
+    }
+  }
+}
+@include mq_down($lg) {
+  .nav .menu-item-has-children.is-open > .sub-menu {
     display: block;
-    padding: 8px 20px;
-    color: $zh-heading !important;
-    line-height: 1.5 !important;
-    font-size: 14px;
-
-    &:hover { color: $zh-primary !important; }
   }
 }
 
-.zh-header-cta {
+// ── Header CTA ───────────────────────────────────────────────────────
+.header-cta {
   flex: 0 0 auto;
   margin-left: 50px;
   z-index: 1;
 
-  .zh-btn {
+  .btn {
     padding: 10px 32px;
     font-size: 18px;
     line-height: 1;
   }
+
+  @include mq_down($lg) {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 16px 20px;
+    border-top: 1px solid $color-border;
+
+    .btn {
+      text-align: center;
+      display: block;
+      border-radius: 50px;
+      padding: 14px 32px;
+      font-size: 16px;
+      border-color: $color-primary;
+      color: $color-primary;
+      &:hover {
+        background: $color-primary;
+        color: #fff;
+      }
+    }
+  }
 }
 
-// Wrapper so nav + CTA can collapse into a drawer on mobile. On desktop it's
-// just a flex row; on mobile it becomes a fixed off-canvas panel.
-.zh-header-menu {
+// ── Header menu (drawer on mobile) ───────────────────────────────────
+.header-menu {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 24px;
+
+  @include mq_down($lg) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(320px, 85vw);
+    background: #fff;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 60;
+    overflow-y: auto;
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.12);
+  }
 }
 
-// Drawer-only elements are hidden on desktop.
-.zh-drawer-head,
-.zh-mobile-toggle,
-.zh-header-overlay { display: none; }
+// ── Mobile toggle ─────────────────────────────────────────────────────
+.mobile-toggle {
+  display: none;
 
-// =====================================================================
-// Mobile / tablet (≤ 1024px): hamburger + slide-in drawer from the left.
-// =====================================================================
-@media (max-width: 1024px) {
-  .zh-header-inner { padding: 0 20px; }
-
-  .zh-mobile-toggle {
+  @include mq_down($lg) {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -195,6 +396,7 @@
     background: transparent;
     border: 0;
     cursor: pointer;
+    z-index: 1;
 
     span {
       display: block;
@@ -202,144 +404,71 @@
       height: 3px;
       background: #fff;
       border-radius: 2px;
-      transition: background 0.2s ease;
+      transition: 0.3s all;
     }
   }
+}
 
-  .zh-header.is-sticky .zh-mobile-toggle span { background: $zh-heading; }
+// ── Drawer head ───────────────────────────────────────────────────────
+.drawer-head {
+  display: none;
 
-  .zh-header-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: min(360px, 85vw);
-    background: #fff;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 0;
-    padding: 0;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 60;
-    overflow-y: auto;
-    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
-  }
-
-  .zh-header.is-menu-open .zh-header-menu { transform: translateX(0); }
-
-  .zh-drawer-head {
+  @include mq_down($lg) {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid $zh-border;
+    padding: 16px 20px;
+    border-bottom: 1px solid $color-border;
+    flex-shrink: 0;
 
-    .zh-drawer-logo img { width: 120px; height: auto; display: block; }
-    .zh-logo-text { color: $zh-heading; font-size: 20px; font-weight: 700; }
+    .drawer-logo img {
+      width: 120px;
+      height: auto;
+      display: block;
+    }
+    .logo-text {
+      color: $color-heading;
+      font-size: 20px;
+      font-weight: 700;
+    }
   }
+}
 
-  .zh-drawer-close {
+.drawer-close {
+  display: none;
+
+  @include mq_down($lg) {
+    display: inline-flex;
     width: 36px;
     height: 36px;
     padding: 0;
     background: transparent;
     border: 0;
-    color: $zh-heading;
+    color: $color-heading;
     cursor: pointer;
-    display: inline-flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .zh-nav {
-    flex: 1 1 auto;
-    display: block;
-
-    > ul {
-      display: block;
-      padding: 0;
-    }
-
-    > ul > li {
-      padding: 0;
-      border-bottom: 1px solid $zh-border;
-
-      &:first-child > a { background: $zh-primary; color: #fff; }
-    }
-
-    a {
-      display: block;
-      color: $zh-heading;
-      font-size: 18px;
-      font-weight: 500;
-      text-transform: none;
-      letter-spacing: 0;
-      line-height: 1;
-      padding: 20px 24px;
-
-      &:hover { color: $zh-primary; }
-    }
-
-    .zh-has-submenu > a::after {
-      margin-left: auto;
-      float: right;
-      border-color: currentColor;
-      transform: translateY(4px) rotate(-45deg);
-    }
-
-    .zh-submenu {
-      position: static;
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-      box-shadow: none;
-      background: $zh-surface;
-      padding: 0;
-      display: none;
-
-      a { padding: 14px 40px; font-size: 15px; line-height: 1 !important; }
-    }
-
-    .zh-has-submenu:hover .zh-submenu { display: block; }
-  }
-
-  .zh-header-cta {
-    margin: 0;
-    padding: 20px 24px;
-
-    .zh-btn {
-      width: 100%;
-      border-color: $zh-primary;
-      color: $zh-primary;
-
-      &:hover { background: $zh-primary; color: #fff; }
+    border-radius: 50%;
+    transition: background 0.2s ease;
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
     }
   }
+}
 
-  .zh-header-overlay {
+// ── Overlay ───────────────────────────────────────────────────────────
+.header-overlay {
+  display: none;
+
+  @include mq_down($lg) {
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.35s ease;
     z-index: 55;
-  }
-
-  .zh-header.is-menu-open .zh-header-overlay {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  // Editor-only: Gutenberg Site Editor strips position:fixed from blocks so
-  // the drawer renders inline and breaks the canvas. Body of the Site Editor
-  // iframe has the class .block-editor-iframe__body (frontend body never does),
-  // so we can safely scope a "hide nav + CTA" rule to editor only.
-  .block-editor-iframe__body {
-    .zh-nav,
-    .zh-header-cta { display: none !important; }
+    backdrop-filter: blur(2px);
   }
 }

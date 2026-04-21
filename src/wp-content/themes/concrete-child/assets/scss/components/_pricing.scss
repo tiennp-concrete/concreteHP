@@ -5,7 +5,7 @@
 // =====================================================================
 .zh-pricing {
   padding: 120px 0;
-  background: $zh-bg;
+  background: $color-bg;
 }
 
 .zh-pricing-grid-wrap {
@@ -22,9 +22,9 @@
 
 .zh-pricing-toggle {
   display: inline-flex;
-  background: $zh-surface;
-  border: 1px solid $zh-border;
-  border-radius: $zh-radius-pill;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $color-radius-pill;
   padding: 4px;
   margin: 0 0 24px;
   gap: 4px;
@@ -36,14 +36,14 @@
   padding: 10px 24px;
   font-weight: 700;
   font-size: 14px;
-  font-family: $zh-font;
-  border-radius: $zh-radius-pill;
-  color: $zh-muted;
+  font-family: $font-body;
+  border-radius: $color-radius-pill;
+  color: $color-muted;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 
   &.is-active {
-    background: $zh-primary;
+    background: $color-primary;
     color: #fff;
   }
 }
@@ -57,9 +57,9 @@
 .zh-price-card {
   position: relative;
   padding: 40px 32px;
-  background: $zh-bg;
-  border: 1px solid $zh-border;
-  border-radius: $zh-radius-lg;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $color-radius-lg;
   text-align: left;
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -80,7 +80,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: $zh-shadow-lg;
+    box-shadow: $color-shadow-lg;
   }
 
   .zh-btn { margin-top: 8px; }
@@ -97,7 +97,7 @@
     font-size: 22px;
     font-weight: 700;
     margin: 0 0 6px;
-    color: $zh-heading;
+    color: $color-heading;
   }
 }
 
@@ -106,13 +106,13 @@
   height: 64px;
   flex-shrink: 0;
 
-  svg { width: 100%; height: 100%; fill: $zh-heading; }
+  svg { width: 100%; height: 100%; fill: $color-heading; }
 }
 
 .zh-price-amount {
   font-size: 40px;
   font-weight: 700;
-  color: $zh-heading;
+  color: $color-heading;
   letter-spacing: -0.02em;
   line-height: 1;
 }
@@ -120,7 +120,7 @@
 .zh-price-unit {
   font-size: 18px;
   font-weight: 400;
-  color: $zh-muted;
+  color: $color-muted;
   margin-left: 4px;
 }
 
@@ -138,9 +138,9 @@
 
   li {
     padding: 10px 0;
-    color: $zh-muted;
+    color: $color-muted;
     font-size: 15px;
-    border-bottom: 1px solid $zh-border;
+    border-bottom: 1px solid $color-border;
     display: flex;
     align-items: center;
 
@@ -148,7 +148,7 @@
 
     &::before {
       content: '✓';
-      color: $zh-primary;
+      color: $color-primary;
       font-weight: 700;
       margin-right: 10px;
       font-size: 16px;

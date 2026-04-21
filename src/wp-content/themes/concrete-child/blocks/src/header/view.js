@@ -1,70 +1,54 @@
-/* Header — sticky on scroll-up/scroll-down, plus mobile drawer toggle */
-const header = document.querySelector('.zh-header');
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('[data-header]');
+  if (!header) return;
 
-if (header) {
-  // Sticky + hide-on-scroll-down behaviour
-  const STICKY_AT = 100;   // px — switch to fixed + background
-  const HIDE_AT   = 300;   // px — header stays visible until here
-  const MIN_DELTA = 6;     // px — ignore tiny scroll jitter
-
-  let lastY   = window.pageYOffset;
+  // ── Sticky / hide-on-scroll ──────────────────────────────────────────
+  let lastY   = window.scrollY;
   let ticking = false;
 
   const update = () => {
-    const y     = window.pageYOffset;
-    const delta = y - lastY;
+    const y      = window.scrollY;
+    const diff   = y - lastY;
+    const sticky = y > 80;
 
-    if (Math.abs(delta) >= MIN_DELTA) {
-      header.classList.toggle('is-sticky', y > STICKY_AT);
+    header.classList.toggle('is-sticky', sticky);
+    header.classList.toggle('is-hidden', sticky && diff > 0 && y > 200);
 
-      if (y > HIDE_AT && delta > 0) {
-        header.classList.add('is-hidden');
-      } else if (delta < 0 || y <= HIDE_AT) {
-        header.classList.remove('is-hidden');
-      }
-
-      lastY = y;
-    }
+    lastY   = y;
     ticking = false;
   };
 
   window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
 
-  // Mobile drawer
-  const toggle  = header.querySelector('.zh-mobile-toggle');
+  // ── Mobile drawer ────────────────────────────────────────────────────
+  const toggle  = header.querySelector('.mobile-toggle');
+  const overlay = header.querySelector('[data-drawer-close]');
   const openCls = 'is-menu-open';
-  const open    = () => {
+
+  const open  = () => {
     header.classList.add(openCls);
     toggle?.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   };
-  const close   = () => {
+  const close = () => {
     header.classList.remove(openCls);
     toggle?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   };
 
-  toggle?.addEventListener('click', () => {
-    header.classList.contains(openCls) ? close() : open();
-  });
+  toggle?.addEventListener('click', open);
+  overlay?.addEventListener('click', close);
+  header.querySelector('.drawer-close')?.addEventListener('click', close);
 
-  // Any element flagged with data-zh-drawer-close closes (X button, overlay)
-  header.querySelectorAll('[data-zh-drawer-close], .zh-drawer-close').forEach((el) => {
-    el.addEventListener('click', close);
+  // ── Mobile submenu toggle ────────────────────────────────────────────
+  header.querySelectorAll('.menu-item-has-children > a').forEach(link => {
+    link.addEventListener('click', e => {
+      if (window.innerWidth > 1024) return;
+      e.preventDefault();
+      const li = link.closest('.menu-item-has-children');
+      li.classList.toggle('is-open');
+    });
   });
-
-  // Close on any nav link click (so anchor jumps feel natural)
-  header.querySelectorAll('.zh-nav a').forEach((a) => {
-    a.addEventListener('click', close);
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && header.classList.contains(openCls)) close();
-  });
-}
+});

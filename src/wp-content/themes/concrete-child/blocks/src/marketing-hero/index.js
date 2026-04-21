@@ -35,41 +35,41 @@ function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <section {...useBlockProps({ className: 'zh-hero' })}>
+      <section {...useBlockProps({ className: 'hero' })}>
         {attributes.shapes.map((shape, i) => (
-          <div key={i} className={`zh-shape-float ${shape.variant}`}>
+          <div key={i} className={`shape-float ${shape.variant}`}>
             <img src={shape.image} alt="" />
           </div>
         ))}
 
-        <div className="zh-container zh-hero-grid">
-          <div className="zh-hero-text">
+        <div className="container hero-grid">
+          <div className="hero-text">
             <RichText
-              tagName="p" className="zh-eyebrow"
+              tagName="p" className="eyebrow"
               value={attributes.eyebrow}
               onChange={set('eyebrow')}
               placeholder="Eyebrow"
             />
             <RichText
-              tagName="h1" className="zh-hero-title"
+              tagName="h1" className="hero-title"
               value={attributes.title}
               onChange={set('title')}
               placeholder="Title line 1"
             />
             <RichText
-              tagName="h2" className="zh-hero-title-sub"
+              tagName="h2" className="hero-title-sub"
               value={attributes.titleSub}
               onChange={set('titleSub')}
               placeholder="Title line 2"
             />
             <RichText
-              tagName="p" className="zh-hero-sub"
+              tagName="p" className="hero-sub"
               value={attributes.subtitle}
               onChange={set('subtitle')}
               placeholder="Subtitle"
             />
-            <div className="zh-hero-ctas">
-              <span className="zh-btn zh-btn-primary">
+            <div className="hero-ctas">
+              <span className="btn btn-primary">
                 <RichText
                   tagName="span"
                   value={attributes.primaryCta}
@@ -77,8 +77,8 @@ function Edit({ attributes, setAttributes }) {
                   placeholder="Primary CTA"
                 />
               </span>
-              <span className="zh-hero-video">
-                <span className="zh-play-icon">
+              <span className="hero-video">
+                <span className="play-icon">
                   <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.3v11.4a.6.6 0 00.9.5l9.6-5.7a.6.6 0 000-1L2.9.8a.6.6 0 00-.9.5z" /></svg>
                 </span>
                 <RichText
@@ -90,7 +90,7 @@ function Edit({ attributes, setAttributes }) {
               </span>
             </div>
           </div>
-          <div className="zh-hero-media">
+          <div className="hero-media">
             <img src={attributes.heroImage} alt="Our team" />
           </div>
         </div>

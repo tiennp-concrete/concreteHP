@@ -8,16 +8,16 @@
  * enters the viewport. Elements stay hidden until then via `visibility`.
  */
 
-.zh-animated {
+.animated {
     visibility: hidden;
 }
 
-.zh-animated.animate__animated {
+.animated.animate__animated {
     visibility: visible;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .zh-animated {
+    .animated {
         visibility: visible !important;
     }
 }

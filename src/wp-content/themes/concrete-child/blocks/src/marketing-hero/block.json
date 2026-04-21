@@ -48,11 +48,11 @@
       "type": "array",
       "default": [
         {
-          "image": "/wp-content/themes/concrete-child/assets/images/shape2.png",
+          "image": "/wp-content/themes/concrete-child/assets/images/shape22.png",
           "variant": "zh-s-1 zh-float-ud"
         },
         {
-          "image": "/wp-content/themes/concrete-child/assets/images/shape2.png",
+          "image": "/wp-content/themes/concrete-child/assets/images/shape22.png",
           "variant": "zh-s-2 zh-float-circle"
         },
         {
