@@ -1,214 +1,27 @@
-/**
- * Variables & Theme Configuration
- * Concrete inspired design system
- */
+// =====================================================================
+// Design tokens for the Zahar-style marketing page.
+// Imported by every block partial via `@use 'variables' as *;`.
+// =====================================================================
 
-// ================================================================
-// COLORS
-// ================================================================
+// Colour palette
+$zh-bg:             #ffffff;
+$zh-surface:        #f8f9fc;
+$zh-text:           #232323;
+$zh-heading:        #232323;
+$zh-dark:           #242424;
+$zh-muted:          #808291;
+$zh-border:         #e8e8e8;
+$zh-primary:        #17cfbd;
+$zh-primary-dark:   #006666;
+$zh-primary-light:  #b9f1eb;
+$zh-accent:         #fd6f88;
 
-// Primary
-$color-primary-dark: #1a1a2e;
-$color-primary-navy: #16213e;
-$color-primary-blue: #0f3460;
-$color-accent-red: #e94560;
-$color-accent-orange: #ff6b35;
-
-// Text
-$color-text-dark: #222222;
-$color-text-body: #555555;
-$color-text-light: #888888;
-$color-text-muted: #aaaaaa;
-$color-text-white: #ffffff;
-
-// Backgrounds
-$color-bg-white: #ffffff;
-$color-bg-light: #f8f9fa;
-$color-bg-gray: #f0f2f5;
-$color-bg-dark: #1a1a2e;
-$color-bg-footer: #0d0d1a;
-
-// Borders
-$color-border-light: #e8e8e8;
-$color-border-dark: rgba(255, 255, 255, 0.1);
-
-// ================================================================
-// TYPOGRAPHY
-// ================================================================
-
-$font-family-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-$font-family-secondary: 'Noto Sans', sans-serif;
-$font-size-base: 16px;
-$line-height-base: 1.6;
-
-// Font sizes
-$font-size-xs: 12px;
-$font-size-sm: 14px;
-$font-size-md: 16px;
-$font-size-lg: 18px;
-$font-size-xl: 20px;
-$font-size-2xl: 24px;
-$font-size-3xl: 32px;
-$font-size-4xl: 40px;
-$font-size-5xl: 48px;
-$font-size-6xl: 56px;
-
-// Font weights
-$font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$font-weight-bold: 700;
-$font-weight-black: 900;
-
-// ================================================================
-// SPACING
-// ================================================================
-
-$spacing-xs: 4px;
-$spacing-sm: 8px;
-$spacing-md: 16px;
-$spacing-lg: 24px;
-$spacing-xl: 32px;
-$spacing-2xl: 48px;
-$spacing-3xl: 64px;
-$spacing-4xl: 80px;
-$spacing-5xl: 100px;
-$spacing-6xl: 120px;
-
-// ================================================================
-// BORDER RADIUS
-// ================================================================
-
-$radius-sm: 4px;
-$radius-md: 8px;
-$radius-lg: 12px;
-$radius-xl: 20px;
-$radius-full: 50%;
-
-// ================================================================
-// SHADOWS
-// ================================================================
-
-$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-$shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-$shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
-$shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.15);
-$shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
-$shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
-
-// ================================================================
-// BREAKPOINTS
-// ================================================================
-
-$breakpoint-xs: 320px;
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1200px;
-$breakpoint-2xl: 1400px;
-
-// ================================================================
-// TRANSITIONS
-// ================================================================
-
-$transition-fast: 0.2s ease;
-$transition-base: 0.3s ease;
-$transition-slow: 0.5s ease;
-$transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-// ================================================================
-// Z-INDEX SCALE
-// ================================================================
-
-$z-base: 1;
-$z-dropdown: 100;
-$z-sticky: 500;
-$z-overlay: 900;
-$z-modal: 1000;
-$z-tooltip: 1100;
-
-// ================================================================
-// LAYOUT
-// ================================================================
-
-$max-width: 1200px;
-$max-width-narrow: 900px;
-$max-width-wide: 1400px;
-$header-height: 80px;
-$header-height-mobile: 60px;
-
-// ================================================================
-// MIXINS
-// ================================================================
-
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@mixin container {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 0 $spacing-xl;
-}
-
-@mixin section-padding {
-  padding: $spacing-5xl 0;
-}
-
-@mixin gradient-primary {
-  background: linear-gradient(135deg, $color-primary-dark 0%, $color-primary-blue 100%);
-}
-
-@mixin gradient-accent {
-  background: linear-gradient(135deg, $color-accent-red, $color-accent-orange);
-}
-
-@mixin overlay-dark($opacity: 0.7) {
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba($color-primary-dark, $opacity);
-    z-index: 1;
-  }
-}
-
-@mixin truncate-lines($lines: 2) {
-  display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-@mixin button-reset {
-  background: none;
-  border: none;
-  padding: 0;
-  font-family: inherit;
-  cursor: pointer;
-  outline: none;
-}
-
-@mixin respond-to($breakpoint) {
-  @media (max-width: $breakpoint) {
-    @content;
-  }
-}
-
-@mixin respond-above($breakpoint) {
-  @media (min-width: $breakpoint) {
-    @content;
-  }
-}
+// Radii, container, shadows, font stack
+$zh-radius:         10px;
+$zh-radius-lg:      20px;
+$zh-radius-pill:    40px;
+$zh-container:      1200px;
+$zh-shadow-sm:      0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+$zh-shadow-md:      0 10px 10px rgba(0, 0, 0, 0.02);
+$zh-shadow-lg:      0 20px 40px rgba(0, 0, 0, 0.08);
+$zh-font:           'glacial indifference', system-ui, -apple-system, sans-serif;

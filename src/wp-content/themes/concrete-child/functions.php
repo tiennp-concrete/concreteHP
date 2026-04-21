@@ -95,3 +95,31 @@ function concrete_child_browsersync_inject() {
 }
 add_action( 'wp_footer', 'concrete_child_browsersync_inject', 999 );
 add_action( 'admin_footer', 'concrete_child_browsersync_inject', 999 );
+
+/**
+ * Register custom Gutenberg blocks built under blocks/build.
+ */
+function concrete_child_register_blocks() {
+    $build_dir = get_stylesheet_directory() . '/blocks/build';
+    $manifest  = $build_dir . '/blocks-manifest.php';
+
+    if ( file_exists( $manifest ) && function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
+        wp_register_block_types_from_metadata_collection( $build_dir, $manifest );
+        return;
+    }
+
+    if ( ! is_dir( $build_dir ) ) {
+        return;
+    }
+
+    foreach ( scandir( $build_dir ) as $entry ) {
+        if ( '.' === $entry || '..' === $entry ) {
+            continue;
+        }
+        $block_json = $build_dir . '/' . $entry . '/block.json';
+        if ( file_exists( $block_json ) ) {
+            register_block_type( $block_json );
+        }
+    }
+}
+add_action( 'init', 'concrete_child_register_blocks' );

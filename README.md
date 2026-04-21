@@ -1,11 +1,11 @@
 # Concrete HP
 
-WordPress block theme (`concrete-child`) + custom blocks plugin (`concrete-blocks`), running in Docker. Home page is a Zahar-style marketing landing built from 11 React blocks.
+WordPress block theme (`concrete-child`) with custom Gutenberg blocks, running in Docker. Home page is a Zahar-style marketing landing built from 11 React blocks.
 
 ## Requirements
 
 - Docker + Docker Compose
-- Node.js ≥ 20 (plugin build). Use `nvm use` — reads `.nvmrc`.
+- Node.js ≥ 20 (block build). Use `nvm use` — reads `.nvmrc`.
 
 ## Setup
 
@@ -13,9 +13,8 @@ WordPress block theme (`concrete-child`) + custom blocks plugin (`concrete-block
 cp .env.example .env
 docker compose up -d                                # WP + MySQL + phpMyAdmin
 nvm use
-npm run install:all                                  # root + plugin
+npm run install:all                                  # root + theme
 npm run build                                        # SCSS + blocks
-docker exec concrete-hp-web wp plugin activate concrete-blocks --allow-root --path=/var/www/html
 ```
 
 Open http://localhost:8825
@@ -27,34 +26,45 @@ nvm use
 npm run dev        # scss + blocks + browser-sync, auto-reloads the page
 ```
 
+`npm run dev` runs 3 watchers concurrently:
+
+| Watcher | Watches | Writes to | Purpose |
+|---|---|---|---|
+| `sass --watch` | `assets/scss/**` | `assets/css/main.css` | Compile SCSS |
+| `wp-scripts start` | `blocks/src/**/*.{js,jsx,css,scss,json,php}` | `blocks/build/` | Bundle JS/CSS, copy block.json/render.php, regenerate `blocks-manifest.php` |
+| `browser-sync` | css + `**/*.{html,php,js}` + `blocks/build/**` | — | Push reload to the browser |
+
 ## Structure
 
 ```
-src/wp-content/
-├── plugins/concrete-blocks/
+src/wp-content/themes/concrete-child/
+├── blocks/
 │   ├── src/{block}/          ← block.json · index.js · render.php · view.js?
-│   ├── concrete-blocks.php   ← plugin bootstrap (auto-registers from build/)
-│   ├── HUONG-DAN-VIET-BLOCK.md  ← Vietnamese block-authoring guide
-│   └── build/                ← wp-scripts output (gitignored)
-└── themes/concrete-child/
-    ├── assets/
-    │   ├── scss/
-    │   │   ├── _homepage.scss     ← entry: @use each partial below
-    │   │   └── homepage/          ← one partial per homepage block
-    │   │       ├── _tokens.scss    — colours, font-face, keyframes
-    │   │       ├── _base.scss      — wrapper, container, buttons, shapes
-    │   │       ├── _header.scss    ·  _hero.scss       ·  _brands.scss
-    │   │       ├── _services.scss  ·  _team.scss       ·  _portfolio.scss
-    │   │       ├── _pricing.scss   ·  _testimonial.scss ·  _blog.scss
-    │   │       ├── _contact.scss   ·  _footer.scss
-    │   │       └── _responsive.scss — cross-block breakpoints
-    │   └── css/ · fonts/ · images/
-    ├── templates/            ← index.html · single.html
-    ├── parts/                ← header.html · footer.html
-    └── patterns/homepage.php
+│   ├── build/                ← wp-scripts output (gitignored)
+│   └── HUONG-DAN-VIET-BLOCK.md   ← Vietnamese block-authoring guide
+├── assets/
+│   ├── scss/
+│   │   ├── main.scss           ← sass entry → main.css
+│   │   ├── _variables.scss · _base.scss · _navigation.scss
+│   │   ├── _animations.scss · _blocks.scss · _responsive.scss
+│   │   ├── _homepage.scss      ← @use each homepage/* partial below
+│   │   └── homepage/           ← one partial per homepage block
+│   │       ├── _variables.scss  — colours, radii, font-face, keyframes
+│   │       ├── _base.scss       — wrapper, container, buttons, shapes
+│   │       ├── _header.scss    ·  _hero.scss       ·  _brands.scss
+│   │       ├── _services.scss  ·  _team.scss       ·  _portfolio.scss
+│   │       ├── _pricing.scss   ·  _testimonial.scss ·  _blog.scss
+│   │       ├── _contact.scss   ·  _footer.scss
+│   │       └── _responsive.scss — cross-block breakpoints
+│   └── css/ · fonts/ · images/
+├── templates/                ← index.html · single.html
+├── parts/                    ← header.html · footer.html
+├── patterns/homepage.php
+├── functions.php             ← enqueues + registers blocks from blocks/build/
+└── package.json              ← @wordpress/scripts build for blocks
 ```
 
-3 pipelines, each independent: **Docker** (WP), **SCSS** (`sass` at root), **Blocks** (`@wordpress/scripts` inside the plugin).
+3 pipelines, each independent: **Docker** (WP), **SCSS** (`sass` at root), **Blocks** (`@wordpress/scripts` inside the theme).
 
 ## Blocks (13)
 
@@ -66,9 +76,9 @@ Each block is a standard Gutenberg dynamic block: `block.json` + React `index.js
 
 ### Add a block
 
-Full walkthrough in Vietnamese: [HUONG-DAN-VIET-BLOCK.md](src/wp-content/plugins/concrete-blocks/HUONG-DAN-VIET-BLOCK.md).
+Full walkthrough in Vietnamese: [HUONG-DAN-VIET-BLOCK.md](src/wp-content/themes/concrete-child/blocks/HUONG-DAN-VIET-BLOCK.md).
 
-Quick version: copy any folder under `src/`, rename, edit `block.json` name + attributes, adjust `index.js` and `render.php`. `npm run build:blocks` picks it up.
+Quick version: copy any folder under `blocks/src/`, rename, edit `block.json` name + attributes, adjust `index.js` and `render.php`. `npm run build:blocks` picks it up.
 
 Reference patterns in existing code:
 - Array items → `blog-grid`, `portfolio`, `pricing`
@@ -81,13 +91,13 @@ Reference patterns in existing code:
 
 ### Styling a block
 
-SCSS lives in [`themes/concrete-child/assets/scss/marketing/`](src/wp-content/themes/concrete-child/assets/scss/marketing/) — one file per block. Open the file named after the block, edit, `npm run dev` picks it up. Shared tokens (`$zh-primary`, `$zh-font`, …) come from `_tokens.scss` via `@use 'tokens' as *;` at the top of each partial.
+SCSS lives in [`themes/concrete-child/assets/scss/homepage/`](src/wp-content/themes/concrete-child/assets/scss/homepage/) — one file per block. Open the file named after the block, edit, `npm run dev` picks it up. Shared tokens (`$zh-primary`, `$zh-font`, …) come from `homepage/_variables.scss` via `@use 'variables' as *;` at the top of each partial.
 
 ## Commands
 
 ```bash
 docker compose up -d / stop / logs -f wordpress
-npm run install:all      # root + plugin deps in one go
+npm run install:all      # root + theme deps in one go
 npm run build            # SCSS + blocks
 npm run build:scss
 npm run build:blocks
@@ -106,7 +116,7 @@ docker exec concrete-hp-web wp post delete <ID> --force --allow-root --path=/var
 docker exec concrete-hp-web wp cache flush --allow-root --path=/var/www/html
 ```
 
-**Block missing in editor** — rebuild (`npm run build:blocks`) and confirm the plugin is active.
+**Block missing in editor** — rebuild (`npm run build:blocks`) and confirm the `concrete-child` theme is active.
 
 **Block inserter shows "No preview available"** — the block's `block.json` is missing `"example": {}`. Add it, rebuild.
 
@@ -114,9 +124,17 @@ docker exec concrete-hp-web wp cache flush --allow-root --path=/var/www/html
 
 **SCSS not reflected** — check `npm run dev` is running; hard refresh browser (Cmd+Shift+R).
 
+**Edits to `block.json` default values don't show on existing blocks** — `default` only applies to freshly inserted blocks. Existing instances have their attribute values serialised in `post_content`; the stored value wins. To see a new default, delete the block in the editor and re-insert it.
+
+**Two `npm run dev` processes collide** — only one BrowserSync can own port 3000. If you restructure folders mid-session, kill stale dev processes before starting a new one:
+```bash
+ps aux | grep -E "wp-scripts|browser-sync|sync-watch" | grep -v grep
+kill <old-pids>
+```
+
 ## Related
 
 - [README-docker.md](README-docker.md) — Docker + DB details
-- [HUONG-DAN-VIET-BLOCK.md](src/wp-content/plugins/concrete-blocks/HUONG-DAN-VIET-BLOCK.md) — how to build a new block (Vietnamese)
+- [HUONG-DAN-VIET-BLOCK.md](src/wp-content/themes/concrete-child/blocks/HUONG-DAN-VIET-BLOCK.md) — how to build a new block (Vietnamese)
 - [Gutenberg block API](https://developer.wordpress.org/block-editor/reference-guides/block-api/)
 - [@wordpress/icons](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-icons/) — icon library used in block editor UIs

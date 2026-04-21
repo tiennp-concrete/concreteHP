@@ -2,13 +2,37 @@
 const header = document.querySelector('.zh-header');
 
 if (header) {
-  // Sticky behavior
-  let lastY = 0;
+  // Sticky + hide-on-scroll-down behaviour
+  const STICKY_AT = 100;   // px — switch to fixed + background
+  const HIDE_AT   = 300;   // px — header stays visible until here
+  const MIN_DELTA = 6;     // px — ignore tiny scroll jitter
+
+  let lastY   = window.pageYOffset;
+  let ticking = false;
+
+  const update = () => {
+    const y     = window.pageYOffset;
+    const delta = y - lastY;
+
+    if (Math.abs(delta) >= MIN_DELTA) {
+      header.classList.toggle('is-sticky', y > STICKY_AT);
+
+      if (y > HIDE_AT && delta > 0) {
+        header.classList.add('is-hidden');
+      } else if (delta < 0 || y <= HIDE_AT) {
+        header.classList.remove('is-hidden');
+      }
+
+      lastY = y;
+    }
+    ticking = false;
+  };
+
   window.addEventListener('scroll', () => {
-    const y = window.pageYOffset;
-    header.classList.toggle('is-sticky', y > 100);
-    header.classList.toggle('is-hidden', y > 200 && y > lastY);
-    lastY = y;
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
   }, { passive: true });
 
   // Mobile drawer

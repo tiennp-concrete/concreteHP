@@ -4,14 +4,14 @@
   "description": "Concrete HP - WordPress theme + block plugin",
   "private": true,
   "scripts": {
-    "install:all": "npm install && npm --prefix src/wp-content/plugins/concrete-blocks install",
+    "install:all": "npm install && npm --prefix src/wp-content/themes/concrete-child install",
     "build:scss": "sass src/wp-content/themes/concrete-child/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded --source-map --load-path=node_modules",
     "watch:scss": "sass src/wp-content/themes/concrete-child/assets/scss/main.scss src/wp-content/themes/concrete-child/assets/css/main.css --style expanded --source-map --watch --load-path=node_modules",
-    "build:blocks": "cd src/wp-content/plugins/concrete-blocks && npm run build",
-    "watch:blocks": "cd src/wp-content/plugins/concrete-blocks && npm run start",
+    "build:blocks": "npm --prefix src/wp-content/themes/concrete-child run build",
+    "watch:blocks": "npm --prefix src/wp-content/themes/concrete-child run start",
     "build": "concurrently -n scss,blocks -c cyan,magenta \"npm:build:scss\" \"npm:build:blocks\"",
     "watch": "concurrently -n scss,blocks -c cyan,magenta \"npm:watch:scss\" \"npm:watch:blocks\"",
-    "serve": "browser-sync start --proxy localhost:8825 --port 3000 --no-open --no-ui --no-notify --files \"src/wp-content/themes/concrete-child/assets/css/*.css\" \"src/wp-content/themes/concrete-child/**/*.{html,php,js}\" \"src/wp-content/plugins/concrete-blocks/build/**/*\"",
+    "serve": "browser-sync start --proxy localhost:8825 --port 3000 --no-open --no-ui --no-notify --files \"src/wp-content/themes/concrete-child/assets/css/*.css\" \"src/wp-content/themes/concrete-child/**/*.{html,php,js}\" \"src/wp-content/themes/concrete-child/blocks/build/**/*\"",
     "dev": "concurrently -n scss,blocks,serve -c cyan,magenta,green \"npm:watch:scss\" \"npm:watch:blocks\" \"npm:serve\""
   },
   "author": "ConcreteHP",

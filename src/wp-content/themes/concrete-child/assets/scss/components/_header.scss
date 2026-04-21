@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use '../variables' as *;
 
 // =====================================================================
 // header block — sticky header with logo, nav, and CTA.
@@ -9,7 +9,8 @@
   left: 0;
   right: 0;
   z-index: 50;
-  transition: background 0.3s ease, box-shadow 0.3s ease, position 0s;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background 0s, position 0s;
+  will-change: transform;
 
   &.is-sticky {
     position: fixed;

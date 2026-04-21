@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use '../variables' as *;
 
 // =====================================================================
 // contact-cta block — 2-col section: illustration + contact form.
@@ -47,7 +47,9 @@
   input[type='text'],
   input[type='email'],
   textarea {
+    display: block;
     width: 100%;
+    box-sizing: border-box;
     padding: 14px 20px;
     border-radius: $zh-radius-pill;
     border: 1px solid $zh-border;
@@ -73,6 +75,7 @@
 
   .zh-btn {
     width: 100%;
+    box-sizing: border-box;
     margin-top: 8px;
   }
 }

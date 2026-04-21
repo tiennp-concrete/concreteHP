@@ -44,6 +44,6 @@ src/wp-content/themes/concrete-child/assets/css/*.css.map
 src/wp-content/themes/concrete-child/assets/css/*.min.css
 
 # ==========================================================================
-# Plugin: concrete-blocks — webpack build output
+# Theme blocks — webpack build output (moved from plugin)
 # ==========================================================================
-src/wp-content/plugins/concrete-blocks/build/
+src/wp-content/themes/concrete-child/blocks/build/

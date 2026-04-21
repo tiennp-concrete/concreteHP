@@ -1,0 +1,35 @@
+// =====================================================================
+// Keyframes used by decorative floating shapes and the brand marquee.
+// =====================================================================
+
+@keyframes zh-MoveUpDown {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-20px); }
+}
+
+@keyframes zh-MoveTop {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
+}
+
+@keyframes zh-MoveCircle360 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes zh-MoveZoomIn {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.15); }
+}
+
+@keyframes zh-MoveCircleSmall {
+  0%, 100% { transform: translate(0, 0); }
+  25%      { transform: translate(15px, -10px); }
+  50%      { transform: translate(0, -20px); }
+  75%      { transform: translate(-15px, -10px); }
+}
+
+@keyframes zh-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

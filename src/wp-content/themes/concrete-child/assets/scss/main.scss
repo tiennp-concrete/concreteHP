@@ -1,21 +1,36 @@
-/**
- * Main SCSS Entry Point
- * Loads all partial files in correct order
- */
+// =====================================================================
+// Main SCSS entry point.
+// Common layer (tokens, fonts, base, blocks) loads first, then each
+// page section from components/ in the order it renders on the page.
+// =====================================================================
 
 // Vendor: animate.css keyframes + .animate__* classes
 @use 'animate.css/animate.min.css';
 
-// Base
+// Tokens, fonts, keyframes
+@use 'variables';
+@use 'fonts';
+@use 'keyframes';
+
+// Base: page wrapper, container, eyebrow, buttons, shapes
 @use 'base';
-@use 'navigation';
 @use 'animations';
 
-// WordPress Block Theme overrides
+// WordPress FSE wrapper resets
 @use 'blocks';
 
-// Responsive Design
-@use 'responsive';
+// Page sections (order = order on page)
+@use 'components/header';
+@use 'components/hero';
+@use 'components/brands';
+@use 'components/services';
+@use 'components/team';
+@use 'components/portfolio';
+@use 'components/pricing';
+@use 'components/testimonial';
+@use 'components/blog';
+@use 'components/contact';
+@use 'components/footer';
 
-// Marketing page (Zahar-style) — scoped under .zh-*
-@use 'homepage';
+// Cross-component responsive overrides (≤ 1024, ≤ 640)
+@use 'components/responsive/homepage';
