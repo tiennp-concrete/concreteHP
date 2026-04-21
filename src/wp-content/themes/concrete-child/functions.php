@@ -86,15 +86,26 @@ add_action( 'after_setup_theme', 'concrete_child_setup' );
 /**
  * Inject BrowserSync client for live-reload when WP_DEBUG is on.
  * Requires `npm run dev` (or `npm run serve`) running on host port 3000.
+ *
+ * `enqueue_block_assets` covers both the frontend AND the Site Editor iframe
+ * (where `wp_footer` / `admin_footer` do not reliably fire).
  */
 function concrete_child_browsersync_inject() {
     if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
         return;
     }
-    echo '<script async src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>' . "\n";
+    wp_enqueue_script(
+        'concrete-browsersync',
+        'http://localhost:3000/browser-sync/browser-sync-client.js',
+        array(),
+        null,
+        array( 'in_footer' => true, 'strategy' => 'async' )
+    );
 }
-add_action( 'wp_footer', 'concrete_child_browsersync_inject', 999 );
-add_action( 'admin_footer', 'concrete_child_browsersync_inject', 999 );
+add_action( 'wp_enqueue_scripts',         'concrete_child_browsersync_inject' );
+add_action( 'admin_enqueue_scripts',      'concrete_child_browsersync_inject' );
+add_action( 'enqueue_block_assets',       'concrete_child_browsersync_inject' );
+add_action( 'enqueue_block_editor_assets','concrete_child_browsersync_inject' );
 
 /**
  * Register custom Gutenberg blocks built under blocks/build.
