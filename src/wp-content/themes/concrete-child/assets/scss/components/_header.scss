@@ -124,6 +124,7 @@
     margin: 0;
     padding: 0;
     align-items: center;
+    gap: 1.5vw;
 
     @include mq_down($lg) {
       display: block;
@@ -132,7 +133,6 @@
 
   > ul > li {
     position: relative;
-    padding: 0 1vw;
 
     @include mq_down($lg) {
       padding: 0;
@@ -143,7 +143,7 @@
   a {
     color: #fff;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -328,6 +328,7 @@
     padding: 10px 32px;
     font-size: 18px;
     line-height: 1;
+    font-weight: 300;
   }
 
   @include mq_down($lg) {

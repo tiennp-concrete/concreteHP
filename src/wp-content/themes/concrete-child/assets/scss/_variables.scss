@@ -27,7 +27,7 @@ $color-shadow-sm:
 $color-shadow-md: 0 10px 10px rgba(0, 0, 0, 0.02);
 $color-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
 $font-body:
-  "glacial indifference",
+  "Jost",
   system-ui,
   -apple-system,
   sans-serif;
@@ -48,7 +48,7 @@ $xxl: 1536px;
 
 // min-width (mobile → desktop)
 @mixin mq_up($bp) {
-  @media screen and (min-width: #{ $bp + 1 }) {
+  @media screen and (min-width: #{$bp + 1px}) {
     @content;
   }
 }

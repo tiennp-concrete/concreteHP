@@ -78,14 +78,9 @@
       ],
       "fontFamilies": [
         {
-          "fontFamily": "'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-          "name": "Roboto",
-          "slug": "roboto"
-        },
-        {
-          "fontFamily": "'Noto Sans', sans-serif",
-          "name": "Noto Sans",
-          "slug": "noto-sans"
+          "fontFamily": "'Jost', system-ui, -apple-system, sans-serif",
+          "name": "Jost",
+          "slug": "Jost"
         }
       ]
     },

@@ -53,6 +53,16 @@
   z-index: 1;
 }
 
+.hero-text .eyebrow {
+  font-size: 18px;
+  font-weight: 400;
+  color: $color-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
 .hero-title {
   font-size: clamp(48px, 7vw, 72px);
   font-weight: 700;

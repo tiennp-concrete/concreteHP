@@ -15,10 +15,10 @@ function concrete_child_enqueue_styles() {
     $version    = file_exists( $main_css ) ? filemtime( $main_css ) : wp_get_theme()->get( 'Version' );
     $js_version = file_exists( $theme_js ) ? filemtime( $theme_js ) : $version;
 
-    // Google Fonts: Roboto + Noto Sans
+    // Google Fonts: Montserrat
     wp_enqueue_style(
         'google-fonts',
-        'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Noto+Sans:wght@400;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap',
         array(),
         null
     );
@@ -69,7 +69,7 @@ function concrete_child_setup() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'editor-styles' );
     add_editor_style( array(
-        'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Noto+Sans:wght@400;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap',
         'assets/css/main.css',
         'editor-style.css',
     ) );
@@ -134,10 +134,3 @@ function concrete_child_register_blocks() {
     }
 }
 add_action( 'init', 'concrete_child_register_blocks' );
-
-
-add_action('after_setup_theme', function() {
-    register_nav_menus([
-      'primary' => __('Primary Menu', 'concrete-child'),
-    ]);
-  });

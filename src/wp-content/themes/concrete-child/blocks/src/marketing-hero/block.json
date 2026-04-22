@@ -14,27 +14,27 @@
     },
     "eyebrow": {
       "type": "string",
-      "default": "DIGITAL AGENCY"
+      "default": "WEB & SOFTWARE STUDIO"
     },
     "title": {
       "type": "string",
-      "default": "Let's Be Better"
+      "default": "Built to Grow"
     },
     "titleSub": {
       "type": "string",
-      "default": "Every Day"
+      "default": "For Your Business"
     },
     "subtitle": {
       "type": "string",
-      "default": "We're a creative digital performance marketing agency that helps passionate organizations achieve inspiring results."
+      "default": "We build fast, scalable websites and applications designed to grow your business and drive results."
     },
     "primaryCta": {
       "type": "string",
-      "default": "Get started"
+      "default": "Get Started"
     },
     "videoLabel": {
       "type": "string",
-      "default": "See live demo"
+      "default": "View Our Work"
     },
     "videoUrl": {
       "type": "string",
