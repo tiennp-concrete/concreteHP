@@ -1,6 +1,6 @@
 /* Testimonial carousel — native scroll + optional autoplay */
-document.querySelectorAll('.zh-t-carousel').forEach((root) => {
-  const viewport = root.querySelector('.zh-t-carousel-viewport');
+document.querySelectorAll('.t-carousel').forEach((root) => {
+  const viewport = root.querySelector('.t-carousel-viewport');
   if (!viewport) return;
 
   const step = () => viewport.clientWidth;

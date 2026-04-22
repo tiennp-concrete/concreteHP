@@ -33,38 +33,38 @@ function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <section {...useBlockProps({ className: 'zh-services' })}>
-        <div className="zh-container">
-          <div className="zh-services-head">
+      <section {...useBlockProps({ className: 'services' })}>
+        <div className="container">
+          <div className="services-head">
             <RichText
-              tagName="p" className="zh-eyebrow"
+              tagName="p" className="eyebrow"
               value={attributes.eyebrow}
               onChange={set('eyebrow')}
               placeholder="Eyebrow"
             />
             <RichText
-              tagName="h2" className="zh-section-title"
+              tagName="h2" className="section-title"
               value={attributes.heading}
               onChange={set('heading')}
               placeholder="Heading"
             />
             <RichText
-              tagName="p" className="zh-services-subtitle"
+              tagName="p" className="services-subtitle"
               value={attributes.headingSub}
               onChange={set('headingSub')}
               placeholder="Subtitle"
             />
           </div>
 
-          <div className="zh-services-grid">
+          <div className="services-grid">
             {attributes.services.map((svc, i) => (
               <article
                 key={i}
-                className="zh-service-card"
+                className="service-card"
                 onClick={() => setSelectedIdx(i)}
                 style={selectedIdx === i ? { outline: '2px solid #17cfbd', outlineOffset: 2 } : undefined}
               >
-                <div className="zh-service-icon">
+                <div className="service-icon">
                   {svc.icon && <img src={svc.icon} alt="" />}
                 </div>
                 <RichText
@@ -79,13 +79,13 @@ function Edit({ attributes, setAttributes }) {
                   onChange={(v) => updateService(i, 'text', v)}
                   placeholder="Service description"
                 />
-                <span className="zh-service-arrow" aria-label="Read more">→</span>
+                <span className="service-arrow" aria-label="Read more">→</span>
               </article>
             ))}
           </div>
 
           <RichText
-            tagName="p" className="zh-services-footer"
+            tagName="p" className="services-footer"
             value={attributes.footerText}
             onChange={set('footerText')}
             placeholder="Footer paragraph"

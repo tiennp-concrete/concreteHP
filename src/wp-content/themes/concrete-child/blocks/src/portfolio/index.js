@@ -77,23 +77,23 @@ function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <section {...useBlockProps({ className: 'zh-portfolio', id: 'projects' })}>
-        <div className="zh-container">
-          <div className="zh-portfolio-head">
+      <section {...useBlockProps({ className: 'portfolio', id: 'projects' })}>
+        <div className="container">
+          <div className="portfolio-head">
             <RichText
-              tagName="p" className="zh-eyebrow"
+              tagName="p" className="eyebrow"
               value={attributes.eyebrow}
               onChange={(v) => setAttributes({ eyebrow: v })}
               placeholder="Eyebrow"
             />
             <RichText
-              tagName="h2" className="zh-section-title"
+              tagName="h2" className="section-title"
               value={attributes.heading}
               onChange={(v) => setAttributes({ heading: v })}
               placeholder="Heading line 1"
             />
             <RichText
-              tagName="h2" className="zh-section-title"
+              tagName="h2" className="section-title"
               value={attributes.headingSub}
               onChange={(v) => setAttributes({ headingSub: v })}
               placeholder="Heading line 2"
@@ -101,27 +101,27 @@ function Edit({ attributes, setAttributes }) {
           </div>
 
           {attributes.decorImage && (
-            <div className="zh-portfolio-decor">
+            <div className="portfolio-decor">
               <img src={attributes.decorImage} alt="" />
             </div>
           )}
 
-          <div className="zh-portfolio-filters">
+          <div className="portfolio-filters">
             {FILTERS.map((f) => (
               <button
                 key={f.value}
                 type="button"
-                className={`zh-filter${filter === f.value ? ' is-active' : ''}`}
+                className={`filter${filter === f.value ? ' is-active' : ''}`}
                 onClick={() => setFilter(f.value)}
               >{f.label}</button>
             ))}
           </div>
 
-          <div className="zh-portfolio-grid">
+          <div className="portfolio-grid">
             {projects.map((p, i) => {
               const classes = [
-                'zh-port-card',
-                p.size === 'wide' ? 'zh-port-wide' : '',
+                'port-card',
+                p.size === 'wide' ? 'port-wide' : '',
                 !visible(p) ? 'is-hidden' : '',
                 selectedIdx === i ? 'is-selected' : '',
               ].filter(Boolean).join(' ');
@@ -135,9 +135,9 @@ function Edit({ attributes, setAttributes }) {
                   style={selectedIdx === i ? { outline: '2px solid #17cfbd', outlineOffset: 2 } : undefined}
                 >
                   <img src={p.image} alt={p.title} />
-                  <div className="zh-port-meta" style={{ opacity: 1 }}>
+                  <div className="port-meta" style={{ opacity: 1 }}>
                     <RichText
-                      tagName="span" className="zh-port-tag"
+                      tagName="span" className="port-tag"
                       value={p.tag}
                       onChange={(v) => updateProject(i, 'tag', v)}
                       placeholder="Tag"

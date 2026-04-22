@@ -3,24 +3,24 @@
 // =====================================================================
 // pricing block — intro + monthly/annual toggle + 2-card grid.
 // =====================================================================
-.zh-pricing {
+.pricing {
   padding: 120px 0;
   background: $color-bg;
 }
 
-.zh-pricing-grid-wrap {
+.pricing-grid-wrap {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   gap: 60px;
   align-items: start;
 }
 
-.zh-pricing-head {
-  .zh-section-title { margin-bottom: 4px; }
-  .zh-section-title + .zh-section-title { margin-top: 0; }
+.pricing-head {
+  .section-title { margin-bottom: 4px; }
+  .section-title + .section-title { margin-top: 0; }
 }
 
-.zh-pricing-toggle {
+.pricing-toggle {
   display: inline-flex;
   background: $color-surface;
   border: 1px solid $color-border;
@@ -30,7 +30,7 @@
   gap: 4px;
 }
 
-.zh-pt-btn {
+.pt-btn {
   background: transparent;
   border: none;
   padding: 10px 24px;
@@ -48,13 +48,13 @@
   }
 }
 
-.zh-pricing-cards {
+.pricing-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
-.zh-price-card {
+.price-card {
   position: relative;
   padding: 40px 32px;
   background: $color-bg;
@@ -83,10 +83,10 @@
     box-shadow: $color-shadow-lg;
   }
 
-  .zh-btn { margin-top: 8px; }
+  .btn { margin-top: 8px; }
 }
 
-.zh-price-header {
+.price-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -101,7 +101,7 @@
   }
 }
 
-.zh-price-icon {
+.price-icon {
   width: 64px;
   height: 64px;
   flex-shrink: 0;
@@ -109,7 +109,7 @@
   svg { width: 100%; height: 100%; fill: $color-heading; }
 }
 
-.zh-price-amount {
+.price-amount {
   font-size: 40px;
   font-weight: 700;
   color: $color-heading;
@@ -117,7 +117,7 @@
   line-height: 1;
 }
 
-.zh-price-unit {
+.price-unit {
   font-size: 18px;
   font-weight: 400;
   color: $color-muted;
@@ -125,13 +125,13 @@
 }
 
 // Toggle between monthly / annual price labels.
-.zh-price-annual { display: none; }
+.price-annual { display: none; }
 [data-period-target='annual'] {
-  .zh-price-monthly { display: none; }
-  .zh-price-annual  { display: inline; }
+  .price-monthly { display: none; }
+  .price-annual  { display: inline; }
 }
 
-.zh-price-features {
+.price-features {
   list-style: none;
   padding: 0;
   margin: 24px 0;

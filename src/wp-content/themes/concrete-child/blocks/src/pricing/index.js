@@ -65,54 +65,54 @@ function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <section {...useBlockProps({ className: 'zh-pricing' })}>
-        <div className="zh-container">
-          <div className="zh-pricing-grid-wrap">
-            <div className="zh-pricing-head">
+      <section {...useBlockProps({ className: 'pricing' })}>
+        <div className="container">
+          <div className="pricing-grid-wrap">
+            <div className="pricing-head">
               <RichText
-                tagName="p" className="zh-eyebrow"
+                tagName="p" className="eyebrow"
                 value={attributes.eyebrow}
                 onChange={(v) => setAttributes({ eyebrow: v })}
                 placeholder="Eyebrow"
               />
               <RichText
-                tagName="h2" className="zh-section-title"
+                tagName="h2" className="section-title"
                 value={attributes.heading}
                 onChange={(v) => setAttributes({ heading: v })}
                 placeholder="Heading line 1"
               />
               <RichText
-                tagName="h2" className="zh-section-title"
+                tagName="h2" className="section-title"
                 value={attributes.headingSub1}
                 onChange={(v) => setAttributes({ headingSub1: v })}
                 placeholder="Heading line 2"
               />
               <RichText
-                tagName="h2" className="zh-section-title"
+                tagName="h2" className="section-title"
                 value={attributes.headingSub2}
                 onChange={(v) => setAttributes({ headingSub2: v })}
                 placeholder="Heading line 3"
               />
             </div>
 
-            <div className="zh-pricing-panel">
-              <div className="zh-pricing-toggle">
+            <div className="pricing-panel">
+              <div className="pricing-toggle">
                 <button
                   type="button"
-                  className={`zh-pt-btn${isAnnual ? '' : ' is-active'}`}
+                  className={`pt-btn${isAnnual ? '' : ' is-active'}`}
                   onClick={() => setIsAnnual(false)}
                 >Monthly</button>
                 <button
                   type="button"
-                  className={`zh-pt-btn${isAnnual ? ' is-active' : ''}`}
+                  className={`pt-btn${isAnnual ? ' is-active' : ''}`}
                   onClick={() => setIsAnnual(true)}
                 >Annual</button>
               </div>
 
-              <div className="zh-pricing-cards" data-period-target={period}>
+              <div className="pricing-cards" data-period-target={period}>
                 {plans.map((plan, i) => (
-                  <article key={i} className="zh-price-card">
-                    <div className="zh-price-header">
+                  <article key={i} className="price-card">
+                    <div className="price-header">
                       <div>
                         <RichText
                           tagName="h3"
@@ -120,9 +120,9 @@ function Edit({ attributes, setAttributes }) {
                           onChange={(v) => updatePlan(i, 'title', v)}
                           placeholder="Plan name"
                         />
-                        <p className="zh-price-amount">
+                        <p className="price-amount">
                           {isAnnual ? (
-                            <span className="zh-price-annual" style={{ display: 'inline' }}>
+                            <span className="price-annual" style={{ display: 'inline' }}>
                               <RichText
                                 tagName="span"
                                 value={plan.annualPrice}
@@ -130,14 +130,14 @@ function Edit({ attributes, setAttributes }) {
                                 placeholder="$0"
                               />
                               <RichText
-                                tagName="span" className="zh-price-unit"
+                                tagName="span" className="price-unit"
                                 value={plan.annualUnit}
                                 onChange={(v) => updatePlan(i, 'annualUnit', v)}
                                 placeholder="/ year"
                               />
                             </span>
                           ) : (
-                            <span className="zh-price-monthly" style={{ display: 'inline' }}>
+                            <span className="price-monthly" style={{ display: 'inline' }}>
                               <RichText
                                 tagName="span"
                                 value={plan.monthlyPrice}
@@ -145,7 +145,7 @@ function Edit({ attributes, setAttributes }) {
                                 placeholder="$0"
                               />
                               <RichText
-                                tagName="span" className="zh-price-unit"
+                                tagName="span" className="price-unit"
                                 value={plan.monthlyUnit}
                                 onChange={(v) => updatePlan(i, 'monthlyUnit', v)}
                                 placeholder="/ month"
@@ -154,10 +154,10 @@ function Edit({ attributes, setAttributes }) {
                           )}
                         </p>
                       </div>
-                      <div className="zh-price-icon">{ICONS[i] || ICONS[0]}</div>
+                      <div className="price-icon">{ICONS[i] || ICONS[0]}</div>
                     </div>
 
-                    <ul className="zh-price-features">
+                    <ul className="price-features">
                       {plan.features.map((feat, fIdx) => (
                         <li key={fIdx}>
                           <RichText
@@ -170,7 +170,7 @@ function Edit({ attributes, setAttributes }) {
                       ))}
                     </ul>
 
-                    <a className="zh-btn zh-btn-outline-dark" href="#" onClick={(e) => e.preventDefault()}>
+                    <a className="btn btn-outline-dark" href="#" onClick={(e) => e.preventDefault()}>
                       <RichText
                         tagName="span"
                         value={plan.ctaText}

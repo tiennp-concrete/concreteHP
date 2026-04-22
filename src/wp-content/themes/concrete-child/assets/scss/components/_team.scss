@@ -3,13 +3,13 @@
 // =====================================================================
 // team block — 2-column section with text + big photo + floating shapes.
 // =====================================================================
-.zh-team {
+.team {
   padding: 120px 0;
   position: relative;
   overflow: hidden;
 }
 
-.zh-team-grid {
+.team-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -18,17 +18,17 @@
   z-index: 1;
 }
 
-.zh-team-text {
-  .zh-section-title { margin-bottom: 12px; }
+.team-text {
+  .section-title { margin-bottom: 12px; }
   p { color: $color-muted; margin: 0 0 32px; max-width: 440px; }
 }
 
-.zh-team-media {
+.team-media {
   position: relative;
   min-height: 420px;
 }
 
-.zh-team-media-main {
+.team-media-main {
   width: 100%;
   height: auto;
   position: relative;
@@ -36,8 +36,8 @@
   display: block;
 }
 
-.zh-team .zh-shape-float {
-  &.zh-ts-1 { top: -20px;  right: 20%;  img { width: 100px; } }
-  &.zh-ts-2 { bottom: 10%; left: 0;     img { width: 90px; } }
-  &.zh-ts-3 { top: 30%;    right: -10px; img { width: 70px; } }
+.team .shape-float {
+  &.ts-1 { top: -20px;  right: 20%;  img { width: 100px; } }
+  &.ts-2 { bottom: 10%; left: 0;     img { width: 90px; } }
+  &.ts-3 { top: 30%;    right: -10px; img { width: 70px; } }
 }

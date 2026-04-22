@@ -64,24 +64,24 @@ function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <section {...useBlockProps({ className: 'zh-blog', id: 'news' })}>
-        <div className="zh-container">
-          <div className="zh-blog-grid-wrap">
-            <div className="zh-blog-intro">
+      <section {...useBlockProps({ className: 'blog', id: 'news' })}>
+        <div className="container">
+          <div className="blog-grid-wrap">
+            <div className="blog-intro">
               <RichText
-                tagName="p" className="zh-eyebrow"
+                tagName="p" className="eyebrow"
                 value={attributes.eyebrow}
                 onChange={(v) => setAttributes({ eyebrow: v })}
                 placeholder="Eyebrow"
               />
               <RichText
-                tagName="h2" className="zh-section-title"
+                tagName="h2" className="section-title"
                 value={attributes.heading}
                 onChange={(v) => setAttributes({ heading: v })}
                 placeholder="Heading"
               />
               <RichText
-                tagName="h2" className="zh-section-title"
+                tagName="h2" className="section-title"
                 value={attributes.headingSub}
                 onChange={(v) => setAttributes({ headingSub: v })}
                 placeholder="Heading (line 2)"
@@ -92,7 +92,7 @@ function Edit({ attributes, setAttributes }) {
                 onChange={(v) => setAttributes({ description: v })}
                 placeholder="Description"
               />
-              <span className="zh-btn zh-btn-primary">
+              <span className="btn btn-primary">
                 <RichText
                   tagName="span"
                   value={attributes.ctaText}
@@ -102,9 +102,9 @@ function Edit({ attributes, setAttributes }) {
               </span>
             </div>
 
-            <div className="zh-blog-slider">
+            <div className="blog-slider">
               <div
-                className="zh-blog-track"
+                className="blog-track"
                 style={{
                   display: 'flex',
                   gap: 24,
@@ -115,15 +115,15 @@ function Edit({ attributes, setAttributes }) {
                 {posts.map((post, i) => (
                   <article
                     key={i}
-                    className="zh-post-card"
+                    className="post-card"
                     style={{ flex: `0 0 calc((100% - ${(PER_VIEW - 1) * 24}px) / ${PER_VIEW})` }}
                   >
-                    <span className="zh-post-thumb">
+                    <span className="post-thumb">
                       <img src={post.image} alt={post.title} />
                     </span>
-                    <div className="zh-post-body">
+                    <div className="post-body">
                       <RichText
-                        tagName="span" className="zh-post-date"
+                        tagName="span" className="post-date"
                         value={post.date}
                         onChange={(v) => updatePost(i, 'date', v)}
                         placeholder="Date"
@@ -134,14 +134,14 @@ function Edit({ attributes, setAttributes }) {
                         onChange={(v) => updatePost(i, 'title', v)}
                         placeholder="Title"
                       />
-                      <div className="zh-post-meta">
+                      <div className="post-meta">
                         <RichText
-                          tagName="span" className="zh-post-author"
+                          tagName="span" className="post-author"
                           value={post.author}
                           onChange={(v) => updatePost(i, 'author', v)}
                           placeholder="Author"
                         />
-                        <span className="zh-post-cat">
+                        <span className="post-cat">
                           <RichText
                             tagName="span"
                             value={post.cat}
@@ -155,17 +155,17 @@ function Edit({ attributes, setAttributes }) {
                 ))}
               </div>
 
-              <div className="zh-blog-navs">
+              <div className="blog-navs">
                 <button
                   type="button"
-                  className="zh-t-nav"
+                  className="t-nav"
                   onClick={() => setSlide(Math.max(0, clampedSlide - 1))}
                   disabled={clampedSlide === 0}
                   aria-label="Previous"
                 >‹</button>
                 <button
                   type="button"
-                  className="zh-t-nav"
+                  className="t-nav"
                   onClick={() => setSlide(Math.min(maxSlide, clampedSlide + 1))}
                   disabled={clampedSlide >= maxSlide}
                   aria-label="Next"

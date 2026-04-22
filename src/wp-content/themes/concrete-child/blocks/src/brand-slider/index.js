@@ -57,12 +57,12 @@ function Edit({ attributes, setAttributes }) {
         </ToolbarGroup>
       </BlockControls>
 
-      <section {...useBlockProps({ className: 'zh-brands' })}>
-        <div className="zh-container">
+      <section {...useBlockProps({ className: 'brands' })}>
+        <div className="container">
 
-          <div className="zh-brands-viewport">
+          <div className="brands-viewport">
             <div
-              className="zh-brands-track"
+              className="brands-track"
               style={{
                 flexWrap: 'nowrap',
                 width: 'auto',
@@ -76,7 +76,7 @@ function Edit({ attributes, setAttributes }) {
                   <div
                     key={i}
                     style={{ position: 'relative', display: 'inline-block', flexShrink: 0 }}
-                    className="zh-brand-logo-wrap"
+                    className="brand-logo-wrap"
                   >
                     <MediaUploadCheck>
                       <MediaUpload
@@ -99,13 +99,13 @@ function Edit({ attributes, setAttributes }) {
                           >
                             {logo.image ? (
                               <img
-                                className="zh-brand-logo"
+                                className="brand-logo"
                                 src={logo.image}
                                 alt={`Brand ${i + 1}`}
                               />
                             ) : (
                               <span
-                                className="zh-brand-logo"
+                                className="brand-logo"
                                 style={{
                                   display: 'inline-flex',
                                   alignItems: 'center',

@@ -3,35 +3,35 @@
 // =====================================================================
 // brand-slider block — infinite horizontal logo marquee.
 // =====================================================================
-.zh-brands {
+.brands {
   padding: 60px 0;
   background: $color-surface;
   border-top: 1px solid $color-border;
   border-bottom: 1px solid $color-border;
 }
 
-.zh-brands-head {
+.brands-head {
   text-align: center;
   margin-bottom: 32px;
 
   &:empty { display: none; }
 }
 
-.zh-brands-viewport {
+.brands-viewport {
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.zh-brands-track {
+.brands-track {
   display: flex;
   gap: 72px;
   padding: 10px 0;
   width: max-content;
-  animation: zh-marquee 30s linear infinite;
+  animation: marquee 30s linear infinite;
   align-items: center;
 }
 
-.zh-brand-logo {
+.brand-logo {
   height: 60px;
   width: auto;
   filter: grayscale(100%);

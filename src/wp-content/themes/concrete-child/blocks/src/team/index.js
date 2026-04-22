@@ -32,24 +32,24 @@ function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <section {...useBlockProps({ className: 'zh-team' })}>
-        <div className="zh-container">
-          <div className="zh-team-grid">
-            <div className="zh-team-text">
+      <section {...useBlockProps({ className: 'team' })}>
+        <div className="container">
+          <div className="team-grid">
+            <div className="team-text">
               <RichText
-                tagName="p" className="zh-eyebrow"
+                tagName="p" className="eyebrow"
                 value={attributes.eyebrow}
                 onChange={set('eyebrow')}
                 placeholder="Eyebrow"
               />
               <RichText
-                tagName="h2" className="zh-section-title"
+                tagName="h2" className="section-title"
                 value={attributes.heading}
                 onChange={set('heading')}
                 placeholder="Heading line 1"
               />
               <RichText
-                tagName="h2" className="zh-section-title"
+                tagName="h2" className="section-title"
                 value={attributes.headingSub}
                 onChange={set('headingSub')}
                 placeholder="Heading line 2"
@@ -60,7 +60,7 @@ function Edit({ attributes, setAttributes }) {
                 onChange={set('description')}
                 placeholder="Description"
               />
-              <span className="zh-btn zh-btn-primary">
+              <span className="btn btn-primary">
                 <RichText
                   tagName="span"
                   value={attributes.ctaText}
@@ -69,13 +69,13 @@ function Edit({ attributes, setAttributes }) {
                 />
               </span>
             </div>
-            <div className="zh-team-media">
+            <div className="team-media">
               {attributes.shapes.map((shape, i) => (
-                <div key={i} className={`zh-shape-float ${shape.variant}`}>
+                <div key={i} className={`shape-float ${shape.variant}`}>
                   <img src={shape.image} alt="" />
                 </div>
               ))}
-              <img className="zh-team-media-main" src={attributes.heroImage} alt="Team" />
+              <img className="team-media-main" src={attributes.heroImage} alt="Team" />
             </div>
           </div>
         </div>

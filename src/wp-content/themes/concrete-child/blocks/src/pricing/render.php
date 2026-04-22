@@ -7,39 +7,39 @@ $icons = [
   '<svg viewBox="0 0 480 480" fill="currentColor"><path d="M429.7 50.3c-7.3-7.3-19.9-7.2-38.1.2a31.8 31.8 0 0 0-44.8-2.8 31.8 31.8 0 0 0-9 34.2c-5.2 3.6-10.4 7.4-15.9 11.5-80.8-45.4-183.1-16.6-228.4 64.2a151.6 151.6 0 0 0 0 164.4c-41.2 56.7-55.5 92.7-41.4 106.8a20 20 0 0 0 14.6 5.2c21.9 0 57.6-21.9 92-47.6a152 152 0 0 0 228.6-63.7 151.6 151.6 0 0 0 .2-164.5c41-56.8 67.5-102.7 50.3-119.9zM368 56a16 16 0 1 1 0 32 16 16 0 0 1 0-32zM240 88a152 152 0 0 1 152 152 152 152 0 0 1-216.8 137.6A600 600 0 0 0 316 240c-13.3-14-44-47.2-72.5-83.3A151.4 151.4 0 0 1 240 88z"/></svg>',
 ];
 ?>
-<section <?php echo get_block_wrapper_attributes(['class' => 'zh-pricing']); ?>>
-  <div class="zh-container">
-    <div class="zh-pricing-grid-wrap">
-      <div class="zh-pricing-head">
-        <p class="zh-eyebrow"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-        <h2 class="zh-section-title"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
-        <h2 class="zh-section-title"><?php echo wp_kses_post($attributes['headingSub1'] ?? ''); ?></h2>
-        <h2 class="zh-section-title"><?php echo wp_kses_post($attributes['headingSub2'] ?? ''); ?></h2>
+<section <?php echo get_block_wrapper_attributes(['class' => 'pricing']); ?>>
+  <div class="container">
+    <div class="pricing-grid-wrap">
+      <div class="pricing-head">
+        <p class="eyebrow"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
+        <h2 class="section-title"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
+        <h2 class="section-title"><?php echo wp_kses_post($attributes['headingSub1'] ?? ''); ?></h2>
+        <h2 class="section-title"><?php echo wp_kses_post($attributes['headingSub2'] ?? ''); ?></h2>
       </div>
-      <div class="zh-pricing-panel">
-        <div class="zh-pricing-toggle" data-pricing-toggle>
-          <button class="zh-pt-btn is-active" data-period="monthly">Monthly</button>
-          <button class="zh-pt-btn" data-period="annual">Annual</button>
+      <div class="pricing-panel">
+        <div class="pricing-toggle" data-pricing-toggle>
+          <button class="pt-btn is-active" data-period="monthly">Monthly</button>
+          <button class="pt-btn" data-period="annual">Annual</button>
         </div>
-        <div class="zh-pricing-cards" data-period-target="monthly">
+        <div class="pricing-cards" data-period-target="monthly">
           <?php foreach ($plans as $i => $plan) : ?>
-            <article class="zh-price-card">
-              <div class="zh-price-header">
+            <article class="price-card">
+              <div class="price-header">
                 <div>
                   <h3><?php echo wp_kses_post($plan['title'] ?? ''); ?></h3>
-                  <p class="zh-price-amount">
-                    <span class="zh-price-monthly"><?php echo wp_kses_post($plan['monthlyPrice'] ?? ''); ?><span class="zh-price-unit"><?php echo wp_kses_post($plan['monthlyUnit'] ?? ''); ?></span></span>
-                    <span class="zh-price-annual"><?php echo wp_kses_post($plan['annualPrice'] ?? ''); ?><span class="zh-price-unit"><?php echo wp_kses_post($plan['annualUnit'] ?? ''); ?></span></span>
+                  <p class="price-amount">
+                    <span class="price-monthly"><?php echo wp_kses_post($plan['monthlyPrice'] ?? ''); ?><span class="price-unit"><?php echo wp_kses_post($plan['monthlyUnit'] ?? ''); ?></span></span>
+                    <span class="price-annual"><?php echo wp_kses_post($plan['annualPrice'] ?? ''); ?><span class="price-unit"><?php echo wp_kses_post($plan['annualUnit'] ?? ''); ?></span></span>
                   </p>
                 </div>
-                <div class="zh-price-icon"><?php echo $icons[$i] ?? $icons[0]; ?></div>
+                <div class="price-icon"><?php echo $icons[$i] ?? $icons[0]; ?></div>
               </div>
-              <ul class="zh-price-features">
+              <ul class="price-features">
                 <?php foreach (($plan['features'] ?? []) as $feat) : ?>
                   <li><?php echo wp_kses_post($feat); ?></li>
                 <?php endforeach; ?>
               </ul>
-              <a class="zh-btn zh-btn-outline-dark" href="#"><?php echo wp_kses_post($plan['ctaText'] ?? ''); ?></a>
+              <a class="btn btn-outline-dark" href="#"><?php echo wp_kses_post($plan['ctaText'] ?? ''); ?></a>
             </article>
           <?php endforeach; ?>
         </div>

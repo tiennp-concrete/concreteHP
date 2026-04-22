@@ -37,19 +37,19 @@ function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <section {...useBlockProps({ className: 'zh-contact-cta', id: 'contact' })}>
-        <div className="zh-container">
-          <div className="zh-contact-grid">
-            <div className="zh-contact-media">
+      <section {...useBlockProps({ className: 'contact-cta', id: 'contact' })}>
+        <div className="container">
+          <div className="contact-grid">
+            <div className="contact-media">
               {attributes.heroImage && (
-                <img className="zh-contact-decor" src={attributes.heroImage} alt="" />
+                <img className="contact-decor" src={attributes.heroImage} alt="" />
               )}
-              <div className="zh-contact-form">
+              <div className="contact-form">
                 <input type="text"  disabled placeholder={attributes.namePlaceholder} />
                 <input type="email" disabled placeholder={attributes.emailPlaceholder} />
                 <input type="text"  disabled placeholder={attributes.subjectPlaceholder} />
                 <textarea disabled placeholder={attributes.messagePlaceholder} />
-                <span className="zh-btn zh-btn-primary">
+                <span className="btn btn-primary">
                   <RichText
                     tagName="span"
                     value={attributes.submitText}
@@ -60,24 +60,24 @@ function Edit({ attributes, setAttributes }) {
               </div>
             </div>
 
-            <div className="zh-contact-text">
+            <div className="contact-text">
               <RichText
-                tagName="p" className="zh-eyebrow"
+                tagName="p" className="eyebrow"
                 value={attributes.eyebrow}
                 onChange={set('eyebrow')}
                 placeholder="Eyebrow"
               />
               {attributes.decorImage && (
-                <img className="zh-contact-decor-inline" src={attributes.decorImage} alt="" />
+                <img className="contact-decor-inline" src={attributes.decorImage} alt="" />
               )}
               <RichText
-                tagName="h2" className="zh-section-title"
+                tagName="h2" className="section-title"
                 value={attributes.heading}
                 onChange={set('heading')}
                 placeholder="Heading line 1"
               />
               <RichText
-                tagName="h2" className="zh-section-title"
+                tagName="h2" className="section-title"
                 value={attributes.headingSub}
                 onChange={set('headingSub')}
                 placeholder="Heading line 2"
@@ -89,13 +89,13 @@ function Edit({ attributes, setAttributes }) {
                 placeholder="Description"
               />
               <RichText
-                tagName="p" className="zh-contact-phone-label"
+                tagName="p" className="contact-phone-label"
                 value={attributes.phoneLabel}
                 onChange={set('phoneLabel')}
                 placeholder="Phone label"
               />
-              <span className="zh-contact-phone">
-                <span className="zh-phone-icon">📞</span>
+              <span className="contact-phone">
+                <span className="phone-icon">📞</span>
                 <RichText
                   tagName="span"
                   value={attributes.phone}

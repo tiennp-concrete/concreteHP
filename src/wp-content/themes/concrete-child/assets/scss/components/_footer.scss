@@ -3,7 +3,7 @@
 // =====================================================================
 // footer block — 4-col footer (brand + 2 links + newsletter).
 // =====================================================================
-.zh-footer {
+.footer {
   position: relative;
   padding: 120px 0 0;
   overflow: hidden;
@@ -13,7 +13,7 @@
   background-repeat: no-repeat;
 }
 
-.zh-footer-grid {
+.footer-grid {
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
   gap: 48px;
@@ -22,18 +22,18 @@
   z-index: 1;
 }
 
-.zh-footer-brand {
-  .zh-logo img { height: 44px; }
+.footer-brand {
+  .logo img { height: 44px; }
 }
 
-.zh-footer-tag {
+.footer-tag {
   margin: 20px 0 24px;
   color: $color-muted;
   max-width: 320px;
   font-size: 15px;
 }
 
-.zh-footer-social {
+.footer-social {
   display: flex;
   gap: 22px;
   margin-bottom: 24px;
@@ -47,13 +47,13 @@
   }
 }
 
-.zh-footer-copyright {
+.footer-copyright {
   color: $color-muted;
   font-size: 14px;
   margin: 0;
 }
 
-.zh-footer-col {
+.footer-col {
   h4 {
     color: $color-heading;
     font-size: 20px;
@@ -79,7 +79,7 @@
   }
 }
 
-.zh-footer-newsletter {
+.footer-newsletter {
   h4 {
     color: $color-heading;
     font-size: 20px;
@@ -90,7 +90,7 @@
   p { color: $color-muted; font-size: 14px; margin: 0 0 16px; }
 }
 
-.zh-newsletter-form {
+.newsletter-form {
   position: relative;
   margin-bottom: 20px;
 
@@ -132,7 +132,7 @@
   }
 }
 
-.zh-footer-contact {
+.footer-contact {
   list-style: none;
   padding: 0;
   margin: 0;

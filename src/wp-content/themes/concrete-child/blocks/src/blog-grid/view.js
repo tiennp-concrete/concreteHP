@@ -1,6 +1,6 @@
 /* Blog slider — native horizontal scroll */
-document.querySelectorAll('[data-zh-blog-slider]').forEach((root) => {
-  const track = root.querySelector('.zh-blog-track');
+document.querySelectorAll('[data-blog-slider]').forEach((root) => {
+  const track = root.querySelector('.blog-track');
   if (!track?.children.length) return;
 
   const step = () => {

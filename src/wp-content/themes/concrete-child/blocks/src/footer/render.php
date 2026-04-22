@@ -12,26 +12,26 @@ $socials = [
   ['label' => 'RSS',       'svg' => '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="2"/></svg>'],
 ];
 ?>
-<footer <?php echo get_block_wrapper_attributes(['class' => 'zh-footer']); ?>>
-  <div class="zh-container zh-footer-grid">
-    <div class="zh-footer-brand">
-      <a class="zh-logo" href="/">
+<footer <?php echo get_block_wrapper_attributes(['class' => 'footer']); ?>>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="/">
         <?php if (!empty($logo_url)) : ?>
           <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($attributes['brand'] ?? ''); ?>" />
         <?php else : ?>
-          <span class="zh-logo-text"><?php echo esc_html($attributes['brand'] ?? ''); ?></span>
+          <span class="logo-text"><?php echo esc_html($attributes['brand'] ?? ''); ?></span>
         <?php endif; ?>
       </a>
-      <p class="zh-footer-tag"><?php echo wp_kses_post($attributes['tagline'] ?? ''); ?></p>
-      <div class="zh-footer-social">
+      <p class="footer-tag"><?php echo wp_kses_post($attributes['tagline'] ?? ''); ?></p>
+      <div class="footer-social">
         <?php foreach ($socials as $s) : ?>
           <a href="#" aria-label="<?php echo esc_attr($s['label']); ?>"><?php echo $s['svg']; ?></a>
         <?php endforeach; ?>
       </div>
-      <p class="zh-footer-copyright"><?php echo wp_kses_post($attributes['copyright'] ?? ''); ?></p>
+      <p class="footer-copyright"><?php echo wp_kses_post($attributes['copyright'] ?? ''); ?></p>
     </div>
 
-    <div class="zh-footer-col">
+    <div class="footer-col">
       <h4><?php echo wp_kses_post($attributes['colCompanyHeading'] ?? ''); ?></h4>
       <ul>
         <?php foreach ($company_items as $item) : ?>
@@ -40,7 +40,7 @@ $socials = [
       </ul>
     </div>
 
-    <div class="zh-footer-col">
+    <div class="footer-col">
       <h4><?php echo wp_kses_post($attributes['colResourcesHeading'] ?? ''); ?></h4>
       <ul>
         <?php foreach ($resources_items as $item) : ?>
@@ -49,16 +49,16 @@ $socials = [
       </ul>
     </div>
 
-    <div class="zh-footer-col zh-footer-newsletter">
+    <div class="footer-col footer-newsletter">
       <h4><?php echo wp_kses_post($attributes['newsletterHeading'] ?? ''); ?></h4>
       <p><?php echo wp_kses_post($attributes['newsletterText'] ?? ''); ?></p>
-      <form class="zh-newsletter-form" onsubmit="return false;">
+      <form class="newsletter-form" onsubmit="return false;">
         <input type="email" placeholder="Enter your email" aria-label="Email" />
         <button type="submit" aria-label="Subscribe">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </button>
       </form>
-      <ul class="zh-footer-contact">
+      <ul class="footer-contact">
         <li>
           <i>&#128222;</i>
           <span><?php echo wp_kses_post($attributes['phone'] ?? ''); ?></span>

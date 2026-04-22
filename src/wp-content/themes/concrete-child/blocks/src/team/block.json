@@ -41,15 +41,15 @@
       "default": [
         {
           "image": "/wp-content/themes/concrete-child/assets/images/team_s3.png",
-          "variant": "zh-ts-1 zh-float-ud"
+          "variant": "ts-1 float-ud"
         },
         {
           "image": "/wp-content/themes/concrete-child/assets/images/1-team_s42.png",
-          "variant": "zh-ts-2 zh-float-small"
+          "variant": "ts-2 float-small"
         },
         {
           "image": "/wp-content/themes/concrete-child/assets/images/team_s1.png",
-          "variant": "zh-ts-3 zh-float-top"
+          "variant": "ts-3 float-top"
         }
       ]
     }

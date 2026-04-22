@@ -65,34 +65,34 @@ function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <footer {...useBlockProps({ className: 'zh-footer' })}>
-        <div className="zh-container zh-footer-grid">
-          <div className="zh-footer-brand">
-            <a className="zh-logo" href="/" onClick={(e) => e.preventDefault()}>
+      <footer {...useBlockProps({ className: 'footer' })}>
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <a className="logo" href="/" onClick={(e) => e.preventDefault()}>
               {attributes.logoUrl
                 ? <img src={attributes.logoUrl} alt={attributes.brand} />
-                : <span className="zh-logo-text">{attributes.brand}</span>}
+                : <span className="logo-text">{attributes.brand}</span>}
             </a>
             <RichText
-              tagName="p" className="zh-footer-tag"
+              tagName="p" className="footer-tag"
               value={attributes.tagline}
               onChange={set('tagline')}
               placeholder="Tagline"
             />
-            <div className="zh-footer-social">
+            <div className="footer-social">
               {SOCIAL.map((s, i) => (
                 <a key={i} href="#" onClick={(e) => e.preventDefault()} aria-label={s.name}>{s.svg}</a>
               ))}
             </div>
             <RichText
-              tagName="p" className="zh-footer-copyright"
+              tagName="p" className="footer-copyright"
               value={attributes.copyright}
               onChange={set('copyright')}
               placeholder="Copyright"
             />
           </div>
 
-          <div className="zh-footer-col">
+          <div className="footer-col">
             <RichText
               tagName="h4"
               value={attributes.colCompanyHeading}
@@ -106,7 +106,7 @@ function Edit({ attributes, setAttributes }) {
             </ul>
           </div>
 
-          <div className="zh-footer-col">
+          <div className="footer-col">
             <RichText
               tagName="h4"
               value={attributes.colResourcesHeading}
@@ -120,7 +120,7 @@ function Edit({ attributes, setAttributes }) {
             </ul>
           </div>
 
-          <div className="zh-footer-col zh-footer-newsletter">
+          <div className="footer-col footer-newsletter">
             <RichText
               tagName="h4"
               value={attributes.newsletterHeading}
@@ -133,13 +133,13 @@ function Edit({ attributes, setAttributes }) {
               onChange={set('newsletterText')}
               placeholder="Newsletter description"
             />
-            <div className="zh-newsletter-form">
+            <div className="newsletter-form">
               <input type="email" disabled placeholder="Enter your email" />
               <button type="button" disabled aria-label="Subscribe">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
               </button>
             </div>
-            <ul className="zh-footer-contact">
+            <ul className="footer-contact">
               <li>
                 <i>📞</i>
                 <RichText

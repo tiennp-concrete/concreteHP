@@ -1,58 +1,58 @@
 @use '../../variables' as *;
 
 @media (max-width: 1024px) {
-  .zh-hero { padding: 140px 0 80px; }
-  .zh-hero-grid,
-  .zh-team-grid,
-  .zh-testimonial-grid,
-  .zh-contact-grid,
-  .zh-blog-grid-wrap,
-  .zh-pricing-grid-wrap {
+  .hero { padding: 140px 0 80px; }
+  .hero-grid,
+  .team-grid,
+  .testimonial-grid,
+  .contact-grid,
+  .blog-grid-wrap,
+  .pricing-grid-wrap {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .zh-services-grid,
-  .zh-pricing-cards {
+  .services-grid,
+  .pricing-cards {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .zh-portfolio-grid {
+  .portfolio-grid {
     grid-template-columns: repeat(4, 1fr);
-    .zh-port-wide { grid-column: span 2; }
-    .zh-port-tall { grid-row: span 1; }
+    .port-wide { grid-column: span 2; }
+    .port-tall { grid-row: span 1; }
   }
 
-  .zh-post-card { flex: 0 0 calc((100% - 24px) / 2); }
-  .zh-footer-grid { grid-template-columns: 1fr 1fr; }
+  .post-card { flex: 0 0 calc((100% - 24px) / 2); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 640px) {
   // xóa các dòng header
-  .zh-hero,
-  .zh-services,
-  .zh-team,
-  .zh-portfolio,
-  .zh-pricing,
-  .zh-testimonial,
-  .zh-blog,
-  .zh-contact-cta,
-  .zh-footer { padding: 72px 0; }
-  .zh-footer { padding-bottom: 0; }
+  .hero,
+  .services,
+  .team,
+  .portfolio,
+  .pricing,
+  .testimonial,
+  .blog,
+  .contact-cta,
+  .footer { padding: 72px 0; }
+  .footer { padding-bottom: 0; }
 
-  .zh-services-grid,
-  .zh-pricing-cards,
-  .zh-portfolio-grid,
-  .zh-footer-grid {
+  .services-grid,
+  .pricing-cards,
+  .portfolio-grid,
+  .footer-grid {
     grid-template-columns: 1fr;
   }
 
-  .zh-portfolio-grid {
-    .zh-port-card,
-    .zh-port-wide { grid-column: span 1; }
+  .portfolio-grid {
+    .port-card,
+    .port-wide { grid-column: span 1; }
   }
 
-  .zh-post-card { flex: 0 0 100%; }
-  .zh-hero-title { font-size: 48px; }
-  .zh-contact-form { padding: 24px; }
+  .post-card { flex: 0 0 100%; }
+  .hero-title { font-size: 48px; }
+  .contact-form { padding: 24px; }
 }

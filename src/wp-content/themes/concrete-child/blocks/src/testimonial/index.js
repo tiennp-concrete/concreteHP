@@ -64,55 +64,55 @@ function Edit({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <section {...useBlockProps({ className: 'zh-testimonial' })}>
-        <div className="zh-container">
-          <div className="zh-testimonial-grid">
-            <div className="zh-testimonial-media">
-              <div className="zh-shape-float zh-tm-1 zh-float-ud">
+      <section {...useBlockProps({ className: 'testimonial' })}>
+        <div className="container">
+          <div className="testimonial-grid">
+            <div className="testimonial-media">
+              <div className="shape-float tm-1 float-ud">
                 <img src={`${SHAPE_BASE}/team_s7.png`} alt="" />
               </div>
-              <div className="zh-shape-float zh-tm-2 zh-float-small">
+              <div className="shape-float tm-2 float-small">
                 <img src={`${SHAPE_BASE}/team_s8.png`} alt="" />
               </div>
-              <div className="zh-shape-float zh-tm-3 zh-float-top">
+              <div className="shape-float tm-3 float-top">
                 <img src={`${SHAPE_BASE}/team_s5-1.png`} alt="" />
               </div>
-              <div className="zh-shape-float zh-tm-4 zh-float-circle">
+              <div className="shape-float tm-4 float-circle">
                 <img src={`${SHAPE_BASE}/team_s6.png`} alt="" />
               </div>
-              <img className="zh-t-main-image" src={MAIN_IMG} alt="Testimonials" />
+              <img className="t-main-image" src={MAIN_IMG} alt="Testimonials" />
             </div>
 
-            <div className="zh-testimonial-text">
+            <div className="testimonial-text">
               <RichText
                 tagName="p"
-                className="zh-eyebrow"
+                className="eyebrow"
                 value={attributes.eyebrow}
                 onChange={(v) => setAttributes({ eyebrow: v })}
                 placeholder="Eyebrow"
               />
               <RichText
                 tagName="h2"
-                className="zh-section-title"
+                className="section-title"
                 value={attributes.heading}
                 onChange={(v) => setAttributes({ heading: v })}
                 placeholder="Heading"
               />
               <RichText
                 tagName="h2"
-                className="zh-section-title"
+                className="section-title"
                 value={attributes.headingSub}
                 onChange={(v) => setAttributes({ headingSub: v })}
                 placeholder="Heading (line 2)"
               />
 
-              <div className="zh-t-carousel">
+              <div className="t-carousel">
                 <div
-                  className="zh-t-carousel-viewport"
+                  className="t-carousel-viewport"
                   style={{ overflow: 'hidden' }}
                 >
                   <div
-                    className="zh-t-carousel-track"
+                    className="t-carousel-track"
                     style={{
                       display: 'flex',
                       transform: `translateX(-${slide * 100}%)`,
@@ -122,31 +122,31 @@ function Edit({ attributes, setAttributes }) {
                     {slides.map((keys, i) => (
                       <article
                         key={i}
-                        className="zh-t-card"
+                        className="t-card"
                         style={{ flex: '0 0 100%' }}
                       >
-                        <div className="zh-t-quote-icon">&ldquo;</div>
+                        <div className="t-quote-icon">&ldquo;</div>
                         <RichText
                           tagName="p"
-                          className="zh-t-quote"
+                          className="t-quote"
                           value={attributes[keys.quote]}
                           onChange={(v) => setAttributes({ [keys.quote]: v })}
                           placeholder="Quote…"
                         />
                         
-                        <div className="zh-t-author">
+                        <div className="t-author">
                           <img src={AVATAR} alt="" />
                           <div>
                             <RichText
                               tagName="p"
-                              className="zh-t-name"
+                              className="t-name"
                               value={attributes[keys.name]}
                               onChange={(v) => setAttributes({ [keys.name]: v })}
                               placeholder="Name"
                             />
                             <RichText
                               tagName="p"
-                              className="zh-t-role"
+                              className="t-role"
                               value={attributes[keys.role]}
                               onChange={(v) => setAttributes({ [keys.role]: v })}
                               placeholder="Role"
@@ -158,16 +158,16 @@ function Edit({ attributes, setAttributes }) {
                   </div>
                 </div>
 
-                <div className="zh-t-navs">
+                <div className="t-navs">
                   <button
                     type="button"
-                    className="zh-t-nav"
+                    className="t-nav"
                     onClick={() => go(slide - 1)}
                     aria-label="Previous"
                   >‹</button>
                   <button
                     type="button"
-                    className="zh-t-nav"
+                    className="t-nav"
                     onClick={() => go(slide + 1)}
                     aria-label="Next"
                   >›</button>

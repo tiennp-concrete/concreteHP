@@ -3,18 +3,18 @@
 // =====================================================================
 // portfolio block — filter pills + masonry grid with hover reveal.
 // =====================================================================
-.zh-portfolio {
+.portfolio {
   padding: 120px 0;
   position: relative;
   text-align: center;
   overflow: hidden;
 }
 
-.zh-portfolio-head .zh-section-title + .zh-section-title {
+.portfolio-head .section-title + .section-title {
   margin-top: 0;
 }
 
-.zh-portfolio-decor {
+.portfolio-decor {
   position: absolute;
   top: 60px;
   right: 5%;
@@ -26,7 +26,7 @@
   img { width: 100%; display: block; }
 }
 
-.zh-portfolio-filters {
+.portfolio-filters {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -36,7 +36,7 @@
   z-index: 1;
 }
 
-.zh-filter {
+.filter {
   padding: 10px 22px;
   background: transparent;
   border: 1px solid $color-border;
@@ -57,7 +57,7 @@
   }
 }
 
-.zh-portfolio-grid {
+.portfolio-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 260px;
@@ -66,7 +66,7 @@
   z-index: 1;
 }
 
-.zh-port-card {
+.port-card {
   position: relative;
   display: block;
   border-radius: $color-radius-lg;
@@ -87,16 +87,16 @@
 
     img { transform: scale(1.05); }
 
-    .zh-port-meta { opacity: 1; }
+    .port-meta { opacity: 1; }
   }
 
   &.is-hidden { display: none; }
 
-  &.zh-port-wide { grid-column: span 4; }
-  &.zh-port-tall { grid-row: span 2; }
+  &.port-wide { grid-column: span 4; }
+  &.port-tall { grid-row: span 2; }
 }
 
-.zh-port-meta {
+.port-meta {
   position: absolute;
   inset: auto 0 0 0;
   padding: 24px;
@@ -114,7 +114,7 @@
   }
 }
 
-.zh-port-tag {
+.port-tag {
   display: inline-block;
   font-size: 11px;
   text-transform: uppercase;
