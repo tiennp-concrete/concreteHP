@@ -136,8 +136,13 @@ body,
   img { display: block; max-width: none; }
 }
 
-.float-ud     { animation: zh-MoveUpDown 5s ease-in-out infinite; }
-.float-top    { animation: zh-MoveTop 4.5s ease-in-out infinite alternate; }
-.float-circle { animation: zh-MoveCircle360 9s linear infinite; }
-.float-zoom   { animation: zh-MoveZoomIn 3.7s ease-in-out infinite; }
-.float-small  { animation: zh-MoveCircleSmall 4.5s ease-in-out infinite; }
+.float-ml     { animation: MoveLeft 6s ease-in-out infinite alternate; }
+.float-ud     { animation: MoveUpDown 5s ease-in-out infinite alternate; }
+.float-top    { animation: MoveTop 4.5s ease-in-out infinite alternate; }
+.float-circle { animation: MoveCircle360 9s linear infinite alternate; }
+.float-zoom   { animation: MoveZoomIn 3.7s ease-in-out infinite alternate; }
+.float-small  { animation: MoveCircleSmall 4.5s ease-in-out infinite alternate; }
+.animation {
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

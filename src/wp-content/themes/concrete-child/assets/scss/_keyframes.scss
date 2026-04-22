@@ -2,34 +2,83 @@
 // Keyframes used by decorative floating shapes and the brand marquee.
 // =====================================================================
 
-@keyframes zh-MoveUpDown {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-20px); }
+@keyframes MoveLeft {
+  from {
+    transform: translatex(0px);
+    -webkit-transform: translatex(0px);
+  }
+  to {
+    transform: translatex(100px);
+    -webkit-transform: translatex(100px);
+  }
 }
 
-@keyframes zh-MoveTop {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-50px); }
+@keyframes MoveUpDown {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
 }
 
-@keyframes zh-MoveCircle360 {
+@keyframes MoveTop {
+  from {
+    transform: translatey(0px);
+    -webkit-transform: translatey(0px);
+  }
+  to {
+    transform: translatey(-100px);
+    -webkit-transform: translatey(-100px);
+  }
+}
+
+@keyframes MoveCircle360 {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
-@keyframes zh-MoveZoomIn {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.15); }
+@keyframes MoveCircle {
+  0% {
+    transform: rotate(0deg) translate(-100%) rotate(0deg);
+    -webkit-transform: rotate(0deg) translate(-100%) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(-100%) rotate(-360deg);
+    -webkit-transform: rotate(360deg) translate(-100%) rotate(-360deg);
+  }
 }
 
-@keyframes zh-MoveCircleSmall {
+@keyframes MoveZoomIn {
+  from {
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes MoveZoomOut {
+  from {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+  to {
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+  }
+}
+
+@keyframes MoveCircleSmall {
   0%, 100% { transform: translate(0, 0); }
   25%      { transform: translate(15px, -10px); }
   50%      { transform: translate(0, -20px); }
   75%      { transform: translate(-15px, -10px); }
 }
 
-@keyframes zh-marquee {
+@keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }

@@ -48,24 +48,28 @@
       "type": "array",
       "default": [
         {
-          "image": "/wp-content/themes/concrete-child/assets/images/shape22.png",
-          "variant": "zh-s-1 zh-float-ud"
+          "image": "/wp-content/themes/concrete-child/assets/images/shape2.png",
+          "variant": "s-1 animation"
         },
         {
-          "image": "/wp-content/themes/concrete-child/assets/images/shape22.png",
-          "variant": "zh-s-2 zh-float-circle"
+          "image": "/wp-content/themes/concrete-child/assets/images/shape2.png",
+          "variant": "s-2 animation"
         },
         {
           "image": "/wp-content/themes/concrete-child/assets/images/shade1.png",
-          "variant": "zh-s-3 zh-float-top"
+          "variant": "s-3 animation"
         },
         {
           "image": "/wp-content/themes/concrete-child/assets/images/img_animation.png",
-          "variant": "zh-s-4 zh-float-small"
+          "variant": "s-4 animation"
         },
         {
           "image": "/wp-content/themes/concrete-child/assets/images/img_animation.png",
-          "variant": "zh-s-5 zh-float-zoom"
+          "variant": "s-5 animation"
+        },
+        {
+          "image": "/wp-content/themes/concrete-child/assets/images/img_animation.png",
+          "variant": "s-6 animation"
         }
       ]
     }

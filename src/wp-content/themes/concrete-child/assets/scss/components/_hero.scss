@@ -1,4 +1,4 @@
-@use '../variables' as *;
+@use "../variables" as *;
 
 // =====================================================================
 // marketing-hero block — split title, CTA + video pill, floating shapes,
@@ -12,13 +12,13 @@
 
   // Decorative teal SVG backdrop — top-right organic shape (matches Zahar demo)
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
     width: 70%;
     height: 100%;
-    background-image: url('../images/Background5c.svg');
+    background-image: url("../images/Background5c.svg");
     background-repeat: no-repeat;
     background-position: top right;
     background-size: contain;
@@ -28,11 +28,66 @@
 
   // Floating decorative shapes positioned inside the hero.
   .shape-float {
-    &.s-1 { top: 10%;    left: 5%;    img { width: 60px; } }
-    &.s-2 { top: 40%;    left: 40%;   img { width: 40px; } }
-    &.s-3 { bottom: 12%; left: 10%;   img { width: 80px; } }
-    &.s-4 { top: 20%;    right: 45%;  img { width: 30px; } }
-    &.s-5 { bottom: 20%; right: 8%;   img { width: 70px; } }
+    &.s-1 {
+      animation-name: MoveLeft;
+      animation-timing-function: linear;
+      animation-duration: 6s;
+      animation-delay: 0s;
+      left: 10%;
+      top: 17%;
+      img {
+        width: 79%;
+      }
+    }
+    &.s-2 {
+      animation-name: none;
+      animation-timing-function: linear;
+      animation-duration: 3.5s;
+      animation-delay: 0s;
+      left: 56%;
+      top: 88%;
+    }
+    &.s-3 {
+      animation-name: MoveTop;
+      animation-timing-function: linear;
+      animation-duration: 5s;
+      animation-delay: 1.2s;
+      left: 6%;
+      top: 74%;
+    }
+    &.s-4 {
+      animation-name: MoveCircle;
+      animation-timing-function: linear;
+      animation-duration: 4s;
+      animation-delay: 0s;
+      left: 27%;
+      top: 83%;
+      img {
+        width: 25px;
+      }
+    }
+    &.s-5 {
+      animation-name: MoveTop;
+      animation-timing-function: linear;
+      animation-duration: 4s;
+      animation-delay: 0.4s;
+      left: 51%;
+      top: 91%;
+      img {
+        width: 25px;
+      }
+    }
+    &.s-6 {
+      animation-name: MoveLeft;
+      animation-timing-function: linear;
+      animation-duration: 4s;
+      animation-delay: 1.5s;
+      left: 7%;
+      top: 28%;
+      img {
+        width: 25px;
+      }
+    }
   }
 }
 
@@ -96,9 +151,9 @@
 .hero-video {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 22px;
   color: $color-heading;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
 
   .play-icon {
@@ -113,10 +168,20 @@
     box-shadow: 0 0 0 6px rgba(23, 207, 189, 0.25);
     transition: transform 0.2s ease;
 
-    svg { width: 14px; height: 14px; fill: currentColor; }
+    svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
   }
 
-  &:hover .play-icon { transform: scale(1.08); }
+  &:hover .play-icon {
+    transform: scale(1.08);
+  }
+}
+
+.hero-media {
+  margin: 0% -14% 0% 0%;
 }
 
 .hero-media img {
