@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:zahar.jwsuperthemes.com)"
+      "WebFetch(domain:zahar.jwsuperthemes.com)",
+      "Bash(npm run *)"
     ]
   }
 }

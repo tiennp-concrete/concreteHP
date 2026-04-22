@@ -78,6 +78,28 @@
   75%      { transform: translate(-15px, -10px); }
 }
 
+@keyframes MoveRight {
+  from {
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-100px);
+    -webkit-transform: translateX(-100px);
+  }
+}
+
+@keyframes MoveBottom {
+  from {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+  }
+  to {
+    transform: translateY(100px);
+    -webkit-transform: translateY(100px);
+  }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

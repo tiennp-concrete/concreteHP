@@ -165,7 +165,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 0 6px rgba(23, 207, 189, 0.25);
+    box-shadow: 0 0 0 6px rgba($color-primary, 0.25);
     transition: transform 0.2s ease;
 
     svg {

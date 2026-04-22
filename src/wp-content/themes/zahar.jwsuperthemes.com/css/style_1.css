@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Jost';
+    src: url('../fonts/Jost-Book.eot');
+    src: url('../fonts/Jost-Book.eot#iefix') format('embedded-opentype'),
+        url('../fonts/Jost-Book.woff2') format('woff2'),
+        url('../fonts/Jost-Book.woff') format('woff'),
+        url('../images/Jost-Book.svg#Jost-Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jost';
+    src: url('../fonts/Jost-Bold.eot');
+    src: url('../fonts/Jost-Bold.eot#iefix') format('embedded-opentype'),
+        url('../fonts/Jost-Bold.woff2') format('woff2'),
+        url('../fonts/Jost-Bold.woff') format('woff'),
+        url('../fonts/Jost-Bold.ttf') format('truetype'),
+        url('../images/Jost-Bold.svg#Jost-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jost';
+    src: url('../fonts/Jost-Semi.eot');
+    src: url('../fonts/Jost-Semi.eot#iefix') format('embedded-opentype'),
+        url('../fonts/Jost-Semi.woff2') format('woff2'),
+        url('../fonts/Jost-Semi.woff') format('woff'),
+        url('../fonts/Jost-Semi.ttf') format('truetype'),
+        url('../images/Jost-Semi.svg#Jost-Semi') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jost';
+    src: url('../fonts/Jost-Medium.eot');
+    src: url('../fonts/Jost-Medium.eot#iefix') format('embedded-opentype'),
+        url('../fonts/Jost-Medium.woff2') format('woff2'),
+        url('../fonts/Jost-Medium.woff') format('woff'),
+        url('../fonts/Jost-Medium.ttf') format('truetype'),
+        url('../images/Jost-Medium.svg#Jost-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Jost';
+    src: url('../fonts/Jost-Light.eot');
+    src: url('../fonts/Jost-Light.eot#iefix') format('embedded-opentype'),
+        url('../fonts/Jost-Light.woff2') format('woff2'),
+        url('../fonts/Jost-Light.woff') format('woff'),
+        url('../fonts/Jost-Light.ttf') format('truetype'),
+        url('../images/Jost-Light.svg#Jost-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+

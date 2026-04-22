@@ -1,0 +1,158 @@
+@use "../variables" as *;
+
+.about {
+  padding: 83px 0 90px;
+
+  @include mq_down($lg) {
+    padding: 80px 0;
+  }
+
+  @include mq_down($sm) {
+    padding: 60px 0;
+  }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: center;
+
+  @include mq_down($lg) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+// ── Left column: image extends -20% outside the container ──────────────
+.about-media {
+  position: relative;
+  margin-left: -20%;
+
+  @include mq_down($lg) {
+    margin-left: 0;
+  }
+
+  > img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// ── Floating dot shapes ─────────────────────────────────────────────────
+.about-dot {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+
+  img {
+    width: 27px;
+    display: block;
+  }
+
+  &.ad-1 {
+    left: -4%;
+    top: 10%;
+    animation: MoveLeft 4s linear infinite alternate;
+  }
+
+  &.ad-2 {
+    left: 21%;
+    top: 88%;
+    animation: MoveRight 4s linear infinite alternate;
+  }
+
+  &.ad-3 {
+    left: 95%;
+    top: 39%;
+    animation: MoveBottom 4s linear infinite alternate;
+  }
+}
+
+// ── Right column: text with 12% side padding ───────────────────────────
+.about-text {
+  padding: 0 12%;
+
+  @include mq_down($lg) {
+    padding: 0;
+  }
+}
+
+// ── Eyebrow badge chip ──────────────────────────────────────────────────
+.about-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  background: rgba($color-primary, 0.15);
+  color: $color-primary;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin: 0 0 35px;
+}
+
+// ── Headings ────────────────────────────────────────────────────────────
+.about-heading {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  color: $color-heading;
+  margin: 0 0 -10px;
+
+  @include mq_down($sm) {
+    font-size: 36px;
+  }
+}
+
+.about-heading-sub {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  color: $color-heading;
+  margin: 0 0 24px;
+
+  @include mq_down($sm) {
+    font-size: 36px;
+  }
+}
+
+// ── Description ─────────────────────────────────────────────────────────
+.about-desc {
+  font-size: 16px;
+  color: $color-muted;
+  line-height: 1.75;
+  margin: 12px 0 21px;
+  max-width: 480px;
+}
+
+// ── Optional stats row ──────────────────────────────────────────────────
+.about-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-stat-number {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: $color-primary;
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-size: 13px;
+  color: $color-muted;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

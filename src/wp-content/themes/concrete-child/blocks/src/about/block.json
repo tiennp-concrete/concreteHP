@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/about",
+  "title": "About Us",
+  "category": "theme",
+  "textdomain": "about",
+  "version": "0.3.0",
+  "description": "Two-column about section with heading, description, stats and CTA.",
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": "ABOUT US"
+    },
+    "heading": {
+      "type": "string",
+      "default": "We are not just"
+    },
+    "headingSub": {
+      "type": "string",
+      "default": "Another Agency"
+    },
+    "description": {
+      "type": "string",
+      "default": "Come to think of it, we're not really an agency at all. We're a creative digital performance marketing partner that helps passionate organizations achieve inspiring results through bold ideas and flawless execution."
+    },
+    "ctaText": {
+      "type": "string",
+      "default": "Learn more about us"
+    },
+    "ctaUrl": {
+      "type": "string",
+      "default": "#about"
+    },
+    "image": {
+      "type": "string",
+      "default": "/wp-content/themes/concrete-child/assets/images/About-Us_team.png"
+    },
+    "stats": {
+      "type": "array",
+      "default": [
+        { "number": "10+", "label": "Years Experience" },
+        { "number": "200+", "label": "Projects Done" },
+        { "number": "50+", "label": "Team Members" }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["full"]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "example": {}
+}
