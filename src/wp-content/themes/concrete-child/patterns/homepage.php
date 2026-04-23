@@ -13,9 +13,10 @@
 <!-- wp:concrete/marketing-hero /-->
 
 <!-- wp:concrete/about /-->
+ 
+<!-- wp:concrete/brand-slider /-->
 
 <!-- wp:concrete/services-grid /-->
-<!-- wp:concrete/brand-slider /-->
 
 <!-- wp:concrete/team /-->
 

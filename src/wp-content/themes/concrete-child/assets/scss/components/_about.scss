@@ -1,10 +1,10 @@
 @use "../variables" as *;
 
 .about {
-  padding: 83px 0 90px;
+  padding: 70px 0 60px;
 
   @include mq_down($lg) {
-    padding: 80px 0;
+    padding: 70px 0;
   }
 
   @include mq_down($sm) {
@@ -27,16 +27,20 @@
 // ── Left column: image extends -20% outside the container ──────────────
 .about-media {
   position: relative;
-  margin-left: -20%;
-
-  @include mq_down($lg) {
-    margin-left: 0;
-  }
+  text-align: center;
 
   > img {
     width: 100%;
     height: auto;
     display: block;
+  }
+}
+
+.about-img {
+  margin-left: -20%;
+
+  @include mq_down($lg) {
+    margin-left: 0;
   }
 }
 
@@ -82,50 +86,53 @@
 // ── Eyebrow badge chip ──────────────────────────────────────────────────
 .about-eyebrow {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  line-height: 1;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.2;
   background: rgba($color-primary, 0.15);
-  color: $color-primary;
+  color: $color-primary-bold;
   border-radius: 5px;
   padding: 6px 10px;
-  margin: 0 0 35px;
+  margin: 0 0 25px;
 }
 
 // ── Headings ────────────────────────────────────────────────────────────
 .about-heading {
   font-size: 48px;
-  font-weight: 700;
-  line-height: 1;
+  font-weight: 600;
+  line-height: 1.4;
   color: $color-heading;
   margin: 0 0 -10px;
 
-  @include mq_down($sm) {
+  @include mq_down($lg) {
     font-size: 36px;
+    line-height: 36px;
   }
 }
 
 .about-heading-sub {
   font-size: 48px;
-  font-weight: 400;
-  line-height: 1;
-  color: $color-heading;
-  margin: 0 0 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: $color-primary;
+  margin: 0;
 
-  @include mq_down($sm) {
+  @include mq_down($lg) {
     font-size: 36px;
+    line-height: 36px;
   }
 }
 
 // ── Description ─────────────────────────────────────────────────────────
 .about-desc {
-  font-size: 16px;
+  font-size: 18px;
   color: $color-muted;
   line-height: 1.75;
   margin: 12px 0 21px;
   max-width: 480px;
+  color: #808291;
+  font-weight: 300;
+  letter-spacing: 0.01em;
 }
 
 // ── Optional stats row ──────────────────────────────────────────────────

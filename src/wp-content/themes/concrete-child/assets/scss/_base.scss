@@ -80,14 +80,15 @@ body,
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 14px 32px;
+  padding: 16px 40px 16px 40px;
   border-radius: $color-radius-pill;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1;
   font-family: $font-body;
   text-decoration: none;
-  border: 2px solid transparent;
   cursor: pointer;
+  font-weight: 300;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 
   &:hover {

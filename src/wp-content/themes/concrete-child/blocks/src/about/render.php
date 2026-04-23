@@ -9,17 +9,19 @@ $stats   = is_array($attributes['stats'] ?? null) ? $attributes['stats'] : [];
       <div class="about-dot ad-1"><img src="<?php echo esc_url($dot_img); ?>" alt="" /></div>
       <div class="about-dot ad-2"><img src="<?php echo esc_url($dot_img); ?>" alt="" /></div>
       <div class="about-dot ad-3"><img src="<?php echo esc_url($dot_img); ?>" alt="" /></div>
-      <img src="<?php echo esc_url($attributes['image'] ?? ''); ?>" alt="About us" />
+      <div class="about-img">
+        <img src="<?php echo esc_url($attributes['image'] ?? ''); ?>" alt="About us" />
+      </div>
     </div>
 
     <div class="about-text">
-      <p class="about-eyebrow"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-      <h2 class="about-heading"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
-      <h2 class="about-heading-sub"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
-      <p class="about-desc"><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
+      <p class="about-eyebrow animated" data-animation="fadeInUp"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
+      <h2 class="about-heading animated" data-animation="fadeInUp" data-animation-delay="100"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
+      <h2 class="about-heading-sub animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
+      <p class="about-desc animated" data-animation="fadeInUp" data-animation-delay="300"><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
 
       <?php if (!empty($stats)) : ?>
-        <div class="about-stats">
+        <div class="about-stats animated" data-animation="fadeInUp" data-animation-delay="350">
           <?php foreach ($stats as $stat) : ?>
             <div class="about-stat">
               <span class="about-stat-number"><?php echo wp_kses_post($stat['number'] ?? ''); ?></span>
@@ -28,10 +30,11 @@ $stats   = is_array($attributes['stats'] ?? null) ? $attributes['stats'] : [];
           <?php endforeach; ?>
         </div>
       <?php endif; ?>
-
-      <a class="btn btn-primary" href="<?php echo esc_url($attributes['ctaUrl'] ?? '#'); ?>">
-        <?php echo wp_kses_post($attributes['ctaText'] ?? ''); ?>
-      </a>
+      <div class="animated" data-animation="fadeInUp" data-animation-delay="400">
+        <a class="btn btn-primary " href="<?php echo esc_url($attributes['ctaUrl'] ?? '#'); ?>">
+          <?php echo wp_kses_post($attributes['ctaText'] ?? ''); ?>
+        </a>
+      </div>
     </div>
 
   </div>
