@@ -1,29 +1,27 @@
 @use "../variables" as *;
 
 // =====================================================================
-// portfolio block — filter pills + masonry grid with hover reveal.
+// portfolio block — text-link filter with magic_line + flush grid +
+// dark overlay hover reveal. Matches Zahar jws_project_layout1.
 // =====================================================================
 .portfolio {
-  padding: 120px 0;
+  padding: 90px 0 70px;
   position: relative;
   text-align: center;
   overflow: hidden;
 
   @include mq_down($sm) {
-    padding: 72px 0;
+    padding: 60px 0 40px;
   }
 }
 
-.portfolio-head .section-title + .section-title {
-  margin-top: 0;
-}
-
+// Decor blob — left side, behind heading
 .portfolio-decor {
   position: absolute;
-  top: 60px;
-  right: 5%;
-  width: 240px;
-  opacity: 0.6;
+  top: 29px;
+  left: -2%;
+  width: 340px;
+  opacity: 0.5;
   z-index: 0;
   pointer-events: none;
 
@@ -33,40 +31,75 @@
   }
 }
 
+.portfolio-head {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+
+  .eyebrow {
+    background: rgba($color-primary, 0.12);
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-bottom: 35px;
+  }
+
+  .section-title {
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: -10px;
+  }
+
+  .section-title + .section-title {
+    font-weight: 400;
+    margin-bottom: 31px;
+  }
+}
+
+// Filter nav — text links with sliding magic_line underline
 .portfolio-filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 32px 0 40px;
+  margin: 32px 0 0;
   position: relative;
   z-index: 1;
 }
 
-.filter {
-  padding: 10px 22px;
-  background: transparent;
-  border: 1px solid $color-border;
-  border-radius: $color-radius-pill;
-  color: $color-heading;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: $font-body;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+.port-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 56px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
 
-  &:hover {
-    border-color: $color-primary;
-    color: $color-primary;
-  }
+.port-magic-line {
+  position: absolute;
+  bottom: 19%;
+  left: 0;
+  height: 10px;
+  background: $color-primary;
+  border-radius: 2px;
+  transition: left 0.55s ease, width 0.55s ease;
+  pointer-events: none;
+}
 
+.port-nav li {
+  display: inline-block;
+  padding: 0 18px;
+}
+
+.port-nav li a {
+  display: block;
+  font-size: 20px;
+  color: $color-muted;
+  padding: 0 7px;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover,
   &.is-active {
-    background: $color-primary;
-    color: #fff;
-    border-color: $color-primary;
+    color: $color-heading;
   }
 }
 
@@ -74,97 +107,149 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 260px;
-  gap: 20px;
-  position: relative;
-  z-index: 1;
+  gap: 10px;
 
   @include mq_down($lg) {
     grid-template-columns: repeat(4, 1fr);
-    .port-wide {
-      grid-column: span 2;
-    }
-    .port-tall {
-      grid-row: span 1;
-    }
+    grid-auto-rows: 220px;
   }
 
   @include mq_down($sm) {
-    grid-template-columns: 1fr;
-    .port-card,
-    .port-wide {
-      grid-column: span 1;
-    }
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
   }
 }
 
 .port-card {
   position: relative;
-  display: block;
-  border-radius: $color-radius-lg;
   overflow: hidden;
-  background: $color-surface;
-  grid-column: span 2;
+  grid-column: span 1;
+  opacity: 0;
+  transform: translateY(16px);
   transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+    opacity 0.4s ease,
+    transform 0.4s ease;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+  &.port-wide {
+    grid-column: span 2;
   }
 
-  &:hover {
-    transform: translateY(-4px);
-
-    img {
-      transform: scale(1.05);
-    }
-
-    .port-meta {
-      opacity: 1;
-    }
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   &.is-hidden {
     display: none;
   }
 
-  &.port-wide {
-    grid-column: span 4;
-  }
-  &.port-tall {
-    grid-row: span 2;
+  &:hover {
+    .port-overlay {
+      opacity: 0.8;
+    }
+
+    .port-image img {
+      transform: scale(1.1);
+    }
+
+    .port-meta-inner {
+      opacity: 1;
+    }
+
+    .port-tag,
+    .port-title {
+      transform: translateY(0);
+    }
+
+    .port-arrow {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
+.port-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+}
+
+// Dark overlay
+.port-overlay {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+// Centered meta — category, title, arrow all hidden, slide up on hover
 .port-meta {
   position: absolute;
-  inset: auto 0 0 0;
-  padding: 24px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  text-align: left;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
 
-  h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 8px 0 0;
-    color: #fff;
-  }
+.port-meta-inner {
+  width: 100%;
+  padding: 0 20px;
+  opacity: 0;
 }
 
 .port-tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 10px;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+.port-title {
+  font-size: 22px;
   font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px;
+  transform: translateY(100%);
+  transition: transform 0.5s ease 0.05s;
+}
+
+// Circular arrow — same style as services
+.port-arrow {
+  display: inline-flex;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
   background: $color-primary;
   color: #fff;
-  padding: 4px 12px;
-  border-radius: $color-radius-pill;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: 0.5s all;
+
+  &:hover {
+    background: $color-primary-dark;
+
+    span {
+      animation: bounceAlpha 1s both;
+    }
+  }
 }
