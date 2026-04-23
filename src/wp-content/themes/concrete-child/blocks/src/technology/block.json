@@ -1,0 +1,97 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "concrete/technology",
+  "title": "Technology",
+  "category": "theme",
+  "textdomain": "technology",
+  "version": "0.1.0",
+  "description": "Technology stack section with intro bullets and category card grid.",
+  "attributes": {
+    "align": { "type": "string", "default": "full" },
+    "eyebrow": { "type": "string", "default": "TECHNOLOGY" },
+    "heading": { "type": "string", "default": "Technologies we use" },
+    "headingSub": { "type": "string", "default": "to build your product" },
+    "introBullets": {
+      "type": "array",
+      "default": [
+        { "text": "Use the latest web technologies" },
+        { "text": "Development both Front-end &amp; Back-end all at once" },
+        { "text": "Large-scale system development using complex Database" }
+      ]
+    },
+    "categories": {
+      "type": "array",
+      "default": [
+        {
+          "name": "Languages &amp; Frameworks",
+          "icons": [
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/php.svg", "alt": "PHP" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/laravel.svg", "alt": "Laravel" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/python.svg", "alt": "Python" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/nodejs.svg", "alt": "Node.js" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/javascript.svg", "alt": "JavaScript" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/nuxt.svg", "alt": "Nuxt 3" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/vuejs.svg", "alt": "Vue.js" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/react.svg", "alt": "React" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/typescript.svg", "alt": "TypeScript" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/graphql.svg", "alt": "GraphQL" }
+          ]
+        },
+        {
+          "name": "Infrastructure",
+          "icons": [
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/aws.svg", "alt": "AWS" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/gcp.svg", "alt": "GCP" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/docker.svg", "alt": "Docker" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/kubernetes.svg", "alt": "Kubernetes" }
+          ]
+        },
+        {
+          "name": "AI",
+          "icons": [
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/chatgpt.svg", "alt": "ChatGPT" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/coderabbit.svg", "alt": "CodeRabbit" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/github-copilot.svg", "alt": "GitHub Copilot" }
+          ]
+        },
+        {
+          "name": "Mobile Apps",
+          "icons": [
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/swift.svg", "alt": "Swift" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/kotlin.svg", "alt": "Kotlin" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/react-native.svg", "alt": "React Native" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/line.svg", "alt": "LINE Mini App" }
+          ]
+        },
+        {
+          "name": "Data Analysis",
+          "icons": [
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/ga.svg", "alt": "Google Analytics" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/bigquery.svg", "alt": "BigQuery" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/elasticsearch.svg", "alt": "Elastic Search" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/gtm.svg", "alt": "Google Tag Manager" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/sentry.svg", "alt": "Sentry" }
+          ]
+        },
+        {
+          "name": "Management &amp; Communication",
+          "icons": [
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/github.svg", "alt": "GitHub" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/notion.svg", "alt": "Notion" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/backlog.svg", "alt": "Backlog" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/slack.svg", "alt": "Slack" },
+            { "src": "/wp-content/themes/concrete-child/assets/images/tech/figma.svg", "alt": "Figma" }
+          ]
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["full"]
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "example": {}
+}

@@ -22,7 +22,7 @@
 
 <!-- wp:concrete/portfolio /-->
 
-<!-- wp:concrete/pricing /-->
+<!-- wp:concrete/technology /-->
 
 <!-- wp:concrete/testimonial /-->
 

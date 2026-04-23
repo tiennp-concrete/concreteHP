@@ -1,0 +1,166 @@
+@use "../variables" as *;
+
+.technology {
+  padding: 90px 0 70px;
+  background: #fff;
+
+  @include mq_down($lg) {
+    padding: 72px 0 56px;
+  }
+}
+
+// 33% left / 67% right — mirrors Zahar pricing split
+.tech-wrap {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+
+  @include mq_down($lg) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+// ── Left column ────────────────────────────────────────────────────────
+.tech-left {
+  padding-top: 8px;
+  position: sticky;
+  top: 80px;
+
+  @include mq_down($lg) {
+    position: static;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    background: rgba($color-primary, 0.12);
+    color: $color-primary-bold;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 3.5vw, 48px);
+    line-height: 1.1;
+    margin-bottom: -8px;
+  }
+
+  .section-title + .section-title {
+    font-weight: 400;
+    margin-bottom: 36px;
+  }
+}
+
+// Numbered bullet list (01 / 02 / 03)
+.tech-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tech-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.tech-bullet-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: $color-primary;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-bullet-text {
+  font-size: 15px;
+  color: $color-muted;
+  line-height: 1.6;
+  padding-top: 10px;
+}
+
+// ── Right column ───────────────────────────────────────────────────────
+.tech-right {
+  // nothing needed — grid handles layout
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  @include mq_down($sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tech-card {
+  border: 1px solid $color-border;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 16px 40px rgba(17, 24, 39, 0.12);
+    transform: translateY(-3px);
+  }
+}
+
+.tech-card-header {
+  background: $color-primary;
+  padding: 14px 20px;
+  text-align: center;
+
+  h3 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+}
+
+.tech-card-body {
+  padding: 24px 20px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 16px;
+
+  img {
+    max-height: 30px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+}
