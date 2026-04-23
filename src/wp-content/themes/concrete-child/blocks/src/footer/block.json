@@ -14,7 +14,7 @@
     },
     "logoUrl": {
       "type": "string",
-      "default": "/wp-content/themes/concrete-child/assets/images/zahar-logo-2.png"
+      "default": "/wp-content/themes/concrete-child/assets/images/logo_concrete_corp.svg"
     },
     "brand": {
       "type": "string",

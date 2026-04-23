@@ -11,7 +11,7 @@
     "align": { "type": "string", "default": "full" },
     "logoUrl": {
       "type": "string",
-      "default": "/wp-content/themes/concrete-child/assets/images/logo_coc.png"
+      "default": "/wp-content/themes/concrete-child/assets/images/logo_concrete_corp.svg"
     },
     "brand": { "type": "string", "default": "Concrete" },
     "ctaText": { "type": "string", "default": "Make it Concrete" }

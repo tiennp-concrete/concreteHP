@@ -9,15 +9,15 @@
  */
 
 .animated {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .animated.animate__animated {
-    visibility: visible;
+  visibility: visible;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .animated {
-        visibility: visible !important;
-    }
+  .animated {
+    visibility: visible !important;
+  }
 }

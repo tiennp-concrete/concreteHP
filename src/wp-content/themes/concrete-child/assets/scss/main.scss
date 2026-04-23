@@ -5,32 +5,32 @@
 // =====================================================================
 
 // Vendor: animate.css keyframes + .animate__* classes
-@use 'animate.css/animate.min.css';
+@use "animate.css/animate.min.css";
 
 // Tokens, fonts, keyframes
-@use 'variables';
-@use 'keyframes';
+@use "variables";
+@use "keyframes";
 
 // Base: page wrapper, container, eyebrow, buttons, shapes
-@use 'base';
-@use 'animations';
+@use "base";
+@use "animations";
 
 // WordPress FSE wrapper resets
-@use 'blocks';
+@use "blocks";
 
 // Page sections (order = order on page)
-@use 'components/header';
-@use 'components/hero';
-@use 'components/about';
-@use 'components/brands';
-@use 'components/services';
-@use 'components/team';
-@use 'components/portfolio';
-@use 'components/pricing';
-@use 'components/testimonial';
-@use 'components/blog';
-@use 'components/contact';
-@use 'components/footer';
+@use "components/header";
+@use "components/hero";
+@use "components/about";
+@use "components/brands";
+@use "components/services";
+@use "components/team";
+@use "components/portfolio";
+@use "components/pricing";
+@use "components/testimonial";
+@use "components/blog";
+@use "components/contact";
+@use "components/footer";
 
 // Cross-component responsive overrides (≤ 1024, ≤ 640)
-@use 'components/responsive/homepage';
+@use "components/responsive/homepage";
