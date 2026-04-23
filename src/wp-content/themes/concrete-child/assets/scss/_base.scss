@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 // =====================================================================
 // Page wrapper + shared primitives used across every block
@@ -21,7 +21,9 @@ body,
 }
 
 .page section,
-section { overflow-x: clip; }
+section {
+  overflow-x: clip;
+}
 
 .page h1,
 .page h2,
@@ -36,7 +38,10 @@ section { overflow-x: clip; }
   margin: 0;
 }
 
-.page a { color: inherit; text-decoration: none; }
+.page a {
+  color: inherit;
+  text-decoration: none;
+}
 
 // Container + section primitives
 .container {
@@ -76,7 +81,9 @@ section { overflow-x: clip; }
   text-decoration: none;
   transition: color 0.2s ease;
 
-  &:hover { color: $color-primary-dark; }
+  &:hover {
+    color: $color-primary-dark;
+  }
 }
 
 // Buttons
@@ -94,7 +101,12 @@ section { overflow-x: clip; }
   text-decoration: none;
   cursor: pointer;
   font-weight: 300;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -106,7 +118,10 @@ section { overflow-x: clip; }
   background: $color-primary;
   color: #fff;
 
-  &:hover { background: $color-primary-dark; color: #fff; }
+  &:hover {
+    background: $color-primary-dark;
+    color: #fff;
+  }
 }
 
 .btn-outline {
@@ -114,7 +129,11 @@ section { overflow-x: clip; }
   border-color: #fff;
   color: #fff;
 
-  &:hover { background: #fff; color: $color-primary; border-color: #fff; }
+  &:hover {
+    background: #fff;
+    color: $color-primary;
+    border-color: #fff;
+  }
 }
 
 .btn-outline-dark {
@@ -122,7 +141,10 @@ section { overflow-x: clip; }
   border-color: $color-primary;
   color: $color-primary;
 
-  &:hover { background: $color-primary; color: #fff; }
+  &:hover {
+    background: $color-primary;
+    color: #fff;
+  }
 }
 
 .btn-ghost {
@@ -130,7 +152,9 @@ section { overflow-x: clip; }
   color: $color-heading;
   padding: 14px 20px;
 
-  &:hover { color: $color-primary; }
+  &:hover {
+    color: $color-primary;
+  }
 }
 
 // Decorative floating shapes used by hero + team + other sections
@@ -139,15 +163,34 @@ section { overflow-x: clip; }
   pointer-events: none;
   z-index: 0;
 
-  img { display: block; max-width: none; }
+  img {
+    display: block;
+    max-width: none;
+  }
+
+  @include mq_down($lg) {
+    display: none;
+  }
 }
 
-.float-ml     { animation: MoveLeft 6s ease-in-out infinite alternate; }
-.float-ud     { animation: MoveUpDown 5s ease-in-out infinite alternate; }
-.float-top    { animation: MoveTop 4.5s ease-in-out infinite alternate; }
-.float-circle { animation: MoveCircle360 9s linear infinite alternate; }
-.float-zoom   { animation: MoveZoomIn 3.7s ease-in-out infinite alternate; }
-.float-small  { animation: MoveCircleSmall 4.5s ease-in-out infinite alternate; }
+.float-ml {
+  animation: MoveLeft 6s ease-in-out infinite alternate;
+}
+.float-ud {
+  animation: MoveUpDown 5s ease-in-out infinite alternate;
+}
+.float-top {
+  animation: MoveTop 4.5s ease-in-out infinite alternate;
+}
+.float-circle {
+  animation: MoveCircle360 9s linear infinite alternate;
+}
+.float-zoom {
+  animation: MoveZoomIn 3.7s ease-in-out infinite alternate;
+}
+.float-small {
+  animation: MoveCircleSmall 4.5s ease-in-out infinite alternate;
+}
 .animation {
   animation-iteration-count: infinite;
   animation-direction: alternate;

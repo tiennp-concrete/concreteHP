@@ -1,4 +1,4 @@
-@use '../variables' as *;
+@use "../variables" as *;
 
 // =====================================================================
 // pricing block — intro + monthly/annual toggle + 2-card grid.
@@ -6,6 +6,10 @@
 .pricing {
   padding: 120px 0;
   background: $color-bg;
+
+  @include mq_down($sm) {
+    padding: 72px 0;
+  }
 }
 
 .pricing-grid-wrap {
@@ -13,11 +17,20 @@
   grid-template-columns: 1fr 1.3fr;
   gap: 60px;
   align-items: start;
+
+  @include mq_down($lg) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 .pricing-head {
-  .section-title { margin-bottom: 4px; }
-  .section-title + .section-title { margin-top: 0; }
+  .section-title {
+    margin-bottom: 4px;
+  }
+  .section-title + .section-title {
+    margin-top: 0;
+  }
 }
 
 .pricing-toggle {
@@ -40,7 +53,9 @@
   border-radius: $color-radius-pill;
   color: $color-muted;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 
   &.is-active {
     background: $color-primary;
@@ -52,6 +67,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+
+  @include mq_down($sm) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .price-card {
@@ -62,16 +81,18 @@
   border-radius: $color-radius-lg;
   text-align: left;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -30px;
     right: -30px;
     width: 129px;
     height: 55px;
-    background-image: url('../images/pricing_bgbefore.png');
+    background-image: url("../images/pricing_bgbefore.png");
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.8;
@@ -83,7 +104,9 @@
     box-shadow: $color-shadow-lg;
   }
 
-  .btn { margin-top: 8px; }
+  .btn {
+    margin-top: 8px;
+  }
 }
 
 .price-header {
@@ -106,7 +129,11 @@
   height: 64px;
   flex-shrink: 0;
 
-  svg { width: 100%; height: 100%; fill: $color-heading; }
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: $color-heading;
+  }
 }
 
 .price-amount {
@@ -125,10 +152,16 @@
 }
 
 // Toggle between monthly / annual price labels.
-.price-annual { display: none; }
-[data-period-target='annual'] {
-  .price-monthly { display: none; }
-  .price-annual  { display: inline; }
+.price-annual {
+  display: none;
+}
+[data-period-target="annual"] {
+  .price-monthly {
+    display: none;
+  }
+  .price-annual {
+    display: inline;
+  }
 }
 
 .price-features {
@@ -144,10 +177,12 @@
     display: flex;
     align-items: center;
 
-    &:last-child { border-bottom: 0; }
+    &:last-child {
+      border-bottom: 0;
+    }
 
     &::before {
-      content: '✓';
+      content: "✓";
       color: $color-primary;
       font-weight: 700;
       margin-right: 10px;

@@ -54,6 +54,10 @@
   pointer-events: none;
   z-index: 1;
 
+  @include mq_down($lg) {
+    display: none;
+  }
+
   img {
     width: 27px;
     display: block;

@@ -15,7 +15,7 @@
   }
 
   @include mq_down($sm) {
-    padding: 140px 0 60px;
+    padding: 72px 0;
   }
 
   // Decorative teal SVG backdrop — top-right organic shape (matches Zahar demo)
@@ -132,6 +132,10 @@
 
 .hero-title {
   font-size: clamp(48px, 7vw, 72px);
+
+  @include mq_down($sm) {
+    font-size: 48px;
+  }
   font-weight: 700;
   line-height: 1.05;
   margin: 0 0 8px;

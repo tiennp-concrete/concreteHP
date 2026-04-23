@@ -1,4 +1,4 @@
-@use '../variables' as *;
+@use "../variables" as *;
 
 // =====================================================================
 // portfolio block — filter pills + masonry grid with hover reveal.
@@ -8,6 +8,10 @@
   position: relative;
   text-align: center;
   overflow: hidden;
+
+  @include mq_down($sm) {
+    padding: 72px 0;
+  }
 }
 
 .portfolio-head .section-title + .section-title {
@@ -23,7 +27,10 @@
   z-index: 0;
   pointer-events: none;
 
-  img { width: 100%; display: block; }
+  img {
+    width: 100%;
+    display: block;
+  }
 }
 
 .portfolio-filters {
@@ -46,9 +53,15 @@
   font-weight: 600;
   cursor: pointer;
   font-family: $font-body;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 
-  &:hover { border-color: $color-primary; color: $color-primary; }
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
 
   &.is-active {
     background: $color-primary;
@@ -64,6 +77,24 @@
   gap: 20px;
   position: relative;
   z-index: 1;
+
+  @include mq_down($lg) {
+    grid-template-columns: repeat(4, 1fr);
+    .port-wide {
+      grid-column: span 2;
+    }
+    .port-tall {
+      grid-row: span 1;
+    }
+  }
+
+  @include mq_down($sm) {
+    grid-template-columns: 1fr;
+    .port-card,
+    .port-wide {
+      grid-column: span 1;
+    }
+  }
 }
 
 .port-card {
@@ -73,7 +104,9 @@
   overflow: hidden;
   background: $color-surface;
   grid-column: span 2;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 
   img {
     width: 100%;
@@ -85,15 +118,25 @@
   &:hover {
     transform: translateY(-4px);
 
-    img { transform: scale(1.05); }
+    img {
+      transform: scale(1.05);
+    }
 
-    .port-meta { opacity: 1; }
+    .port-meta {
+      opacity: 1;
+    }
   }
 
-  &.is-hidden { display: none; }
+  &.is-hidden {
+    display: none;
+  }
 
-  &.port-wide { grid-column: span 4; }
-  &.port-tall { grid-row: span 2; }
+  &.port-wide {
+    grid-column: span 4;
+  }
+  &.port-tall {
+    grid-row: span 2;
+  }
 }
 
 .port-meta {

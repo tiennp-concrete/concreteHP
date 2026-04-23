@@ -1,4 +1,4 @@
-@use '../variables' as *;
+@use "../variables" as *;
 
 // =====================================================================
 // blog-grid block — intro + horizontal post slider (snap scroll).
@@ -6,6 +6,10 @@
 .blog.wp-block-concrete-blog-grid {
   padding: 120px 0;
   overflow: hidden;
+
+  @include mq_down($sm) {
+    padding: 72px 0;
+  }
 }
 
 .blog-grid-wrap {
@@ -17,11 +21,22 @@
   // Grid items default to min-width: auto (content size). The slider's
   // flex track holds 6 wide cards — without this, the cell blows out past
   // 1.6fr and overlaps the intro column.
-  > * { min-width: 0; }
+  > * {
+    min-width: 0;
+  }
+
+  @include mq_down($lg) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 .blog-intro {
-  p { color: $color-muted; margin: 0 0 32px; max-width: 360px; }
+  p {
+    color: $color-muted;
+    margin: 0 0 32px;
+    max-width: 360px;
+  }
 }
 
 .blog-slider {
@@ -38,23 +53,36 @@
   scrollbar-width: none;
   padding-bottom: 4px;
 
-  &::-webkit-scrollbar { display: none; }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .post-card {
   flex: 0 0 calc((100% - 48px) / 3);
+
+  @include mq_down($lg) {
+    flex: 0 0 calc((100% - 24px) / 2);
+  }
+  @include mq_down($sm) {
+    flex: 0 0 100%;
+  }
   scroll-snap-align: start;
   background: $color-bg;
   border-radius: $color-radius-lg;
   overflow: hidden;
   box-shadow: $color-shadow-sm;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: $color-shadow-lg;
 
-    .post-thumb img { transform: scale(1.05); }
+    .post-thumb img {
+      transform: scale(1.05);
+    }
   }
 }
 
@@ -93,7 +121,9 @@
     color: $color-heading;
     text-decoration: none;
 
-    &:hover { color: $color-primary; }
+    &:hover {
+      color: $color-primary;
+    }
   }
 }
 
@@ -106,8 +136,16 @@
   padding-top: 12px;
   border-top: 1px solid $color-border;
 
-  .post-author { color: $color-muted; }
-  .post-cat a  { color: $color-primary; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em; }
+  .post-author {
+    color: $color-muted;
+  }
+  .post-cat a {
+    color: $color-primary;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
 }
 
 .blog-navs {
@@ -130,7 +168,10 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 
   &:hover {
     background: $color-primary;

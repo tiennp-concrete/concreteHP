@@ -1,4 +1,4 @@
-@use '../variables' as *;
+@use "../variables" as *;
 
 // =====================================================================
 // team block — 2-column section with text + big photo + floating shapes.
@@ -7,6 +7,10 @@
   padding: 120px 0;
   position: relative;
   overflow: hidden;
+
+  @include mq_down($sm) {
+    padding: 72px 0;
+  }
 }
 
 .team-grid {
@@ -16,11 +20,22 @@
   align-items: center;
   position: relative;
   z-index: 1;
+
+  @include mq_down($lg) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 .team-text {
-  .section-title { margin-bottom: 12px; }
-  p { color: $color-muted; margin: 0 0 32px; max-width: 440px; }
+  .section-title {
+    margin-bottom: 12px;
+  }
+  p {
+    color: $color-muted;
+    margin: 0 0 32px;
+    max-width: 440px;
+  }
 }
 
 .team-media {
@@ -37,7 +52,25 @@
 }
 
 .team .shape-float {
-  &.ts-1 { top: -20px;  right: 20%;  img { width: 100px; } }
-  &.ts-2 { bottom: 10%; left: 0;     img { width: 90px; } }
-  &.ts-3 { top: 30%;    right: -10px; img { width: 70px; } }
+  &.ts-1 {
+    top: -20px;
+    right: 20%;
+    img {
+      width: 100px;
+    }
+  }
+  &.ts-2 {
+    bottom: 10%;
+    left: 0;
+    img {
+      width: 90px;
+    }
+  }
+  &.ts-3 {
+    top: 30%;
+    right: -10px;
+    img {
+      width: 70px;
+    }
+  }
 }
