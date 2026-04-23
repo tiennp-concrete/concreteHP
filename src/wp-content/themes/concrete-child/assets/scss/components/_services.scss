@@ -2,9 +2,10 @@
 
 // =====================================================================
 // services-grid block — 3-column feature grid with icon, title, and CTA.
+// Matches Zahar layout2 style: icon circle, border hover, slide-up arrow.
 // =====================================================================
 .services {
-  padding: 120px 0;
+  padding: 90px 0;
   text-align: center;
   position: relative;
 
@@ -13,15 +14,19 @@
   }
 }
 
-.services-head .section-title {
-  margin-bottom: 8px;
+.services-head {
+  margin-bottom: 56px;
+
+  .section-title {
+    margin-bottom: 8px;
+  }
 }
 
 .services-subtitle {
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 400;
   color: $color-heading;
-  margin: 0 0 56px;
+  margin: 0;
   line-height: 1.2;
 }
 
@@ -41,75 +46,112 @@
 }
 
 .service-card {
-  padding: 40px 32px;
-  background: $color-bg;
-  border: 1px solid $color-border;
-  border-radius: $color-radius-lg;
+  padding: 47px 30px 70px;
+  background: #fff;
+  border: 2px solid $color-border;
+  border-radius: 5px;
   position: relative;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  transition: border-color 0.3s ease;
+  text-align: center;
+
+  // Entry animation — JS adds .is-visible via IntersectionObserver
+  opacity: 0;
+  transform: translateY(30px);
+
+  &.is-visible {
+    animation: fadeInUp 0.6s ease both;
+  }
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: $color-shadow-lg;
-    border-color: transparent;
+    border-color: $color-primary;
 
-    .service-arrow {
-      background: $color-primary;
-      color: #fff;
+    .service-link-wrap {
+      opacity: 1;
+    }
+
+    .service-link-wrap span {
+      animation: fadeInLeft 0.3s both;
     }
   }
 
   h3 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-    margin: 20px 0 12px;
+    margin: 0 0 10px;
     color: $color-heading;
   }
 
   p {
     color: $color-muted;
-    margin: 0 0 28px;
-    font-size: 15px;
+    margin: 0;
+    font-size: 18px;
     line-height: 1.6;
+    font-weight: 300;
+  }
+
+  // Icon circle background color per card position
+  &:nth-child(1) .service-icon {
+    background: #d9eeff;
+  }
+  &:nth-child(2) .service-icon {
+    background: #fff0e9;
+  }
+  &:nth-child(3) .service-icon {
+    background: #e4faf0;
   }
 }
 
 .service-icon {
-  width: 64px;
-  height: 64px;
-  display: flex;
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 26px;
+  transition: background 0.3s ease;
 
   img,
   svg {
-    width: 100%;
-    height: 100%;
+    width: 30px;
+    height: 30px;
     object-fit: contain;
+    display: block;
   }
+}
+
+.service-link-wrap {
+  position: absolute;
+  width: 100%;
+  bottom: -30px;
+  left: 0;
+  opacity: 0;
+  transition:
+    bottom 0.3s ease,
+    opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
 }
 
 .service-arrow {
   display: inline-flex;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: rgba($color-primary, 0.1);
-  color: $color-primary;
+  background: $color-primary;
+  color: #fff;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-  font-size: 14px;
+  font-size: 20px;
+  transition: background 0.2s ease;
 
   &:hover {
     background: $color-primary-dark;
-    color: #fff;
+
+    span {
+      animation: bounceAlpha 1s both;
+    }
   }
 }
 
@@ -117,5 +159,6 @@
   max-width: 880px;
   margin: 0 auto;
   color: $color-muted;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 300;
 }

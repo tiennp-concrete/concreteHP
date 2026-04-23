@@ -18,7 +18,11 @@ $services = is_array($attributes['services'] ?? null) ? $attributes['services'] 
           </div>
           <h3><?php echo wp_kses_post($svc['title'] ?? ''); ?></h3>
           <p><?php echo wp_kses_post($svc['text'] ?? ''); ?></p>
-          <a class="service-arrow" href="#" aria-label="Read more">→</a>
+          <div class="service-link-wrap">
+            <a class="service-arrow" href="<?php echo esc_url($svc['url'] ?? '#'); ?>" aria-label="Read more">
+              <span>&#8594;</span>
+            </a>
+          </div>
         </article>
       <?php endforeach; ?>
     </div>

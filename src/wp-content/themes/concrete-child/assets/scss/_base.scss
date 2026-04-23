@@ -54,11 +54,16 @@ section {
 .eyebrow {
   display: inline-block;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 14px;
-  font-weight: 700;
-  color: $color-primary;
+  letter-spacing: 0.02em;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 300;
   margin-bottom: 16px;
+  background: rgba($color-primary, 0.15);
+  color: $color-primary-bold;
+  margin: 0px 0px 35px;
+  padding: 6px 10px;
+  border-radius: 5px;
 }
 
 .section-title {
