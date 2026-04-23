@@ -7,14 +7,18 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "wp-scripts build --blocks-manifest --webpack-src-dir=blocks/src --output-path=blocks/build",
-    "start": "wp-scripts start --blocks-manifest --webpack-src-dir=blocks/src --output-path=blocks/build"
+    "build": "npm run build:css && npm run build:blocks",
+    "build:blocks": "wp-scripts build --blocks-manifest --webpack-src-dir=blocks/src --output-path=blocks/build",
+    "build:css": "sass assets/scss/main.scss assets/css/main.css --style=compressed --load-path=node_modules",
+    "start": "wp-scripts start --blocks-manifest --webpack-src-dir=blocks/src --output-path=blocks/build",
+    "watch:css": "sass assets/scss/main.scss assets/css/main.css --style=compressed --load-path=node_modules --watch"
   },
   "devDependencies": {
     "@wordpress/icons": "^12.2.0",
     "@wordpress/scripts": "^32.0.0"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "swiper": "^12.1.3"
   }
 }

@@ -5,7 +5,8 @@
       "Bash(npm run *)",
       "Bash(grep -o \"\\\\\"font_size\\\\\":{\\\\\"unit\\\\\":\\\\\"px\\\\\",\\\\\"size\\\\\":[0-9]*\\\\|body_font_size\\\\|\\\\\"body\\\\\":{[^}]*}\" /Users/apple/Desktop/work/concreteHP/src/wp-content/themes/zahar.jwsuperthemes.com/marketing.html)",
       "Bash(identify /Users/apple/Desktop/work/concreteHP/src/wp-content/themes/concrete-child/assets/images/brand_1.png)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(npx sass *)"
     ]
   }
 }

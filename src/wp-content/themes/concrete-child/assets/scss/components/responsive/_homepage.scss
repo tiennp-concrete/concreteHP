@@ -2,6 +2,17 @@
 
 @media (max-width: 1024px) {
   .hero { padding: 140px 0 80px; }
+
+  // Hide hero image + reset its negative right margin
+  .hero-media { display: none; }
+
+  // Reset about image negative left margin
+  .about-img { margin-left: 0; }
+
+  // Hide decorative floating shapes that can overflow on tablet/mobile
+  .shape-float,
+  .about-dot { display: none; }
+
   .hero-grid,
   .team-grid,
   .testimonial-grid,

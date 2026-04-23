@@ -10,6 +10,14 @@
   overflow: hidden;
   background: #fff;
 
+  @include mq_down($lg) {
+    padding: 180px 0 80px;
+  }
+
+  @include mq_down($sm) {
+    padding: 140px 0 60px;
+  }
+
   // Decorative teal SVG backdrop — top-right organic shape (matches Zahar demo)
   &::before {
     content: "";
@@ -106,6 +114,10 @@
   align-items: center;
   position: relative;
   z-index: 1;
+
+  @include mq_down($lg) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .hero-text .eyebrow {
@@ -183,6 +195,11 @@
 
 .hero-media {
   margin: 0% -14% 0% 0%;
+
+  @include mq_down($lg) {
+    margin: 0;
+    display: none;
+  }
 }
 
 .hero-media img {
