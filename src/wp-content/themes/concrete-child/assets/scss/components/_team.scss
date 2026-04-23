@@ -2,15 +2,12 @@
 
 // =====================================================================
 // team block — 2-column section with text + big photo + floating shapes.
+// Shape positions match Zahar: dots at section level (left side),
+// ts-1/ts-2/ts-3 relative to .team-media (image column).
 // =====================================================================
 .team {
-  padding: 120px 0;
   position: relative;
   overflow: hidden;
-
-  @include mq_down($sm) {
-    padding: 72px 0;
-  }
 }
 
 .team-grid {
@@ -28,49 +25,120 @@
 }
 
 .team-text {
-  .section-title {
-    margin-bottom: 12px;
+  .eyebrow {
+    background: rgba($color-primary, 0.12);
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
   }
+
+  .section-title {
+    font-size: clamp(32px, 4.5vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  // "Experts" subtitle — Zahar uses font-weight 400
+  .section-title + .section-title {
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
   p {
-    color: $color-muted;
-    margin: 0 0 32px;
+    margin: 12px 0 32px;
     max-width: 440px;
+    font-weight: 300;
+    font-size: 18px;
   }
 }
 
 .team-media {
   position: relative;
   min-height: 420px;
+  @include mq_down($sm) {
+    min-height: 320px !important;
+  }
 }
 
 .team-media-main {
   width: 100%;
   height: auto;
   position: relative;
-  z-index: 1;
   display: block;
 }
 
+// Section-level dots — positioned relative to .team section (full width)
+// Matches Zahar: e2ebfb5 at left:10% top:31%, 4b38cb4 at left:7% top:68%
 .team .shape-float {
-  &.ts-1 {
-    top: -20px;
-    right: 20%;
+  z-index: 1;
+  &.team-dot-1 {
+    animation-name: MoveCircleSmall;
+    animation-timing-function: linear;
+    animation-duration: 4s;
+    animation-delay: 0s;
+    left: 10%;
+    top: 31%;
     img {
-      width: 100px;
+      width: 17px;
+    }
+  }
+  &.team-dot-2 {
+    animation-name: MoveCircle;
+    animation-timing-function: linear;
+    animation-duration: 4.6s;
+    animation-delay: 0s;
+    left: 7%;
+    top: 68%;
+    img {
+      width: 17px;
+    }
+  }
+  &.team-dot-3 {
+    animation-name: MoveCircleSmall;
+    animation-duration: 5.7s;
+    animation-delay: 0s;
+    left: 34%;
+    top: 93%;
+    img {
+      width: 25px;
+    }
+  }
+  &.team-dot-4 {
+    z-index: 1;
+    animation-name: MoveTop;
+    animation-duration: 5.7s;
+    animation-delay: 0s;
+    left: 87%;
+    top: 57%;
+  }
+
+  // Image-column shapes — positioned relative to .team-media
+  // Matches Zahar shade-f2c43b6: team_s3@13%/56%, 1-team_s42@62%/53%, team_s1@75%/21%
+  &.ts-1 {
+    animation-name: MoveLeft;
+    animation-timing-function: linear;
+    animation-duration: 4s;
+    animation-delay: 0s;
+    left: 13%;
+    top: 56%;
+    img {
+      width: 220px;
     }
   }
   &.ts-2 {
-    bottom: 10%;
-    left: 0;
-    img {
-      width: 90px;
-    }
+    animation-name: MoveZoomIn;
+    animation-timing-function: linear;
+    animation-duration: 4.5s;
+    animation-delay: 0s;
+    left: 62%;
+    top: 53%;
   }
   &.ts-3 {
-    top: 30%;
-    right: -10px;
-    img {
-      width: 70px;
-    }
+    animation-name: MoveZoomOut;
+    animation-timing-function: linear;
+    animation-duration: 4.5s;
+    animation-delay: 0.3s;
+    left: 75%;
+    top: 21%;
   }
 }

@@ -193,6 +193,9 @@ section {
 .float-zoom {
   animation: MoveZoomIn 3.7s ease-in-out infinite alternate;
 }
+.float-zoom-out {
+  animation: MoveZoomOut 3.7s ease-in-out infinite alternate;
+}
 .float-small {
   animation: MoveCircleSmall 4.5s ease-in-out infinite alternate;
 }

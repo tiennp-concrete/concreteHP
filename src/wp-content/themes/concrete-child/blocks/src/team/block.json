@@ -18,7 +18,7 @@
     },
     "heading": {
       "type": "string",
-      "default": "Meet our professional"
+      "default": "Meet our <br>professional"
     },
     "headingSub": {
       "type": "string",
@@ -41,15 +41,15 @@
       "default": [
         {
           "image": "/wp-content/themes/concrete-child/assets/images/team_s3.png",
-          "variant": "ts-1 float-ud"
+          "variant": "ts-1 animation"
         },
         {
           "image": "/wp-content/themes/concrete-child/assets/images/1-team_s42.png",
-          "variant": "ts-2 float-small"
+          "variant": "ts-2 animation"
         },
         {
           "image": "/wp-content/themes/concrete-child/assets/images/team_s1.png",
-          "variant": "ts-3 float-top"
+          "variant": "ts-3 animation"
         }
       ]
     }
