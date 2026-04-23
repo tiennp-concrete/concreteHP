@@ -13,5 +13,8 @@
   "devDependencies": {
     "@wordpress/icons": "^12.2.0",
     "@wordpress/scripts": "^32.0.0"
+  },
+  "dependencies": {
+    "swiper": "^12.1.3"
   }
 }

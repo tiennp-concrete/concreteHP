@@ -1,45 +1,44 @@
 @use '../variables' as *;
 
 // =====================================================================
-// brand-slider block — infinite horizontal logo marquee.
+// brand-slider block — Swiper logo carousel, 6 slides, autoplay.
 // =====================================================================
 .brands {
-  padding: 60px 0;
-  background: $color-surface;
-  border-top: 1px solid $color-border;
-  border-bottom: 1px solid $color-border;
+  padding: 40px 0;
+  background: rgba($color-primary, 0.1);
 }
 
-.brands-head {
-  text-align: center;
-  margin-bottom: 32px;
-
-  &:empty { display: none; }
-}
-
-.brands-viewport {
+// ── Minimal Swiper core CSS (no nav/pagination needed) ──────────────
+.swiper {
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  position: relative;
 }
 
-.brands-track {
+.swiper-wrapper {
   display: flex;
-  gap: 72px;
-  padding: 10px 0;
-  width: max-content;
-  animation: marquee 30s linear infinite;
-  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  transition-property: transform;
 }
 
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ── Logo image ───────────────────────────────────────────────────────
 .brand-logo {
-  height: 60px;
+  max-height: 100px;
   width: auto;
-  filter: grayscale(100%);
-  opacity: 0.6;
-  transition: opacity 0.2s ease, filter 0.2s ease;
+  display: block;
+  opacity: 0.7;
+  transition: opacity 0.3s;
 
   &:hover {
-    filter: grayscale(0);
     opacity: 1;
   }
 }
