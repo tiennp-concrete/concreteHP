@@ -28,6 +28,7 @@
     position: absolute;
   }
 
+  // fc91031 — img_animation_1, MoveTop, left:51%, top:74%
   .fs-1 {
     width: 30px;
     left: 51%;
@@ -35,26 +36,40 @@
     animation: MoveTop 4.5s linear alternate infinite;
   }
 
+  // 0515cc6 — shade_foo2 (large illustration), MoveCircle360, left:56%, top:58%
   .fs-2 {
+    left: 56%;
+    top: 58%;
+    animation: MoveCircle360 9s linear infinite;
+  }
+
+  // 4812635 — shade_foo1 (triangle/chart), MoveZoomIn, left:56%, top:58%
+  .fs-3 {
+    left: 56%;
+    top: 58%;
+    animation: MoveZoomIn 3.7s linear alternate infinite;
+  }
+
+  // e348af2 — img_animation_1, MoveTop, left:93%, top:4%
+  .fs-4 {
     width: 30px;
     left: 93%;
     top: 4%;
     animation: MoveTop 4.5s linear alternate infinite;
   }
 
-  .fs-3 {
-    width: 20px;
+  // 9d2cdf1 — icon_ani_1, MoveTop, left:87%, top:23%
+  .fs-5 {
     left: 87%;
     top: 23%;
     animation: MoveTop 4.5s linear alternate infinite;
   }
 
-  .fs-4 {
-    width: 40px;
-    left: 56%;
-    top: 60%;
-    animation: MoveZoomIn 3.7s linear alternate infinite;
-    opacity: 0.4;
+  // 869d5ba — sahde_foo3 (dots/circle), MoveCircleSmall, left:65%, top:67%
+  .fs-6 {
+    left: 65%;
+    top: 67%;
+    animation: MoveCircleSmall 4.5s linear infinite;
   }
 }
 

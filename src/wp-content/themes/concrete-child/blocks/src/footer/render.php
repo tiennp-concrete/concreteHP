@@ -13,10 +13,12 @@ $socials = [
 ?>
 <footer <?php echo get_block_wrapper_attributes(['class' => 'footer']); ?>>
   <div class="footer-shade" aria-hidden="true">
-    <img class="fs-1" src="/wp-content/themes/concrete-child/assets/images/img_animation.png" alt="" />
-    <img class="fs-2" src="/wp-content/themes/concrete-child/assets/images/img_animation.png" alt="" />
-    <img class="fs-3" src="/wp-content/themes/concrete-child/assets/images/icon_ani.png" alt="" />
-    <img class="fs-4" src="/wp-content/themes/concrete-child/assets/images/shade1.png" alt="" />
+    <img class="fs-1" src="/wp-content/themes/concrete-child/assets/images/img_animation_1.png" alt="" />
+    <img class="fs-2" src="/wp-content/themes/concrete-child/assets/images/shade_foo2.png" alt="" />
+    <img class="fs-3" src="/wp-content/themes/concrete-child/assets/images/shade_foo1.png" alt="" />
+    <img class="fs-4" src="/wp-content/themes/concrete-child/assets/images/img_animation_1.png" alt="" />
+    <img class="fs-5" src="/wp-content/themes/concrete-child/assets/images/icon_ani_1.png" alt="" />
+    <img class="fs-6" src="/wp-content/themes/concrete-child/assets/images/sahde_foo3.png" alt="" />
   </div>
   <div class="container footer-grid">
     <div class="footer-brand">
