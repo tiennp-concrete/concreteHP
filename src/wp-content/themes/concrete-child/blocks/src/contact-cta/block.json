@@ -34,7 +34,7 @@
     },
     "phone": {
       "type": "string",
-      "default": "0123- 456-7890"
+      "default": "(+84) 932 183 178"
     },
     "submitText": {
       "type": "string",

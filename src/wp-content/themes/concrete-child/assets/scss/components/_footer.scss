@@ -7,14 +7,19 @@
   position: relative;
   padding: 20px 0 0 0;
   overflow: hidden;
-
-  @include mq_down($sm) {
-    padding: 72px 0 0;
-  }
   background-image: url("../images/bg_footer_marketing.png");
   background-position: bottom center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  // MacBook / medium screens: wave rises higher → need more top space
+  @media (max-width: 1536px) and (min-width: 641px) {
+    padding-top: 60px;
+  }
+
+  @include mq_down($sm) {
+    padding: 72px 0 0;
+  }
 }
 
 // ── Floating shade animations ─────────────────────────────────────────
@@ -100,6 +105,7 @@
   color: $color-muted;
   max-width: 320px;
   font-size: 18px;
+  line-height: 1.6;
 }
 
 .footer-social {

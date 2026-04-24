@@ -42,15 +42,15 @@
     },
     "phone": {
       "type": "string",
-      "default": "(+84) 0123 4567 8"
+      "default": "(+84) 932 183 178"
     },
     "email": {
       "type": "string",
-      "default": "hello@zahar.com"
+      "default": "contact@concrete-corp.com"
     },
     "copyright": {
       "type": "string",
-      "default": "Copyright © 2026 Zahar. All Rights Reserved."
+      "default": "Copyright © 2020 Concrete Corp. All Rights Reserved."
     },
     "companyItems": {
       "type": "array",
