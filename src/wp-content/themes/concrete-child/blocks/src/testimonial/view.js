@@ -1,19 +1,18 @@
-/* Testimonial carousel — native scroll + optional autoplay */
 document.querySelectorAll('.t-carousel').forEach((root) => {
-  const viewport = root.querySelector('.t-carousel-viewport');
-  if (!viewport) return;
+  const track = root.querySelector('.t-carousel-track');
+  if (!track) return;
 
-  const step = () => viewport.clientWidth;
+  let current = 0;
+  const total = track.children.length;
 
-  root.querySelector('[data-prev]')?.addEventListener('click', () => viewport.scrollBy({ left: -step(), behavior: 'smooth' }));
-  root.querySelector('[data-next]')?.addEventListener('click', () => viewport.scrollBy({ left: step(), behavior: 'smooth' }));
+  function goTo(idx) {
+    current = (idx + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+  }
+
+  root.querySelector('[data-prev]')?.addEventListener('click', () => goTo(current - 1));
+  root.querySelector('[data-next]')?.addEventListener('click', () => goTo(current + 1));
 
   const ms = +root.dataset.autoplay || 0;
-  if (ms) setInterval(() => {
-    const max = viewport.scrollWidth - viewport.clientWidth;
-    viewport.scrollTo({
-      left: viewport.scrollLeft >= max - 5 ? 0 : viewport.scrollLeft + step(),
-      behavior: 'smooth',
-    });
-  }, ms);
+  if (ms) setInterval(() => goTo(current + 1), ms);
 });

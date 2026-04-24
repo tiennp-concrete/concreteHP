@@ -2,7 +2,7 @@
 
 // =====================================================================
 // team block — 2-column section with text + big photo + floating shapes.
-// Shape positions match Zahar: dots at section level (left side),
+// Shape positions match  dots at section level (left side),
 // ts-1/ts-2/ts-3 relative to .team-media (image column).
 // =====================================================================
 .team {
@@ -38,7 +38,7 @@
     margin-bottom: 0;
   }
 
-  // "Experts" subtitle — Zahar uses font-weight 400
+  // "Experts" subtitle —  uses font-weight 400
   .section-title + .section-title {
     font-weight: 400;
     margin-bottom: 16px;
@@ -68,7 +68,7 @@
 }
 
 // Section-level dots — positioned relative to .team section (full width)
-// Matches Zahar: e2ebfb5 at left:10% top:31%, 4b38cb4 at left:7% top:68%
+// Matches  e2ebfb5 at left:10% top:31%, 4b38cb4 at left:7% top:68%
 .team .shape-float {
   z-index: 1;
   &.team-dot-1 {
@@ -113,7 +113,7 @@
   }
 
   // Image-column shapes — positioned relative to .team-media
-  // Matches Zahar shade-f2c43b6: team_s3@13%/56%, 1-team_s42@62%/53%, team_s1@75%/21%
+  // Matches  shade-f2c43b6: team_s3@13%/56%, 1-team_s42@62%/53%, team_s1@75%/21%
   &.ts-1 {
     animation-name: MoveLeft;
     animation-timing-function: linear;
