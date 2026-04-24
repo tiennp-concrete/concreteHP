@@ -3,7 +3,7 @@
 
 // ── Section ───────────────────────────────────────────────────────────
 .testimonial {
-  padding: 90px 0px 90px 0px;
+  padding: 90px 0px 0 0px;
   position: relative;
 
   @include mq_down($sm) {
@@ -40,8 +40,8 @@
   animation-timing-function: linear;
   animation-duration: 7.3s;
   animation-delay: 0s;
-  left: 0%;
-  top: -38%;
+  left: -1%;
+  top: -48%;
 }
 // ── Left: shape5 blob + floating avatars ─────────────────────────────
 .testimonial-media {
@@ -238,7 +238,7 @@
 
   .t-name {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 300;
     color: $color-heading;
     margin: 0 0 6px;
   }
