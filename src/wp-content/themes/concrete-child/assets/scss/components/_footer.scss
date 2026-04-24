@@ -5,7 +5,7 @@
 // =====================================================================
 .footer {
   position: relative;
-  padding: 120px 0 0;
+  padding: 20px 0 0 0;
   overflow: hidden;
 
   @include mq_down($sm) {
@@ -17,11 +17,52 @@
   background-repeat: no-repeat;
 }
 
+// ── Floating shade animations ─────────────────────────────────────────
+.footer-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+  }
+
+  .fs-1 {
+    width: 30px;
+    left: 51%;
+    top: 74%;
+    animation: MoveTop 4.5s linear alternate infinite;
+  }
+
+  .fs-2 {
+    width: 30px;
+    left: 93%;
+    top: 4%;
+    animation: MoveTop 4.5s linear alternate infinite;
+  }
+
+  .fs-3 {
+    width: 20px;
+    left: 87%;
+    top: 23%;
+    animation: MoveTop 4.5s linear alternate infinite;
+  }
+
+  .fs-4 {
+    width: 40px;
+    left: 56%;
+    top: 60%;
+    animation: MoveZoomIn 3.7s linear alternate infinite;
+    opacity: 0.4;
+  }
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
   gap: 48px;
-  padding-bottom: 120px;
+  padding-bottom: 15%;
   position: relative;
   z-index: 1;
 
@@ -43,7 +84,7 @@
   margin: 20px 0 24px;
   color: $color-muted;
   max-width: 320px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .footer-social {
@@ -53,7 +94,7 @@
 
   a {
     color: $color-heading;
-    font-size: 14px;
+    font-size: 18px;
     transition: color 0.2s ease;
 
     &:hover {
@@ -64,7 +105,6 @@
 
 .footer-copyright {
   color: $color-muted;
-  font-size: 14px;
   margin: 0;
 }
 
@@ -72,7 +112,7 @@
   h4 {
     color: $color-heading;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0 0 16px;
   }
 
@@ -88,7 +128,6 @@
     a {
       color: $color-muted;
       text-decoration: none;
-      font-size: 15px;
       transition: color 0.2s ease;
 
       &:hover {
@@ -108,12 +147,13 @@
 
   p {
     color: $color-muted;
-    font-size: 14px;
+    font-size: 18px;
     margin: 0 0 16px;
   }
 }
 
 .newsletter-form {
+      display: flex;
   position: relative;
   margin-bottom: 20px;
 
@@ -123,7 +163,9 @@
     border-radius: $color-radius-pill;
     border: 1px solid $color-border;
     background: transparent;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
     font-family: $font-body;
     color: $color-heading;
 
@@ -142,8 +184,8 @@
     top: 4px;
     right: 4px;
     bottom: 4px;
-    width: 44px;
-    border-radius: 50%;
+    width: 60px;
+    border-radius: 40px;
     border: none;
     background: $color-primary;
     color: #fff;
@@ -169,15 +211,85 @@
     align-items: center;
     gap: 10px;
     color: $color-muted;
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 8px;
 
     i {
       color: $color-primary;
-      font-size: 12px;
+      font-size: 14px;
     }
     a {
       color: inherit;
     }
   }
+}
+
+// ── Back to top button ────────────────────────────────────────────────
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  text-decoration: none;
+  transform: scale(0.8);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+
+  // white bg circle
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    z-index: 0;
+  }
+
+  &.totop-show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+
+  &:hover {
+    transform: scale(1) translateY(-4px);
+
+    .btt-arrow {
+      color: $color-primary;
+    }
+  }
+}
+
+.btt-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+
+  &__track {
+    stroke: rgba($color-primary, 0.15);
+    stroke-width: 2.5;
+  }
+
+  &__fill {
+    stroke: $color-primary;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    // stroke-dasharray & stroke-dashoffset set by JS
+  }
+}
+
+.btt-arrow {
+  position: relative;
+  z-index: 1;
+  color: $color-heading;
+  transition: color 0.2s ease;
 }

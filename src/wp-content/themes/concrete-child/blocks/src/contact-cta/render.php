@@ -4,6 +4,12 @@ $decor_image = $attributes['decorImage'] ?? '';
 $phone_tel   = preg_replace('/[^0-9+]/', '', $attributes['phone'] ?? '');
 ?>
 <section id="contact" <?php echo get_block_wrapper_attributes(['class' => 'contact-cta']); ?>>
+  <div class="contact-shade">
+    <img class="cs-1" src="/wp-content/themes/concrete-child/assets/images/img_animation.png" alt="" />
+    <img class="cs-2" src="/wp-content/themes/concrete-child/assets/images/icon_ani.png" alt="" />
+    <img class="cs-3" src="/wp-content/themes/concrete-child/assets/images/img_animation.png" alt="" />
+    <img class="cs-4" src="/wp-content/themes/concrete-child/assets/images/icon_ani.png" alt="" />
+  </div>
   <div class="container">
     <div class="contact-grid">
       <div class="contact-media">
@@ -20,10 +26,12 @@ $phone_tel   = preg_replace('/[^0-9+]/', '', $attributes['phone'] ?? '');
       </div>
 
       <div class="contact-text">
-        <p class="eyebrow"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-        <?php if (!empty($decor_image)) : ?>
-          <img class="contact-decor-inline" src="<?php echo esc_url($decor_image); ?>" alt="" />
-        <?php endif; ?>
+        <div class="contact-eyebrow-row">
+          <p class="eyebrow"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
+          <?php if (!empty($decor_image)) : ?>
+            <img class="contact-decor-inline" src="<?php echo esc_url($decor_image); ?>" alt="" />
+          <?php endif; ?>
+        </div>
         <h2 class="section-title"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
         <h2 class="section-title"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
         <p><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
