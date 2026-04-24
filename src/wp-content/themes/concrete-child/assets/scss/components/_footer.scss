@@ -290,6 +290,7 @@
 .btt-arrow {
   position: relative;
   z-index: 1;
-  color: $color-heading;
+  color: #646464;
+  transform: rotate(-90deg);
   transition: color 0.2s ease;
 }

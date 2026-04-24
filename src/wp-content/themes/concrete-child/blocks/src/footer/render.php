@@ -81,7 +81,5 @@ $socials = [
     <circle class="btt-ring__track" cx="27" cy="27" r="24"/>
     <circle class="btt-ring__fill"  cx="27" cy="27" r="24"/>
   </svg>
-  <svg class="btt-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="18 15 12 9 6 15"/>
-  </svg>
+  <svg class="btt-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
 </a>
