@@ -30,11 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const open  = () => {
     header.classList.add(openCls);
     toggle?.setAttribute('aria-expanded', 'true');
+    document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
   };
   const close = () => {
     header.classList.remove(openCls);
     toggle?.setAttribute('aria-expanded', 'false');
+    document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
   };
 
