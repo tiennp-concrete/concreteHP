@@ -32,6 +32,10 @@
     background-size: contain;
     pointer-events: none;
     z-index: 0;
+
+    @media (max-width: 1536px) and (min-width: 641px) {
+      width: 78%;
+    }
   }
 
   // Floating decorative shapes positioned inside the hero.
@@ -62,6 +66,10 @@
       animation-delay: 1.2s;
       left: 6%;
       top: 74%;
+      
+      @media (max-width: 1536px) and (min-width: 641px) {
+        left: 2%;
+      }
     }
     &.s-4 {
       animation-name: MoveCircle;

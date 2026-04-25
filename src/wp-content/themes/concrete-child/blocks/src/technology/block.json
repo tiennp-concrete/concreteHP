@@ -62,6 +62,7 @@
               "name": "AI",
               "icons": [
                 { "src": "/wp-content/themes/concrete-child/assets/images/tech/chatgpt.svg",       "alt": "ChatGPT" },
+                { "src": "/wp-content/themes/concrete-child/assets/images/tech/claude.svg",       "alt": "Claude" },
                 { "src": "/wp-content/themes/concrete-child/assets/images/tech/coderabbit.svg",    "alt": "CodeRabbit" },
                 { "src": "/wp-content/themes/concrete-child/assets/images/tech/github-copilot.svg","alt": "GitHub Copilot" }
               ]
