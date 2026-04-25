@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   cards.forEach((card, i) => {
     card.dataset.animDelay = i * 200;
+    card.classList.add('will-animate');
     observer.observe(card);
   });
 });

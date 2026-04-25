@@ -50,8 +50,9 @@ document.querySelectorAll('.portfolio').forEach((root) => {
     }, totalDuration);
   }
 
-  // Init: show all cards with stagger on load
+  // Init: mark for animation then stagger reveal
   cards.forEach((card, i) => {
+    card.classList.add('will-animate');
     card.style.transitionDelay = i * 60 + 'ms';
     requestAnimationFrame(() => {
       requestAnimationFrame(() => card.classList.add('is-visible'));

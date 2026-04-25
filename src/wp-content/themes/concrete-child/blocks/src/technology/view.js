@@ -5,6 +5,7 @@ document.querySelectorAll('.technology').forEach((root) => {
 
   // Scroll-reveal: add .is-revealed when section enters viewport → triggers CSS animation
   if (techRight) {
+    techRight.classList.add('will-animate');
     const reveal = new IntersectionObserver((entries, obs) => {
       if (!entries[0].isIntersecting) return;
       techRight.classList.add('is-revealed');

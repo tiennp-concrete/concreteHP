@@ -195,7 +195,7 @@
     .current-menu-item > a,
     .current-menu-ancestor > a {
       background: $color-primary;
-      color: #fff;
+      color: #fff !important;
     }
   }
 
@@ -458,7 +458,7 @@
 
   // Mobile: flat list trong drawer
   @include mq_down($lg) {
-    padding: 14px 20px;
+    padding: 9px 20px;
     // border-top: 1px solid $color-border;
 
     .lang-trigger { display: none; }

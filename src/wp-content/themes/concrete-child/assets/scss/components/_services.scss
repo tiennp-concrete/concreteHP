@@ -54,9 +54,11 @@
   transition: border-color 0.3s ease;
   text-align: center;
 
-  // Entry animation — JS adds .is-visible via IntersectionObserver
-  opacity: 0;
-  transform: translateY(30px);
+  // JS adds .will-animate before observing (so editor stays visible)
+  &.will-animate {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
   &.is-visible {
     animation: fadeInUp 0.6s ease both;

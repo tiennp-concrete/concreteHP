@@ -142,9 +142,9 @@
   }
 }
 
-// Cards chỉ animate khi section đã vào viewport (.is-revealed added by JS)
+// Cards animate on scroll — JS adds .will-animate then .is-revealed
 .tech-right {
-  .tech-panel.is-active .tech-card {
+  &.will-animate .tech-panel.is-active .tech-card {
     opacity: 0;
   }
 
