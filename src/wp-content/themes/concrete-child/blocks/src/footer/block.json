@@ -50,7 +50,7 @@
     },
     "copyright": {
       "type": "string",
-      "default": "Copyright © 2020 Concrete Corp. All Rights Reserved."
+      "default": "© 2020 Concrete Corp. All rights reserved."
     },
     "companyItems": {
       "type": "array",

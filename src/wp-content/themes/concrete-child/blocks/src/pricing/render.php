@@ -11,10 +11,10 @@ $icons = [
   <div class="container">
     <div class="pricing-grid-wrap">
       <div class="pricing-head">
-        <p class="eyebrow"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-        <h2 class="section-title"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
-        <h2 class="section-title"><?php echo wp_kses_post($attributes['headingSub1'] ?? ''); ?></h2>
-        <h2 class="section-title"><?php echo wp_kses_post($attributes['headingSub2'] ?? ''); ?></h2>
+        <p class="eyebrow animated" data-animation="fadeInUp"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
+        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="100"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
+        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($attributes['headingSub1'] ?? ''); ?></h2>
+        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="300"><?php echo wp_kses_post($attributes['headingSub2'] ?? ''); ?></h2>
       </div>
       <div class="pricing-panel">
         <div class="pricing-toggle" data-pricing-toggle>

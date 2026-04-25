@@ -23,11 +23,11 @@ $iconShade1 = '/wp-content/themes/concrete-child/assets/images/shade1.png';
   <div class="container">
     <div class="team-grid">
       <div class="team-text">
-        <p class="eyebrow"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-        <h2 class="section-title"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
-        <h2 class="section-title"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
-        <p><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
-        <a class="btn btn-primary" href="#team-list"><?php echo wp_kses_post($attributes['ctaText'] ?? ''); ?></a>
+        <p class="eyebrow animated" data-animation="fadeInLeft"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
+        <h2 class="section-title animated" data-animation="fadeInLeft" data-animation-delay="100"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
+        <h2 class="section-title animated" data-animation="fadeInLeft" data-animation-delay="200"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
+        <p class="animated" data-animation="fadeInLeft" data-animation-delay="300"><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
+        <a class="btn btn-primary animated" data-animation="fadeInLeft" data-animation-delay="400" href="#team-list"><?php echo wp_kses_post($attributes['ctaText'] ?? ''); ?></a>
       </div>
       <div class="team-media">
         <?php foreach ($shapes as $shape) : ?>
@@ -35,7 +35,7 @@ $iconShade1 = '/wp-content/themes/concrete-child/assets/images/shade1.png';
             <img src="<?php echo esc_url($shape['image'] ?? ''); ?>" alt="" />
           </div>
         <?php endforeach; ?>
-        <img class="team-media-main" src="<?php echo esc_url($attributes['heroImage'] ?? ''); ?>" alt="Team" />
+        <img class="team-media-main animated" data-animation="zoomInUp" src="<?php echo esc_url($attributes['heroImage'] ?? ''); ?>" alt="Team" />
       </div>
     </div>
   </div>

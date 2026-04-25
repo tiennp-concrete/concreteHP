@@ -32,11 +32,11 @@ $phone_tel   = preg_replace('/[^0-9+]/', '', $attributes['phone'] ?? '');
             <img class="contact-decor-inline" src="<?php echo esc_url($decor_image); ?>" alt="" />
           <?php endif; ?>
         </div>
-        <h2 class="section-title"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
-        <h2 class="section-title"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
-        <p><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
-        <p class="contact-phone-label"><?php echo wp_kses_post($attributes['phoneLabel'] ?? ''); ?></p>
-        <a class="contact-phone" href="tel:<?php echo esc_attr($phone_tel); ?>">
+        <h2 class="section-title animated" data-animation="fadeInUp"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
+        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="100"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
+        <p class="animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
+        <p class="contact-phone-label animated" data-animation="fadeInUp" data-animation-delay="300"><?php echo wp_kses_post($attributes['phoneLabel'] ?? ''); ?></p>
+        <a class="contact-phone animated" data-animation="fadeInUp" data-animation-delay="400" href="tel:<?php echo esc_attr($phone_tel); ?>">
           <span class="phone-icon">&#128222;</span>
           <?php echo wp_kses_post($attributes['phone'] ?? ''); ?>
         </a>
