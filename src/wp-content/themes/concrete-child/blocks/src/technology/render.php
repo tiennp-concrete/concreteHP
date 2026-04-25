@@ -16,9 +16,9 @@ $cardIcons = [
     <div class="tech-wrap">
 
       <div class="tech-left">
-        <p class="eyebrow animated" data-animation="fadeInUp"><?php echo wp_kses_post($eyebrow); ?></p>
-        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="100"><?php echo wp_kses_post($heading); ?></h2>
-        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($headingSub); ?></h2>
+        <p class="eyebrow " ><?php echo wp_kses_post($eyebrow); ?></p>
+        <h2 class="section-title "><?php echo wp_kses_post($heading); ?></h2>
+        <h2 class="section-title " ><?php echo wp_kses_post($headingSub); ?></h2>
 
         <ul class="tech-tab-nav">
           <?php foreach ($tabs as $i => $tab) : ?>
@@ -41,7 +41,7 @@ $cardIcons = [
             <?php foreach ($cats as $ci => $cat) :
               $heroSrc = $cardIcons[$ci % count($cardIcons)];
             ?>
-              <article class="tech-card animated" data-animation="zoomInRight"
+              <article class="tech-card"
                        style="background-image: url('<?php echo esc_url($bgVas); ?>');">
                 <img class="tech-card-decor" src="<?php echo esc_url($decor); ?>" alt="" />
 

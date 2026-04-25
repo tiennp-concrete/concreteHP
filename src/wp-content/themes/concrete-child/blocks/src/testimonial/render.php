@@ -37,11 +37,11 @@ $slides = [
 
       <!-- Right: text + carousel -->
       <div class="testimonial-text">
-        <p class="eyebrow animated" data-animation="fadeInUp"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="100"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
-        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
+        <p class="eyebrow animated" data-animation="fadeInRight"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
+        <h2 class="section-title animated" data-animation="fadeInRight"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
+        <h2 class="section-title animated" data-animation="fadeInRight"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
 
-        <div class="t-carousel" data-autoplay="<?php echo esc_attr($autoplay); ?>">
+        <div class="t-carousel animated" data-animation="fadeInRight" data-autoplay="<?php echo esc_attr($autoplay); ?>">
           <div class="t-carousel-viewport">
             <div class="t-carousel-track">
               <?php foreach ($slides as $s) : ?>

@@ -6,11 +6,11 @@ $posts = is_array($attributes['posts'] ?? null) ? $attributes['posts'] : [];
     <div class="blog-grid-wrap">
 
       <div class="blog-intro">
-        <p class="eyebrow animated" data-animation="fadeInUp"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="100"><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
-        <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
-        <p class="animated" data-animation="fadeInUp" data-animation-delay="300"><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
-        <a class="btn btn-primary animated" data-animation="fadeInUp" data-animation-delay="400" href="#all-posts"><?php echo wp_kses_post($attributes['ctaText'] ?? ''); ?></a>
+        <p class="eyebrow" ><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
+        <h2 class="section-title" ><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
+        <h2 class="section-title"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
+        <p><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
+        <a class="btn btn-primary" href="#all-posts"><?php echo wp_kses_post($attributes['ctaText'] ?? ''); ?></a>
       </div>
 
       <div class="blog-slider">
