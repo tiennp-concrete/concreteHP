@@ -26,7 +26,7 @@
     },
     "description": {
       "type": "string",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis molestie a iaculis at erat."
+      "default": "CONCRETE is a creative group headquartered in Tokyo, developing systems utilizing the latest technology. Our 45+ members across Japan and Vietnam are united by one mission — building excellent digital products that make a real impact."
     },
     "ctaText": {
       "type": "string",

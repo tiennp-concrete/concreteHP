@@ -14,37 +14,37 @@
     },
     "eyebrow": {
       "type": "string",
-      "default": "FEATURES"
+      "default": "SERVICES"
     },
     "heading": {
       "type": "string",
-      "default": "We Provide Professional Features"
+      "default": "We Provide Professional Services"
     },
     "headingSub": {
       "type": "string",
-      "default": "That Grow Your Business"
+      "default": "That Drive Real Results"
     },
     "footerText": {
       "type": "string",
-      "default": "We don't limit our work to any single industry, and we don't discriminate based on company size. We've worked with hundreds of different clients across a variety of industries over the last two decades, giving us a vast reservoir of experience and best practices that inform our approach to each new project."
+      "default": "CONCRETE has partnered with 50+ clients across Asia, delivering projects with precision and creativity. From complex web systems and BPO to co-working spaces and startup support, we bring real expertise to every challenge."
     },
     "services": {
       "type": "array",
       "default": [
         {
           "icon": "/wp-content/themes/concrete-child/assets/images/002-digital-marketing.svg",
-          "title": "Insight & Research",
-          "text": "Successful brands require thoughtful, disciplined and creative strategies to move them forward. Our extensive analytical..."
+          "title": "Web System Development",
+          "text": "We build and develop complex website systems and applications across diverse industries, and provide reliable BPO data entry services with the highest quality standards."
         },
         {
           "icon": "/wp-content/themes/concrete-child/assets/images/004-creative-idea.svg",
-          "title": "User Experience",
-          "text": "Technology is constantly evolving, and your brand must evolve with it to remain successful. We ensure that your brand anticipates..."
+          "title": "Co-working Space",
+          "text": "Our flexible co-working spaces include all utilities and services, designed to meet the evolving requirements of teams, freelancers and growing startups."
         },
         {
           "icon": "/wp-content/themes/concrete-child/assets/images/html.svg",
-          "title": "Design & Development",
-          "text": "With a mobile first mentality for the front-end, and a flawless CMS on the back-end, our award winning websites put our customers first..."
+          "title": "Startup Support",
+          "text": "We support entrepreneurship and startup ideas from concept to launch, providing technical expertise, workspace and strategic guidance for ambitious founders."
         }
       ]
     }

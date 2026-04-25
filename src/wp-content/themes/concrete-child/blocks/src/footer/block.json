@@ -22,7 +22,7 @@
     },
     "tagline": {
       "type": "string",
-      "default": "We help businesses maximize their online presence with a personalized approach to digital marketing."
+      "default": "Connect the Creator all around the World. Building excellent digital systems across Japan and Vietnam since 2019."
     },
     "colCompanyHeading": {
       "type": "string",
@@ -50,7 +50,7 @@
     },
     "copyright": {
       "type": "string",
-      "default": "© 2020 Concrete Corp. All rights reserved."
+      "default": "© 2019 Concrete Corp. All rights reserved."
     },
     "companyItems": {
       "type": "array",

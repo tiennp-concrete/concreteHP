@@ -18,15 +18,15 @@
     },
     "heading": {
       "type": "string",
-      "default": "Get your business"
+      "default": "Start Your Next"
     },
     "headingSub": {
       "type": "string",
-      "default": "Right up there"
+      "default": "Project With Us"
     },
     "description": {
       "type": "string",
-      "default": "Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto dictae."
+      "default": "Whether you need a web system, BPO services, co-working space or startup support — our team across Tokyo, Da Nang and Ha Noi is ready to help you succeed."
     },
     "phoneLabel": {
       "type": "string",

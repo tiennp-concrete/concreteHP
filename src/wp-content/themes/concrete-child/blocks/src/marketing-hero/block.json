@@ -14,7 +14,7 @@
     },
     "eyebrow": {
       "type": "string",
-      "default": "WEB & SOFTWARE STUDIO"
+      "default": "WEB & SOFTWARE DEVELOPMENT"
     },
     "title": {
       "type": "string",
@@ -26,11 +26,11 @@
     },
     "subtitle": {
       "type": "string",
-      "default": "We build fast, scalable websites and applications designed to grow your business and drive results."
+      "default": "We deliver high-quality web systems, BPO services and software solutions — trusted by businesses across Japan, Vietnam and beyond."
     },
     "primaryCta": {
       "type": "string",
-      "default": "Get Started"
+      "default": "Start a Project"
     },
     "videoLabel": {
       "type": "string",

@@ -18,15 +18,15 @@
     },
     "heading": {
       "type": "string",
-      "default": "We are not just"
+      "default": "More Than Just"
     },
     "headingSub": {
       "type": "string",
-      "default": "Another Agency"
+      "default": "A Dev Company"
     },
     "description": {
       "type": "string",
-      "default": "Come to think of it, we're not really an agency at all. We're a creative digital performance marketing partner that helps passionate organizations achieve inspiring results through bold ideas and flawless execution."
+      "default": "CONCRETE is a creative technology group headquartered in Tokyo. We connect talented creators across Japan and Vietnam to build excellent web systems, support startups, and empower businesses to grow through the power of technology."
     },
     "ctaText": {
       "type": "string",
@@ -43,9 +43,9 @@
     "stats": {
       "type": "array",
       "default": [
-        { "number": "10+", "label": "Years Experience" },
-        { "number": "200+", "label": "Projects Done" },
-        { "number": "50+", "label": "Team Members" }
+        { "number": "6+", "label": "Years Experience" },
+        { "number": "50+", "label": "Clients Served" },
+        { "number": "100+", "label": "Projects Delivered" }
       ]
     }
   },

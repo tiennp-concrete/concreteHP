@@ -26,27 +26,27 @@
     },
     "quote1": {
       "type": "string",
-      "default": "We've had the pleasure of working with Zahar for quite a few years, on our previous site as well as the new one. Both were excellent experiences. Their dedicated client service and deep insight into our organization has resulted in now two websites of which we are very proud."
+      "default": "CONCRETE delivered our web system with exceptional quality and efficiency. Their team is highly technical, communicative, and truly understood our requirements. The result exceeded our expectations and our system now handles thousands of daily transactions without any issues."
     },
     "name1": {
       "type": "string",
-      "default": "Cristian Holand"
+      "default": "Kenji Yamamoto"
     },
     "role1": {
       "type": "string",
-      "default": "Project Manager at LIFTO"
+      "default": "CTO at TechVentures Japan"
     },
     "quote2": {
       "type": "string",
-      "default": "Outstanding work on every deliverable. The team is responsive, creative and understands our brand values deeply. We've already seen measurable growth in our core metrics."
+      "default": "Working with CONCRETE has been a game-changer for our operations. Their BPO services are precise and reliable, and the development team consistently delivers on time and within budget. Highly recommended."
     },
     "name2": {
       "type": "string",
-      "default": "Jane Doe"
+      "default": "Nguyen Minh Tuan"
     },
     "role2": {
       "type": "string",
-      "default": "CEO at Example Co."
+      "default": "CEO at MekongTech Vietnam"
     },
     "autoplay": {
       "type": "number",
