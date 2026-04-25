@@ -29,5 +29,3 @@
 <!-- wp:concrete/blog-grid /-->
 
 <!-- wp:concrete/contact-cta /-->
-
-<!-- wp:concrete/footer /-->

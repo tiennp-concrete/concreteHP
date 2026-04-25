@@ -28,13 +28,47 @@ $logo_markup = !empty($logo_url)
       <nav class="nav">
         <?php
         wp_nav_menu([
-          'theme_location' => 'primary',   // tên menu location
+          'theme_location' => 'primary',
           'menu_class'     => '',
           'container'      => false,
-          'fallback_cb'    => false,
+          'fallback_cb'    => function() {
+            // Hiển thị tất cả pages nếu chưa assign menu (fallback an toàn)
+            wp_page_menu(['show_home' => true, 'menu_class' => '']);
+          },
         ]);
         ?>
       </nav>
+
+      <?php
+      $langs = function_exists('pll_the_languages')
+        ? pll_the_languages(['raw' => 1, 'hide_current' => 1])
+        : [];
+      if (!empty($langs)) : ?>
+      <div class="lang-switcher">
+        <button class="lang-trigger" type="button" aria-label="Select language" aria-expanded="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <ul class="lang-dropdown" role="menu">
+          <?php foreach ($langs as $lang) : ?>
+            <li role="none">
+              <a href="<?php echo esc_url($lang['url']); ?>" role="menuitem" hreflang="<?php echo esc_attr($lang['slug']); ?>">
+                <?php if (!empty($lang['flag'])) : ?>
+                  <img src="<?php echo esc_url($lang['flag']); ?>" alt="" width="18" />
+                <?php endif; ?>
+                <span><?php echo esc_html($lang['name']); ?></span>
+              </a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <?php endif; ?>
 
       <div class="header-cta">
         <a class="btn btn-outline" href="#contact"><?php echo esc_html($cta_text); ?></a>

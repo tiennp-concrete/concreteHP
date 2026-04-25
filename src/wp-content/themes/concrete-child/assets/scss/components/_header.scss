@@ -333,6 +333,155 @@
   }
 }
 
+// ── Language switcher ────────────────────────────────────────────────
+.lang-switcher {
+  position: relative;
+  flex: 0 0 auto;
+  z-index: 20;
+
+  // Globe trigger button
+  .lang-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 20px;
+    padding: 6px 10px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.85);
+    transition: border-color 0.2s ease, color 0.2s ease;
+    line-height: 1;
+  }
+
+  .lang-chevron {
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    .lang-trigger {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .lang-chevron {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Dropdown panel
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.13);
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease,
+      visibility 0.22s;
+
+    // hover bridge
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+    }
+
+    li a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border-radius: 6px;
+      color: $color-heading;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease;
+      line-height: 1;
+      letter-spacing: 0;
+      text-transform: none;
+
+      img {
+        width: 20px;
+        height: auto;
+        border-radius: 3px;
+        display: block;
+        flex-shrink: 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      }
+
+      &:hover {
+        background: rgba($color-primary, 0.08);
+        color: $color-primary;
+      }
+    }
+  }
+
+  &:hover .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  // Sticky header
+  .is-sticky & .lang-trigger {
+    border-color: rgba(0, 0, 0, 0.2);
+    color: $color-heading;
+  }
+
+  .is-sticky &:hover .lang-trigger {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+
+  // Mobile: flat list trong drawer
+  @include mq_down($lg) {
+    padding: 14px 20px;
+    border-top: 1px solid $color-border;
+
+    .lang-trigger { display: none; }
+
+    .lang-dropdown {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+
+      &::before { display: none; }
+
+      li a {
+        padding: 10px 0;
+        font-size: 15px;
+        color: $color-heading;
+        border-radius: 0;
+
+        &:hover {
+          background: transparent;
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
 // ── Header CTA ───────────────────────────────────────────────────────
 .header-cta {
   flex: 0 0 auto;
@@ -345,6 +494,10 @@
     line-height: 1;
     font-weight: 300;
     border: 2px solid #fff;
+    color: #fff;
+    &:hover {
+      color: $color-primary;
+    }
   }
 
   @include mq_down($lg) {
