@@ -9,9 +9,9 @@ $decor_image = $attributes['decorImage'] ?? '';
 
   <div class="container">
     <div class="portfolio-head">
-      <p class="eyebrow animated" data-animation="zoomInDown"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-      <h2 class="section-title animated" data-animation="zoomInDown" ><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
-      <h2 class="section-title animated" data-animation="zoomInDown" data-animation-delay="200"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
+      <p class="eyebrow animated" data-animation="fadeInUp"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
+      <h2 class="section-title animated" data-animation="fadeInUp" ><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
+      <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
     </div>
 
     <div class="portfolio-filters">
