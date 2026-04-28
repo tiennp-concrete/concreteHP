@@ -15,7 +15,7 @@
   }
 
   @include mq_down($sm) {
-    padding: 72px 0;
+    padding: 90px 0 10px 0;
   }
 
   // Decorative teal SVG backdrop — top-right organic shape (matches  demo)
@@ -35,6 +35,10 @@
 
     @media (max-width: 1536px) and (min-width: 641px) {
       width: 78%;
+    }
+
+    @include mq_down($sm) {
+      width: 60%;
     }
   }
 
@@ -136,18 +140,22 @@
   letter-spacing: 0.02em;
   line-height: 1.2;
   margin: 0 0 16px;
+
+  @include mq_down($sm) {
+    font-size: 12px;
+  }
 }
 
 .hero-title {
   font-size: clamp(48px, 7vw, 72px);
-
-  @include mq_down($sm) {
-    font-size: 48px;
-  }
   font-weight: 700;
   line-height: 1.05;
   margin: 0 0 8px;
   color: $color-heading;
+
+  @include mq_down($sm) {
+    font-size: 36px;
+  }
 }
 
 .hero-title-sub {
@@ -156,6 +164,10 @@
   line-height: 1.1;
   color: $color-heading;
   margin: 0 0 24px;
+
+  @include mq_down($sm) {
+    font-size: 28px;
+  }
 }
 
 .hero-sub {

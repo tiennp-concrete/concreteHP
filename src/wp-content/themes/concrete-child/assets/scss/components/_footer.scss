@@ -91,6 +91,7 @@
   }
   @include mq_down($sm) {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
 }
 
@@ -145,8 +146,17 @@
     margin: 0;
     padding: 0;
 
+    @include mq_down($sm) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     li {
       margin-bottom: 10px;
+      @include mq_down($sm) {
+        margin-bottom: 0;
+      }
     }
 
     a {

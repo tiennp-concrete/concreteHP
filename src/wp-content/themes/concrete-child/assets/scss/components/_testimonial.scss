@@ -52,6 +52,10 @@
   @include mq_down($lg) {
     padding-bottom: 80%;
   }
+
+  @include mq_down($sm) {
+    padding-bottom: 65%;
+  }
 }
 
 .t-main-image-wrap {
@@ -170,6 +174,10 @@
     line-height: 1.3;
     margin-bottom: -10px;
     color: $color-heading;
+
+    @include mq_down($sm) {
+      font-size: 34px;
+    }
   }
 
   .section-title + .section-title {

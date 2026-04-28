@@ -8,7 +8,7 @@
   }
 
   @include mq_down($sm) {
-    padding: 60px 0;
+    padding: 10px 0 60px 0;
   }
 }
 
@@ -114,7 +114,12 @@
 
   @include mq_down($lg) {
     font-size: 36px;
-    line-height: 36px;
+    line-height: 1.2;
+  }
+
+  @include mq_down($sm) {
+    font-size: 30px;
+    padding-bottom: 10px;
   }
 }
 
@@ -127,7 +132,11 @@
 
   @include mq_down($lg) {
     font-size: 36px;
-    line-height: 36px;
+    line-height: 1.2;
+  }
+
+  @include mq_down($sm) {
+    font-size: 30px;
   }
 }
 

@@ -62,12 +62,23 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  @include mq_down($sm) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
 }
 
 // ── Left: decor blob + form card ──────────────────────────────────────
 .contact-media {
   position: relative;
   margin: 0% 26% 0% 0%;
+
+  @include mq_down($lg) {
+    width: 100%;
+    margin: 0;
+  }
 
   .contact-decor {
     position: absolute;
@@ -78,6 +89,10 @@
     top: 82px;
     z-index: 1;
     left: -151px;
+
+    @include mq_down($lg) {
+      display: none;
+    }
   }
 }
 
@@ -141,6 +156,9 @@
 
 // ── Right: text content ───────────────────────────────────────────────
 .contact-text {
+  @include mq_down($sm) {
+    width: 100%;
+  }
   .contact-eyebrow-row {
     display: flex;
     align-items: center;
@@ -162,10 +180,18 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin: 35px 0 0 0;
+
+    @include mq_down($sm) {
+      width: auto !important;
+      white-space: nowrap;
+    }
   }
 
   .contact-decor-inline {
     display: block;
+    @include mq_down($sm) {
+      max-width: 150px;
+    }
   }
 
   .section-title {
@@ -174,6 +200,10 @@
     line-height: 1.3;
     margin-bottom: -10px;
     color: $color-heading;
+
+    @include mq_down($sm) {
+      font-size: 34px;
+    }
   }
 
   .section-title + .section-title {
