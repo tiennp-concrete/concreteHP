@@ -75,9 +75,10 @@
 
 .process-card {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background: #fff;
-  border-radius: $color-radius-lg;
+  border-left: 3px solid $color-primary;
+  border-radius: $color-radius;
   padding: 36px 28px 32px;
   box-shadow: 0 2px 16px rgba(#000, 0.05);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -86,6 +87,21 @@
     box-shadow: 0 8px 32px rgba($color-primary, 0.15);
     transform: translateY(-3px);
     .process-title { color: $color-primary; }
+  }
+
+  // Connector arrow between cards
+  &:not(:last-child)::after {
+    content: '›';
+    position: absolute;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    line-height: 1;
+    color: $color-primary;
+    z-index: 2;
+
+    @include mq_down($lg) { display: none; }
   }
 }
 
@@ -101,17 +117,6 @@
   letter-spacing: -0.04em;
   user-select: none;
   pointer-events: none;
-}
-
-// Step label
-.process-card-label {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: $color-primary;
-  margin-bottom: 12px;
 }
 
 // Title
