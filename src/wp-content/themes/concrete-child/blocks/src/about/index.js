@@ -82,6 +82,7 @@ function Edit({ attributes, setAttributes }) {
               placeholder="Description"
             />
 
+            {/* HIDDEN: stats section
             <div className="about-stats">
               {attributes.stats.map((stat, i) => (
                 <div key={i} className="about-stat">
@@ -90,6 +91,7 @@ function Edit({ attributes, setAttributes }) {
                 </div>
               ))}
             </div>
+            */}
 
             <span className="btn btn-primary">
               <RichText

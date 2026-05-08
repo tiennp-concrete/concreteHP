@@ -1,6 +1,5 @@
 <?php
 $dot_img = '/wp-content/themes/concrete-child/assets/images/img_animation.png';
-$stats   = is_array($attributes['stats'] ?? null) ? $attributes['stats'] : [];
 ?>
 <section <?php echo get_block_wrapper_attributes(['class' => 'about']); ?>>
   <div class="container about-grid">
@@ -20,16 +19,6 @@ $stats   = is_array($attributes['stats'] ?? null) ? $attributes['stats'] : [];
       <h2 class="about-heading-sub animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
       <p class="about-desc animated" data-animation="fadeInUp" data-animation-delay="300"><?php echo wp_kses_post($attributes['description'] ?? ''); ?></p>
 
-      <?php if (!empty($stats)) : ?>
-        <div class="about-stats animated" data-animation="fadeInUp" data-animation-delay="350">
-          <?php foreach ($stats as $stat) : ?>
-            <div class="about-stat">
-              <span class="about-stat-number"><?php echo wp_kses_post($stat['number'] ?? ''); ?></span>
-              <span class="about-stat-label"><?php echo wp_kses_post($stat['label'] ?? ''); ?></span>
-            </div>
-          <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
       <div class="animated" data-animation="fadeInUp" data-animation-delay="400">
         <a class="btn btn-primary " href="<?php echo esc_url($attributes['ctaUrl'] ?? '#'); ?>">
           <?php echo wp_kses_post($attributes['ctaText'] ?? ''); ?>

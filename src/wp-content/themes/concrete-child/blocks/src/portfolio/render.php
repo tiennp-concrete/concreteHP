@@ -1,50 +1,50 @@
 <?php
-$projects    = is_array($attributes['projects'] ?? null) ? $attributes['projects'] : [];
 $decor_image = $attributes['decorImage'] ?? '';
 ?>
-<section id="projects" <?php echo get_block_wrapper_attributes(['class' => 'portfolio']); ?>>
-  <?php if (!empty($decor_image)) : ?>
-    <div class="portfolio-decor"><img src="<?php echo esc_url($decor_image); ?>" alt="" /></div>
-  <?php endif; ?>
+<section id="process" <?php echo get_block_wrapper_attributes(['class' => 'work-process']); ?>>
 
   <div class="container">
-    <div class="portfolio-head">
-      <p class="eyebrow animated" data-animation="fadeInUp"><?php echo wp_kses_post($attributes['eyebrow'] ?? ''); ?></p>
-      <h2 class="section-title animated" data-animation="fadeInUp" ><?php echo wp_kses_post($attributes['heading'] ?? ''); ?></h2>
-      <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="200"><?php echo wp_kses_post($attributes['headingSub'] ?? ''); ?></h2>
-    </div>
-
-    <div class="portfolio-filters">
-      <ul class="port-nav">
-        <div class="port-magic-line"></div>
-        <li><a href="#" class="filter is-active" data-filter="all">All Projects</a></li>
-        <li><a href="#" class="filter" data-filter="branding">Branding</a></li>
-        <li><a href="#" class="filter" data-filter="development">Development</a></li>
-        <li><a href="#" class="filter" data-filter="ui">UI Design</a></li>
-        <li><a href="#" class="filter" data-filter="web">Web Design</a></li>
-      </ul>
+    <div class="process-head">
+      <p class="eyebrow animated" data-animation="fadeInUp">QUY TRÌNH LÀM VIỆC</p>
+      <h2 class="section-title animated" data-animation="fadeInUp">Minh bạch từng bước</h2>
+      <h2 class="section-title animated" data-animation="fadeInUp" data-animation-delay="200">Để bạn luôn nắm quyền kiểm soát</h2>
     </div>
   </div>
 
-  <div class="portfolio-grid">
-    <?php foreach ($projects as $p) :
-      $is_wide = ($p['size'] ?? '') === 'wide';
-    ?>
-      <div class="port-card<?php echo $is_wide ? ' port-wide' : ''; ?>"
-           data-category="<?php echo esc_attr($p['category'] ?? ''); ?>">
-        <div class="port-image">
-          <a class="port-overlay" href="#"></a>
-          <img src="<?php echo esc_url($p['image'] ?? ''); ?>"
-               alt="<?php echo esc_attr($p['title'] ?? ''); ?>" />
+  <div class="process-bg">
+    <div class="container">
+      <div class="process-grid">
+
+        <div class="process-card animated" data-animation="fadeInUp" data-animation-delay="0">
+          <span class="process-num" aria-hidden="true">01</span>
+          <span class="process-card-label">Bước 01</span>
+          <h3 class="process-title">Tư vấn &amp; Phân tích</h3>
+          <p class="process-body">Lắng nghe bài toán thực tế của bạn. Đánh giá hệ thống hiện tại, xác định mục tiêu và đề xuất giải pháp phù hợp nhất — không bán giải pháp thừa.</p>
         </div>
-        <div class="port-meta">
-          <div class="port-meta-inner">
-            <div class="port-tag"><?php echo wp_kses_post($p['tag'] ?? ''); ?></div>
-            <h3 class="port-title"><?php echo wp_kses_post($p['title'] ?? ''); ?></h3>
-            <a href="#" class="port-arrow"><span>&#8594;</span></a>
-          </div>
+
+        <div class="process-card animated" data-animation="fadeInUp" data-animation-delay="100">
+          <span class="process-num" aria-hidden="true">02</span>
+          <span class="process-card-label">Bước 02</span>
+          <h3 class="process-title">Lên kế hoạch &amp; Thiết kế</h3>
+          <p class="process-body">Roadmap chi tiết, timeline rõ ràng, wireframe và prototype trước khi code. Bạn duyệt — chúng tôi mới bắt đầu.</p>
         </div>
+
+        <div class="process-card animated" data-animation="fadeInUp" data-animation-delay="200">
+          <span class="process-num" aria-hidden="true">03</span>
+          <span class="process-card-label">Bước 03</span>
+          <h3 class="process-title">Phát triển &amp; Kiểm thử</h3>
+          <p class="process-body">Sprint agile 2 tuần/vòng, báo cáo tiến độ định kỳ. QA nghiêm ngặt trước mỗi lần release — không bàn giao sản phẩm lỗi.</p>
+        </div>
+
+        <div class="process-card animated" data-animation="fadeInUp" data-animation-delay="300">
+          <span class="process-num" aria-hidden="true">04</span>
+          <span class="process-card-label">Bước 04</span>
+          <h3 class="process-title">Bàn giao &amp; Hỗ trợ</h3>
+          <p class="process-body">Go-live đúng hẹn. Hỗ trợ kỹ thuật sau bàn giao, tài liệu đầy đủ, sẵn sàng scale khi bạn cần.</p>
+        </div>
+
       </div>
-    <?php endforeach; ?>
+    </div>
   </div>
+
 </section>

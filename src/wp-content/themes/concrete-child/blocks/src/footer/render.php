@@ -1,7 +1,15 @@
 <?php
-$logo_url        = $attributes['logoUrl'] ?? '';
-$company_items   = is_array($attributes['companyItems']   ?? null) ? $attributes['companyItems']   : [];
-$resources_items = is_array($attributes['resourcesItems'] ?? null) ? $attributes['resourcesItems'] : [];
+$logo_url = $attributes['logoUrl'] ?? '';
+
+$pll = fn(string $v): string => function_exists('pll__') ? pll__($v) : $v;
+
+$tagline               = $pll($attributes['tagline']            ?? '');
+$copyright             = $pll($attributes['copyright']          ?? '');
+$newsletter_heading    = $pll($attributes['newsletterHeading']  ?? '');
+$newsletter_text       = $pll($attributes['newsletterText']     ?? '');
+$col_company_heading   = $attributes['colCompanyHeading']   ?? '';
+$col_resources_heading = $attributes['colResourcesHeading'] ?? '';
+$email_placeholder     = 'Enter your email';
 
 $socials = [
   ['label' => 'Facebook',  'svg' => '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>'],
@@ -29,38 +37,30 @@ $socials = [
           <span class="logo-text"><?php echo esc_html($attributes['brand'] ?? ''); ?></span>
         <?php endif; ?>
       </a>
-      <p class="footer-tag"><?php echo wp_kses_post($attributes['tagline'] ?? ''); ?></p>
+      <p class="footer-tag"><?php echo wp_kses_post($tagline); ?></p>
       <div class="footer-social">
         <?php foreach ($socials as $s) : ?>
           <a href="#" aria-label="<?php echo esc_attr($s['label']); ?>"><?php echo $s['svg']; ?></a>
         <?php endforeach; ?>
       </div>
-      <p class="footer-copyright"><?php echo wp_kses_post($attributes['copyright'] ?? ''); ?></p>
+      <p class="footer-copyright"><?php echo wp_kses_post($copyright); ?></p>
     </div>
 
     <div class="footer-col">
-      <h4><?php echo wp_kses_post($attributes['colCompanyHeading'] ?? ''); ?></h4>
-      <ul>
-        <?php foreach ($company_items as $item) : ?>
-          <li><a href="<?php echo esc_url($item['url'] ?? '#'); ?>"><?php echo wp_kses_post($item['text'] ?? ''); ?></a></li>
-        <?php endforeach; ?>
-      </ul>
+      <h4><?php echo wp_kses_post($col_company_heading); ?></h4>
+      <?php wp_nav_menu(['theme_location' => 'footer_company', 'container' => false, 'items_wrap' => '<ul>%3$s</ul>', 'depth' => 1]); ?>
     </div>
 
     <div class="footer-col">
-      <h4><?php echo wp_kses_post($attributes['colResourcesHeading'] ?? ''); ?></h4>
-      <ul>
-        <?php foreach ($resources_items as $item) : ?>
-          <li><a href="<?php echo esc_url($item['url'] ?? '#'); ?>"><?php echo wp_kses_post($item['text'] ?? ''); ?></a></li>
-        <?php endforeach; ?>
-      </ul>
+      <h4><?php echo wp_kses_post($col_resources_heading); ?></h4>
+      <?php wp_nav_menu(['theme_location' => 'footer_resources', 'container' => false, 'items_wrap' => '<ul>%3$s</ul>', 'depth' => 1]); ?>
     </div>
 
     <div class="footer-col footer-newsletter">
-      <h4><?php echo wp_kses_post($attributes['newsletterHeading'] ?? ''); ?></h4>
-      <p><?php echo wp_kses_post($attributes['newsletterText'] ?? ''); ?></p>
+      <h4><?php echo wp_kses_post($newsletter_heading); ?></h4>
+      <p><?php echo wp_kses_post($newsletter_text); ?></p>
       <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="Enter your email" aria-label="Email" />
+        <input type="email" placeholder="<?php echo esc_attr($email_placeholder); ?>" aria-label="<?php echo esc_attr($email_placeholder); ?>" />
         <button type="submit" aria-label="Subscribe">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </button>

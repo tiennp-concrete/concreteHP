@@ -18,7 +18,7 @@ function concrete_child_enqueue_styles() {
     // Google Fonts: Montserrat
     wp_enqueue_style(
         'google-fonts',
-        'https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet',
         array(),
         null
     );
@@ -69,7 +69,7 @@ function concrete_child_setup() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'editor-styles' );
     add_editor_style( array(
-        'https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet',
         'assets/css/main.css',
         'editor-style.css',
     ) );
@@ -77,8 +77,10 @@ function concrete_child_setup() {
     add_theme_support( 'wp-block-styles' );
 
     register_nav_menus( array(
-        'primary' => __( 'Primary Menu', 'concrete-child' ),
-        'footer'  => __( 'Footer Menu', 'concrete-child' ),
+        'primary'          => __( 'Primary Menu', 'concrete-child' ),
+        'footer'           => __( 'Footer Menu', 'concrete-child' ),
+        'footer_company'   => __( 'Footer — Company', 'concrete-child' ),
+        'footer_resources' => __( 'Footer — Resources', 'concrete-child' ),
     ) );
 }
 add_action( 'after_setup_theme', 'concrete_child_setup' );
@@ -134,3 +136,17 @@ function concrete_child_register_blocks() {
     }
 }
 add_action( 'init', 'concrete_child_register_blocks' );
+
+// Register footer block strings with Polylang (priority 20 = after Polylang init)
+add_action( 'init', function () {
+    if ( ! function_exists( 'pll_register_string' ) ) {
+        return;
+    }
+
+    $group = 'Footer';
+
+    pll_register_string( 'footer_tagline',          'Connect the Creator all around the World. Building excellent digital systems across Japan and Vietnam since 2019.', $group );
+    pll_register_string( 'footer_copyright',        '© 2019 Concrete Corp. All rights reserved.', $group );
+    pll_register_string( 'footer_newsletter_heading', 'Newsletters', $group );
+    pll_register_string( 'footer_newsletter_text',  'Subscribe our newsletters to get update and more', $group );
+}, 20 );
